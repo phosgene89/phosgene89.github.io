@@ -22,3 +22,41 @@ One of the crucial features of HNSW is that long range links are not uniformly r
 ##### Performance benchmarks and potential issues
 
 http://worrydream.com/refs/Watts-CollectiveDynamicsOfSmallWorldNetworks.pdf
+
+# Key stuff
+
+Fully graph based
+
+logarithmic complexity scaling
+
+select neighbours by a heuristic
+
+Alternatives are polylogarithmic at best
+
+
+
+HNSW improves on NSW
+
+Core concept is to create multilayer graph separated by length scale, where each node has a set number of connections. A search will thus be independant of the network size, enabling logarithmic scaling.
+
+use exponentially decaying probability to of an element being in a layer.
+
+HNSW reduces to NSW if we merge all layers.
+
+
+# Algorithm descriptions
+
+
+# NSW
+
+path length grows polylogarithmically with network size.
+
+For scale free, the scaling can be as bad as a power law
+
+While somewhat efficient for searching, constructing the graphs requires global knowledge of the link distribution, making their computation very difficult.
+
+
+Kleinberg models of NSW requires knowledge of data distribution beforehand as well.
+
+
+scale free models go from zoom out to zoom in phases...hnsw sets up the graph so that it starts directly at the zoom in phase, skipping the zoom out phase entirely.
