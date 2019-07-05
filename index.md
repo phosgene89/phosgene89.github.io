@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Hierarchical Navigable Small Worlds
 
 You can use the [editor on GitHub](https://github.com/phosgene89/phosgene89.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
