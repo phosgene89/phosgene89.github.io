@@ -33,8 +33,6 @@ select neighbours by a heuristic
 
 Alternatives are polylogarithmic at best
 
-
-
 HNSW improves on NSW
 
 Core concept is to create multilayer graph separated by length scale, where each node has a set number of connections. A search will thus be independant of the network size, enabling logarithmic scaling.
@@ -45,6 +43,180 @@ HNSW reduces to NSW if we merge all layers.
 
 
 # Algorithm descriptions
+
+### Algorithm 1 - Graph construction
+For inserting point q into hnsw graph
+
+##### Requires:
+
+New element, q
+
+hnsw graph
+
+number of established connections, M
+
+Maximum number of connections per node, per layer,  M_max
+
+Size of dynamic candidate list, ef_candidate
+
+normalisation factor, m_l
+
+##### Returns:
+
+##### Procedure:
+
+First initialize empty list of nearest neighbours, W
+
+Get an enter point, ep
+
+Get top layer, L
+
+Get lowest layer for inserted element, l
+
+Search through layers from L to l: (find entry point)
+
+    W <- Find nearest neighbours in layer.
+    
+    ep <- closest element in W to q
+    
+Create connections between q and other nodes in each layer. Shrink connections if necesarry
+
+
+### Algorithm 2 - Search layer
+##### Requires:
+
+query element, q
+
+enter points, ep
+
+number of nearest to q elements to return, ef
+
+layer to search, l
+
+##### Returns:
+
+ef closest neighbours to q in layer l
+
+##### Procedure:
+
+v <- ep
+
+C <- ep
+
+W <- ep
+
+while |C| > 0:
+
+    c <- get nearest neighbour from C to q
+    f <- get furthest element from W to q
+    
+    if distance(c,q) > distance(f,q):
+        
+        break
+       
+    for each e in neighbourhood(c) at layer l:
+    
+        if e is not in v:
+        
+            v <- union(v, e)
+            f <- furthest element in W to q
+            
+            if distance(e,q) < distance(f,q) or |W| < ef:
+            
+                C <- union(C, e)
+                W <- union(W,e)
+                if |W| > ef:
+                    remove furthest element from W to q
+                    
+return W
+
+
+### Algorithm 4 - Nearest neighbours heuristic
+##### Requires:
+
+base element, q
+
+candidate elements, C
+
+number of nearest neighbours to return, M
+
+layer number, l_c
+
+binary indicator whether to extend candidate list, extendCandidates
+
+binary indicator whether to add discarded elements, keepPrunedConnections
+
+##### Returns:
+
+M nearest neighbours to q
+
+##### Procedure:
+R <- empty list
+
+W <- C
+
+if extendCandidates == True:
+
+    for each e in C:
+    
+        for each adjacent node in layer c within neighborhood of e:
+            
+            if adjacent node not in W:
+            
+                W <- merge(W, adjacent node)
+
+W_discardedcandidates <- empty list
+
+while |W| > 0 and |R| < M:
+
+    e <- nearest element in W to q
+    
+    if e is closer to q compared to any element from R:
+    
+        R <- merge(R, e)
+        
+    else:
+    
+        W_discardedcandidates <- merge(W_discardedcandidates, e)
+        
+if keepPrunced Connections == True:
+
+    while |W_discardedcandidates| > 0 and |R| < M:
+    
+        R <- merge(R, nearest element from W_discardedelements to q)
+        
+return R
+
+### Algorithm 5 - kNN search
+##### Requires:
+
+hnsw graph
+
+query element, q
+
+number of nearest neighbours to return, k
+
+size of dynamic candidate list, ef
+
+##### Returns:
+
+K approximate nearest neighbours to q
+
+##### Procedure:
+
+W < - empty list # list of nearest elements
+
+ep <- get enter point to HNSW graph
+
+L <- top layer of HNSW graph
+
+for each layer, from L to lowest:
+
+    W <- nearest neighbours in layer (algorithm 2)
+    
+    ep <- get nearest element to q from W
+    
+return K nearest elements to q from W
 
 
 # NSW
@@ -60,3 +232,18 @@ Kleinberg models of NSW requires knowledge of data distribution beforehand as we
 
 
 scale free models go from zoom out to zoom in phases...hnsw sets up the graph so that it starts directly at the zoom in phase, skipping the zoom out phase entirely.
+
+# Construction parameters
+Main parameter to optimise is the number of layers in the graph. Lowering the number of layers used means that there is less overlap (improving performance), but increases the average hop number (which decreases performance). Hence the number of layers must be tuned. A good starting point is 1/ln(M).
+
+The max number of connections for each node in the graph must be tuned for recall vs efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is 2*M.
+
+efConstruction is straightforward to tweak. It should lead to >0.95 recall on a sample set during the construction phase.
+
+Finally, the number of nearest neighbours to search from candidates in algorithm 4. This must also be balanced between recall and performance time.
+
+#### Benchmarks
+
+#### Claim that HNSW isn't as effective
+
+# References
