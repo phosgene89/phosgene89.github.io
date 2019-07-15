@@ -167,7 +167,9 @@ return W
 
 ### Algorithm 4 - Nearest neighbours heuristic
 
-Algorithm 4 takes a list of candidate nearest neighbours and then checks their nearest neighbours. If any are closer than the furthest current list of NN, they are added to the list of current NN and the current list of NN is pruned appropriately.
+Algorithm 4 takes a list of candidate nearest neighbours candidates and then checks their nearest neighbours. If any are closer than the furthest current list of candidate NNs, they are added to the list of current NN and the current list of NN is pruned appropriately.
+
+Algorithm 4 differs from algorithm 2 in that algorithm 2 exhaustively searches candidates, whereas algorithm 4 stops once a set number of nearest neighbours are found. Algorithm 4 enables longer range connections to be formed.
 ##### Requires:
 
 base element, q
