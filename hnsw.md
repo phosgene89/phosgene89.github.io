@@ -113,6 +113,7 @@ Create connections between q and other nodes in each layer. Shrink connections i
 
 
 ### Algorithm 2 - Search layer
+This algorithm is used for both graph construction and NN search.
 
 Algorithm two searches a layer for connection candidates. It starts with the enter point, then searches through connected nodes for further nearest neighbour candidates. At each step, candidate nodes are added to the NN list if they are closer to the inserted element than the furthest current NN. If the list of current NNs is filled, the furthest NN is removed. This procedure terminates when the closest current candidate is further away from the inserted element than the furthest current NN.
 
@@ -165,6 +166,8 @@ return W
 
 
 ### Algorithm 4 - Nearest neighbours heuristic
+
+Algorithm 4 takes a list of candidate nearest neighbours and then checks their nearest neighbours. If any are closer than the furthest current list of NN, they are added to the list of current NN and the current list of NN is pruned appropriately.
 ##### Requires:
 
 base element, q
