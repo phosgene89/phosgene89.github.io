@@ -113,6 +113,9 @@ Create connections between q and other nodes in each layer. Shrink connections i
 
 
 ### Algorithm 2 - Search layer
+
+Algorithm two searches a layer for connection candidates. It starts with the enter point, then searches through connected nodes for further nearest neighbour candidates. At each step, candidate nodes are added to the NN list if they are closer to the inserted element than the furthest current NN. If the list of current NNs is filled, the furthest NN is removed. This procedure terminates when the closest current candidate is further away from the inserted element than the furthest current NN.
+
 ##### Requires:
 
 query element, q
