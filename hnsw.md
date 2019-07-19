@@ -20,14 +20,31 @@ For scale free, the scaling can be as bad as a power law
 scale free models go from zoom out to zoom in phases...hnsw sets up the graph so that it starts directly at the zoom in phase, skipping the zoom out phase entirely.
 
 ###### Hierarchical Navigable small world
-HNSW improves on the efficiency of NSW by starting the search from "hubs" with long range connections, thus cutting out the initial "zoom out" phase of NSW. In comparison to NSW, the complexity of HNSW grows logarithmically with network size.
+HNSW improves on the efficiency of NSW by starting the search from "hubs" with long range connections, thus cutting out the initial "zoom out" phase of NSW. The "zoom in" phase makes use of a hierarchical structure in which longer links are traversed initially, gradually zooming in through shorter links until an approximate nearest neighbour is found. In comparison to NSW, the complexity of HNSW grows logarithmically with network size. Additionally, HNSW is fully graph based, needing no additional search structures.
 
-The general procedure of HNSW is to create a layered graph (hierarchies) of connected points, with lower layers being more populated than higher layers. After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the bottom layer. It then enters the next layer through this point and begins another greedy search for a nearest neighbour - with the constraint that it compares itself only to points connected to the current node. The process repeats until k neighbours a maximum of epsilon away are found.
+The general procedure of HNSW is to create a layered graph (hierarchies) of connected points, with lower layers being more populated than higher layers. Each layer models node to node links of different scales, with the longest range links occurring in the top layer and the shortest range links occurring in the bottom layer. A node may be present in multiple layers, meaning it has both long and short range links. [show picture of long range links from short range small worlds]
 
 ![alt text](https://github.com/phosgene89/phosgene89.github.io/blob/master/hnsw/hnsw.PNG)
 
 
-One of the crucial features of HNSW is that long range links are not uniformly random. Were this the case, we would expect that half the time a long range link would lead us closer to our target, but lead us further the other half - leading to no net benefit. 
+After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this point and begins another greedy search for a nearest neighbour - with the constraint that it compares itself only to points connected to the current node. The process repeats until k approximate nearest neighbours are found. A key point in this search is that the number of links to a node is constant. This is crucial to the logarithmic complexity scaling.
+
+Another important feature of HNSW is that long range links are not uniformly random. Were this the case, we would expect that half the time a long range link would lead us closer to our target, but lead us further the other half - leading to no net benefit.
+
+Graph Construction
+
+select neighbours by a heuristic
+
+use exponentially decaying probability to of an element being in a layer.
+
+HNSW reduces to NSW if we merge all layers.
+
+heuristic for creating links: choose link, then greedily search elements, adding links if they are closer than any of the current links
+
+When constructing a graph, the lower layer an element appears in is randomly chosen according to an exponential distribution.
+NN-Search
+
+Greedy layer-by-layer search. When local minimum found in one layer, use located element as entry point to next layer. Repeat.
 
 ##### Reason for approximate search
 
