@@ -47,6 +47,8 @@ NN-Search
 Greedy layer-by-layer search. When local minimum found in one layer, use located element as entry point to next layer. Repeat.
 
 ##### Reason for approximate search
+As we are doing local, greedy searches, it is possible that we will take a "wrong turn" in te higher levels of the graph and therefore be cut off from a pathway to the actual nearest neighbour. However, we can still get something that is quite close, which may be good enough.
+
 
 # Construction parameters
 Main parameter to optimise is the number of layers in the graph. Lowering the number of layers used means that there is less overlap (improving performance), but increases the average hop number (which decreases performance). Hence the number of layers must be tuned. A good starting point is 1/ln(M).
