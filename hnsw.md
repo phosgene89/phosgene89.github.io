@@ -1,6 +1,6 @@
 ## HNSW 
 
-k-nearest neighbours (k-NN) is an effective and commonly used method in data science. However, search times grow rapidly with high dimensional, high volume datasets, making its use restricted to smaller datasets. Approximate nearest neighbours provides faster search times in exchange for approximate nearest neighbours - we can't be sure that the k neighbours returned are the nearest ones. But for many applications, this is good enough. The current state of the art in high dimensional approximate k-NN is hierarchical navigable small worlds (HNSW), proposed by Malkov & Yashunin (2017). This article will introduce the concept and provide some code to enable you to try it out in your own projects.
+k-nearest neighbours (k-NN) is an effective and commonly used method in data science. However, search times grow rapidly with high dimensional, high volume datasets. This restricts the use of kNN algorithms to smaller datasets. Approximate nearest neighbours (ANN) provides faster search times in exchange for approximate nearest neighbours - we can't be sure that the k neighbours returned are the nearest ones. But for many applications, this is good enough. The current state of the art in high dimensional approximate k-NN is hierarchical navigable small worlds (HNSW), proposed by Malkov & Yashunin (2017). This article will introduce the concept and provide some code to enable you to try it out in your own projects.
 
 The general idea is to build a multilayer network and to search for the approximate nearest neighbour in a top-down, greedy fashion. 
 
