@@ -34,36 +34,20 @@ To construct the graph element by element, the procedure is as follows:
 1. Get the minimum layer of inserted element q.
 1. Do a layer by layer greedy search for entry points until minimum layer is reached.
 1. Create connections in minimum layer using q's entry point to min layer as a starting point for the connection building heuristic.
-1. Add discarded connections and prune connections as required
 
-### Creating Connections
-The procedure for finding connections in step 4. is as follows:
+#### Creating Connections
+The procedure for finding connections in the above step 3. is as follows:
 
 1. From a set of candidate nodes found using a greedy search, find their immediate neighbours and add them to the set of candidate nodes.
 1. Extract the closest element in the candidate list and create a connection to it if it is closer to the inserted element than it is to any node in the list of candidate nodes.
 1. Repeat 2. until the number of candidates is exhausted or the number of connections reaches its limit.
 1. If required, add discarded candidates to reach the required number of connections by choosing the closest ones.
 
-### Heuristic for Selecting Nearest Neighbours From Candidates
-
-select neighbours by a heuristic
-
-use exponentially decaying probability to of an element being in a layer.
-
-HNSW reduces to NSW if we merge all layers.
-
-heuristic for creating links: choose link, then greedily search elements, adding links if they are closer than any of the current links
-
-When constructing a graph, the lower layer an element appears in is randomly chosen according to an exponential distribution.
-NN-Search
-
-Greedy layer-by-layer search. When local minimum found in one layer, use located element as entry point to next layer. Repeat.
-
 ### k-NN Search Through HNSW Graph
 
 
-#### Reason for approximate search
-As we are doing local, greedy searches, it is possible that we will take a "wrong turn" in te higher levels of the graph and therefore be cut off from a pathway to the actual nearest neighbour. However, we can still get something that is quite close, which may be good enough.
+#### Why Is This Approximate?
+As HNSW is based on local greedy searches, it is possible that our algorithm will settle at a local minimum. For a more concrete example, our NN search may lead us down path X as, according to our local knowledge, it will bring us closer to our target than any other path. However, it is possible that path X is not connected to our target at all. e.g. Driving down a road that points directly at your destination, but is blocked in the middle. 
 
 
 #### Construction parameters
