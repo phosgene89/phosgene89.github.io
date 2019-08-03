@@ -30,6 +30,13 @@ An important feature of HNSW (and NSW) is that long range links are not uniforml
 
 #### Graph Construction
 
+To construct the graph element by element, the procedure is as follows:
+
+1. Get the minimum layer of inserted element q.
+1. Do a layer by layer search for entry points until minimum layer is reached.
+1. Get nearest neighbours in minimum layer using q's entry point to min layer as a starting point.
+1. Add discarded connections and prune connections as required
+
 select neighbours by a heuristic
 
 use exponentially decaying probability to of an element being in a layer.
