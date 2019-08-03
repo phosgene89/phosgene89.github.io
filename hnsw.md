@@ -9,13 +9,7 @@ A famous experiment by Stanley Milgram tasked participants with delivering a pac
 The figure below demonstrates how this helps. Suppose we start at point A and want to reach point B, but we can only get through by traversing through nodes we are locally connected to. In the first figure, all connections are short-range, hence we will have to take x steps to get to our target. In the second figure, the presence of a few short range connections allows us to bypass many steps and reach our target in only y steps. This is the heart of HNSW.
 
 # NSW
-Navigable small world networks were created to model networks that displayed small world characteristics similar to the ones in Milgram's experiment. NSW networks perform nearest neighbour searches by navigating through local connections to "hub", then moving from these hubs toward the target. While these networks do allow for more efficient nearest-neighbour searches, their complexity scaling with network size is from polylogarithmic to power law - ideally we would like it to be logarithmic.
-
-path length grows polylogarithmically with network size.
-
-For scale free, the scaling can be as bad as a power law
-
-scale free models go from zoom out to zoom in phases...hnsw sets up the graph so that it starts directly at the zoom in phase, skipping the zoom out phase entirely.
+Navigable small world networks were created to model networks that displayed small world characteristics similar to the ones in Milgram's experiment. NSW networks perform nearest neighbour searches by navigating through local connections to "hub", then moving from these hubs toward the target. This means that NSW networks start moving through short-range connections in order to reach hubs, then move through long range conncetions to cover large distances quickly and then revert back to traversing short range connections to hone in on the target. While these networks do allow for more efficient nearest-neighbour searches, their complexity scaling with network size is from polylogarithmic to power law - ideally we would like it to be logarithmic.
 
 ###### Hierarchical Navigable small world
 HNSW improves on the efficiency of NSW by starting the search from "hubs" with long range connections, thus cutting out the initial "zoom out" phase of NSW. The "zoom in" phase makes use of a hierarchical structure in which longer links are traversed initially, gradually zooming in through shorter links until an approximate nearest neighbour is found. In comparison to NSW, the complexity of HNSW grows logarithmically with network size. Additionally, HNSW is fully graph based, needing no additional search structures.
