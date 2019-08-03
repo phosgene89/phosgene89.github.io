@@ -280,7 +280,7 @@ return K nearest elements to q from W
 
 [2] D. J. Watts & S. H. Strogatz, <i>Collective dynamics of 'small-world’ networks</i> (1998), http://worrydream.com/refs/Watts-CollectiveDynamicsOfSmallWorldNetworks.pdf
 
-[X] N. Name, Title (Year), Source milgram (http://snap.stanford.edu/class/cs224w-readings/milgram67smallworld.pdf)
+[X] S. Milgran, The Small-World Problem (1967), http://snap.stanford.edu/class/cs224w-readings/milgram67smallworld.pdf
 
 [X] N. Name, Title (Year), Source
 
