@@ -51,17 +51,17 @@ The k-NN search is simply a greedy search through the HNSW graph.
 As HNSW is based on local greedy searches, it is possible that our algorithm will settle at a local minimum. For a more concrete example, our NN search may lead us down path X as, according to our local knowledge, it will bring us closer to our target than any other path. However, it is possible that path X is not connected to our target at all. e.g. Driving down a road that points directly at your destination, but is blocked in the middle. 
 
 #### Construction parameters
-###### Normalization factor
+##### Normalization factor
 The normalization factor controls the probability distribution of elements being assigned a particular minimum layer.
 Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point is 1/ln(M).
 
-###### Maximum number of connections per node
+##### Maximum number of connections per node
 The max number of connections for each node in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is 2*M.
 
-###### Maximum number of connections per layer
+##### Maximum number of connections per layer
 Typically from 5 - 48. Smaller M works well for low recall or low dimensional data, while higher M works better for high recall or high dimensional data.
 
-###### Size of candidate list for generating connections when constructing HNSW graph
+##### Size of candidate list for generating connections when constructing HNSW graph
 This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
 
 ##### Performance benchmarks and potential issues
