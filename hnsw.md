@@ -23,7 +23,7 @@ The general procedure of HNSW is to create a layered graph (hierarchies) of conn
 <img src="https://github.com/phosgene89/phosgene89.github.io/blob/master/hnsw/hnsw.PNG">
 
 
-After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this point and begins another greedy search for a nearest neighbour - with the constraint that it compares itself only to points connected to the current node. The process repeats until k approximate nearest neighbours are found. A key point in this search is that the number of links to a node is constant. This is crucial to the logarithmic complexity scaling.
+After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this entry point and begins another greedy search for an entry point to the next layer. The process repeats until the inserted point's final layer is reached. Then k connections are formed using a heuristic. A key point in this search is that the number of connections to a node, k, is constant. This is crucial to the logarithmic complexity scaling.
 
 An important feature of HNSW (and NSW) is that long range links are not uniformly random. Were this the case, we would expect that half the time a long range link would lead us closer to our target, but lead us further the other half - leading to no net benefit.
 
