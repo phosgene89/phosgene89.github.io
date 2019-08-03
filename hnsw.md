@@ -33,14 +33,16 @@ To construct the graph element by element, the procedure is as follows:
 
 1. Get the minimum layer of inserted element q.
 1. Do a layer by layer greedy search for entry points until minimum layer is reached.
-1. Get nearest neighbours in minimum layer using q's entry point to min layer as a starting point.
+1. Create connections in minimum layer using q's entry point to min layer as a starting point for the connection building heuristic.
 1. Add discarded connections and prune connections as required
 
-### Searching for Entry Points and Nearest Neighbours Candidates
+### Creating Connections
 The procedure for finding connections in step 4. is as follows:
 
-1. Do a greedy search starting from the entry point for a set of candidate nearest neighbours.
-1. 
+1. From a set of candidate nodes found using a greedy search, find their immediate neighbours and add them to the set of candidate nodes.
+1. Extract the closest element in the candidate list and create a connection to it if it is closer to the inserted element than it is to any node in the list of candidate nodes.
+1. Repeat 2. until the number of candidates is exhausted or the number of connections reaches its limit.
+1. If required, add discarded candidates to reach the required number of connections by choosing the closest ones.
 
 ### Heuristic for Selecting Nearest Neighbours From Candidates
 
@@ -56,6 +58,9 @@ When constructing a graph, the lower layer an element appears in is randomly cho
 NN-Search
 
 Greedy layer-by-layer search. When local minimum found in one layer, use located element as entry point to next layer. Repeat.
+
+### k-NN Search Through HNSW Graph
+
 
 #### Reason for approximate search
 As we are doing local, greedy searches, it is possible that we will take a "wrong turn" in te higher levels of the graph and therefore be cut off from a pathway to the actual nearest neighbour. However, we can still get something that is quite close, which may be good enough.
@@ -79,192 +84,6 @@ Benchmarks between current nearest neighbour search algorithms show that HNSW is
 A recent paper places doubt on the advantages of HNSW over NSW. Speed efficiency seems to be present only for d<8. I am not an expert on nearest neighbour searches, so I cannot offer any commentary on this, but it's worth knowing about. https://arxiv.org/abs/1904.02077
 
 http://worrydream.com/refs/Watts-CollectiveDynamicsOfSmallWorldNetworks.pdf
-
-
-
-## Algorithm descriptions
-
-#### Algorithm 1 - Graph construction
-For inserting point q into hnsw graph
-
-##### Requires:
-
-New element, q
-
-hnsw graph
-
-number of established connections, M
-
-Maximum number of connections per node, per layer,  M_max
-
-Size of dynamic candidate list, ef_candidate
-
-normalisation factor, m_l
-
-##### Returns:
-
-##### Procedure:
-
-First initialize empty list of nearest neighbours, W
-
-Get an enter point, ep
-
-Get top layer, L
-
-Get lowest layer for inserted element, l
-
-Search through layers from L to l: (find entry point)
-
-    W <- Find nearest neighbours in layer.
-    
-    ep <- closest element in W to q
-    
-Create connections between q and other nodes in each layer. Shrink connections if necesarry
-
-
-#### Algorithm 2 - Search layer
-This algorithm is used for both graph construction and NN search.
-
-Algorithm two searches a layer for connection candidates. It starts with the enter point, then searches through connected nodes for further nearest neighbour candidates. At each step, candidate nodes are added to the NN list if they are closer to the inserted element than the furthest current NN. If the list of current NNs is filled, the furthest NN is removed. This procedure terminates when the closest current candidate is further away from the inserted element than the furthest current NN.
-
-##### Requires:
-
-query element, q
-
-enter points, ep
-
-number of nearest to q elements to return, ef
-
-layer to search, l
-
-##### Returns:
-
-ef closest neighbours to q in layer l
-
-##### Procedure:
-
-v <- ep
-
-C <- ep
-
-W <- ep
-
-while |C| > 0:
-
-    c <- get nearest neighbour from C to q
-    f <- get furthest element from W to q
-    
-    if distance(c,q) > distance(f,q):
-        
-        break
-       
-    for each e in neighbourhood(c) at layer l:
-    
-        if e is not in v:
-        
-            v <- union(v, e)
-            f <- furthest element in W to q
-            
-            if distance(e,q) < distance(f,q) or |W| < ef:
-            
-                C <- union(C, e)
-                W <- union(W,e)
-                if |W| > ef:
-                    remove furthest element from W to q
-                    
-return W
-
-
-#### Algorithm 4 - Nearest neighbours heuristic
-
-Algorithm 4 takes a list of candidate nearest neighbours candidates and then checks their nearest neighbours. If any are closer than the furthest current list of candidate NNs, they are added to the list of current NN and the current list of NN is pruned appropriately.
-
-Algorithm 4 differs from algorithm 2 in that algorithm 2 exhaustively searches candidates, whereas algorithm 4 stops once a set number of nearest neighbours are found. Algorithm 4 enables longer range connections to be formed.
-##### Requires:
-
-base element, q
-
-candidate elements, C
-
-number of nearest neighbours to return, M
-
-layer number, l_c
-
-binary indicator whether to extend candidate list, extendCandidates
-
-binary indicator whether to add discarded elements, keepPrunedConnections
-
-##### Returns:
-
-M nearest neighbours to q
-
-##### Procedure:
-R <- empty list
-
-W <- C
-
-if extendCandidates == True:
-
-    for each e in C:
-    
-        for each adjacent node in layer c within neighborhood of e:
-            
-            if adjacent node not in W:
-            
-                W <- merge(W, adjacent node)
-
-W_discardedcandidates <- empty list
-
-while |W| > 0 and |R| < M:
-
-    e <- nearest element in W to q
-    
-    if e is closer to q compared to any element from R:
-    
-        R <- merge(R, e)
-        
-    else:
-    
-        W_discardedcandidates <- merge(W_discardedcandidates, e)
-        
-if keepPrunced Connections == True:
-
-    while |W_discardedcandidates| > 0 and |R| < M:
-    
-        R <- merge(R, nearest element from W_discardedelements to q)
-        
-return R
-
-#### Algorithm 5 - kNN search
-##### Requires:
-
-hnsw graph
-
-query element, q
-
-number of nearest neighbours to return, k
-
-size of dynamic candidate list, ef
-
-##### Returns:
-
-K approximate nearest neighbours to q
-
-##### Procedure:
-
-W < - empty list # list of nearest elements
-
-ep <- get enter point to HNSW graph
-
-L <- top layer of HNSW graph
-
-for each layer, from L to lowest:
-
-    W <- nearest neighbours in layer (algorithm 2)
-    
-    ep <- get nearest element to q from W
-    
-return K nearest elements to q from W
 
 
 ## References
