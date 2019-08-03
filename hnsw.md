@@ -15,8 +15,7 @@ Navigable small world networks were created to model networks that displayed sma
 
 While NSW does allow for more efficient nearest-neighbour searches, their complexity scaling with network size is polylogarithmic at best. Ideally we would like it to be logarithmic.
 
-## Hierarchical Navigable Small Worlds
-#### Overview
+## Overview of Hierarchical Navigable Small Worlds
 HNSW improves on the efficiency of NSW by starting the search from hubs (the nodes with long range connections), which cuts out the initial "zoom out" phase of NSW. The "zoom in" phase makes use of a hierarchical structure in which longer links are traversed initially, gradually zooming in through shorter links until an approximate nearest neighbour is found. In comparison to NSW, the complexity of HNSW grows logarithmically with network size. Additionally, HNSW is fully graph based, needing no additional search structures.
 
 The general procedure of HNSW is to create a layered graph (hierarchies) of connected points, with lower layers being more populated than higher layers. Each layer models node to node links of different scales, with the longest range links occurring in the top layer and the shortest range links occurring in the bottom layer. A node may be present in multiple layers, meaning it has both long and short range links. [show picture of long range links from short range small worlds]
@@ -28,14 +27,22 @@ After constructing this hierarchy, a nearest neighbour does a greedy search for 
 
 An important feature of HNSW (and NSW) is that long range links are not uniformly random. Were this the case, we would expect that half the time a long range link would lead us closer to our target, but lead us further the other half - leading to no net benefit.
 
-#### Graph Construction
-
+## Graph Construction
+#### Overview of Graph Construction
 To construct the graph element by element, the procedure is as follows:
 
 1. Get the minimum layer of inserted element q.
-1. Do a layer by layer search for entry points until minimum layer is reached.
+1. Do a layer by layer greedy search for entry points until minimum layer is reached.
 1. Get nearest neighbours in minimum layer using q's entry point to min layer as a starting point.
 1. Add discarded connections and prune connections as required
+
+### Searching for Entry Points and Nearest Neighbours Candidates
+The procedure for finding connections in step 4. is as follows:
+
+1. Do a greedy search starting from the entry point for a set of candidate nearest neighbours.
+1. 
+
+### Heuristic for Selecting Nearest Neighbours From Candidates
 
 select neighbours by a heuristic
 
