@@ -66,31 +66,11 @@ A recent paper places doubt on the advantages of HNSW over NSW. Speed efficiency
 
 http://worrydream.com/refs/Watts-CollectiveDynamicsOfSmallWorldNetworks.pdf
 
-# Key stuff
-
-Fully graph based
-
-logarithmic complexity scaling
-
-select neighbours by a heuristic
-
-Alternatives are polylogarithmic at best
 
 
+## Algorithm descriptions
 
-HNSW improves on NSW
-
-Core concept is to create multilayer graph separated by length scale, where each node has a set number of connections. A search will thus be independant of the network size, enabling logarithmic scaling.
-
-use exponentially decaying probability to of an element being in a layer.
-
-HNSW reduces to NSW if we merge all layers.
-
-
-
-# Algorithm descriptions
-
-### Algorithm 1 - Graph construction
+#### Algorithm 1 - Graph construction
 For inserting point q into hnsw graph
 
 ##### Requires:
@@ -128,7 +108,7 @@ Search through layers from L to l: (find entry point)
 Create connections between q and other nodes in each layer. Shrink connections if necesarry
 
 
-### Algorithm 2 - Search layer
+#### Algorithm 2 - Search layer
 This algorithm is used for both graph construction and NN search.
 
 Algorithm two searches a layer for connection candidates. It starts with the enter point, then searches through connected nodes for further nearest neighbour candidates. At each step, candidate nodes are added to the NN list if they are closer to the inserted element than the furthest current NN. If the list of current NNs is filled, the furthest NN is removed. This procedure terminates when the closest current candidate is further away from the inserted element than the furthest current NN.
@@ -181,7 +161,7 @@ while |C| > 0:
 return W
 
 
-### Algorithm 4 - Nearest neighbours heuristic
+#### Algorithm 4 - Nearest neighbours heuristic
 
 Algorithm 4 takes a list of candidate nearest neighbours candidates and then checks their nearest neighbours. If any are closer than the furthest current list of candidate NNs, they are added to the list of current NN and the current list of NN is pruned appropriately.
 
@@ -241,7 +221,7 @@ if keepPrunced Connections == True:
         
 return R
 
-### Algorithm 5 - kNN search
+#### Algorithm 5 - kNN search
 ##### Requires:
 
 hnsw graph
@@ -273,7 +253,7 @@ for each layer, from L to lowest:
 return K nearest elements to q from W
 
 
-# References
+## References
 
 [1] Yu. A. Malkov & D. A. Yashunin, <i>Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs</i> (2018), https://arxiv.org/abs/1603.09320
 
