@@ -1,3 +1,5 @@
+# <center>A Primer on Hierarchical Navigable Small Worlds</center>
+
 ## Overview
 
 k-nearest neighbours (k-NN) is an effective and commonly used method in data science. However, search times grow rapidly with high dimensional, high volume datasets. This restricts the use of kNN algorithms to smaller datasets. Approximate nearest neighbours (ANN) provides faster search times in exchange for returning only *approximate* nearest neighbours. In other words, we can't be sure that the k neighbours returned are the nearest ones. But for many applications this is good enough. The current state of the art in high dimensional approximate k-NN is hierarchical navigable small worlds (HNSW), proposed by Malkov & Yashunin (2017). The general procedure of HNSW is to build a multilayer network and to then search for approximate nearest neighbours in a top-down, greedy fashion. This article will expand on HNSW and provide some code to enable you to try it out in your own projects. 
@@ -14,7 +16,8 @@ Navigable small world networks were created to model networks that displayed sma
 While NSW does allow for more efficient nearest-neighbour searches, their complexity scaling with network size is polylogarithmic at best. Ideally we would like it to be logarithmic.
 
 ## Hierarchical Navigable Small Worlds
-HNSW improves on the efficiency of NSW by starting the search from "hubs" with long range connections, thus cutting out the initial "zoom out" phase of NSW. The "zoom in" phase makes use of a hierarchical structure in which longer links are traversed initially, gradually zooming in through shorter links until an approximate nearest neighbour is found. In comparison to NSW, the complexity of HNSW grows logarithmically with network size. Additionally, HNSW is fully graph based, needing no additional search structures.
+#### Overview
+HNSW improves on the efficiency of NSW by starting the search from hubs (the nodes with long range connections), which cuts out the initial "zoom out" phase of NSW. The "zoom in" phase makes use of a hierarchical structure in which longer links are traversed initially, gradually zooming in through shorter links until an approximate nearest neighbour is found. In comparison to NSW, the complexity of HNSW grows logarithmically with network size. Additionally, HNSW is fully graph based, needing no additional search structures.
 
 The general procedure of HNSW is to create a layered graph (hierarchies) of connected points, with lower layers being more populated than higher layers. Each layer models node to node links of different scales, with the longest range links occurring in the top layer and the shortest range links occurring in the bottom layer. A node may be present in multiple layers, meaning it has both long and short range links. [show picture of long range links from short range small worlds]
 
@@ -23,9 +26,9 @@ The general procedure of HNSW is to create a layered graph (hierarchies) of conn
 
 After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this point and begins another greedy search for a nearest neighbour - with the constraint that it compares itself only to points connected to the current node. The process repeats until k approximate nearest neighbours are found. A key point in this search is that the number of links to a node is constant. This is crucial to the logarithmic complexity scaling.
 
-Another important feature of HNSW is that long range links are not uniformly random. Were this the case, we would expect that half the time a long range link would lead us closer to our target, but lead us further the other half - leading to no net benefit.
+An important feature of HNSW (and NSW) is that long range links are not uniformly random. Were this the case, we would expect that half the time a long range link would lead us closer to our target, but lead us further the other half - leading to no net benefit.
 
-Graph Construction
+#### Graph Construction
 
 select neighbours by a heuristic
 
@@ -40,7 +43,7 @@ NN-Search
 
 Greedy layer-by-layer search. When local minimum found in one layer, use located element as entry point to next layer. Repeat.
 
-##### Reason for approximate search
+#### Reason for approximate search
 As we are doing local, greedy searches, it is possible that we will take a "wrong turn" in te higher levels of the graph and therefore be cut off from a pathway to the actual nearest neighbour. However, we can still get something that is quite close, which may be good enough.
 
 
