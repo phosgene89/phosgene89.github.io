@@ -32,8 +32,9 @@ An important feature of HNSW (and NSW) is that long range links are not uniforml
 To construct the graph element by element, the procedure is as follows:
 
 1. Get the maximum layer of inserted element q.
-1. Do a layer by layer greedy search for entry points until the maximum layer is reached.
-1. Create connections in maximum layer using q's entry point to maximum layer as a starting point for the connection building heuristic.
+1. Do a layer by layer greedy search for an entry point.
+1. Create connections from the entry point found in step 2. using the connection building heuristic.
+1. If an element has too many connections, discard the ones that are further from q.
 
 #### Creating Connections
 The procedure for finding connections in the above step 3. is as follows:
@@ -57,11 +58,11 @@ Reducing the normalization factor reduces overlap between layers which in turn i
 ###### Maximum number of connections per node
 The max number of connections for each node in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is 2*M.
 
-###### Size of candidate list for generating connections when constructing HNSW graph
-This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
+###### Maximum number of connections per layer
+Typically from 5 - 48. Smaller M works well for low recall or low dimensional data, while higher M works better for high recall or high dimensional data.
 
 ###### Size of candidate list for generating connections when constructing HNSW graph
-This must also be balanced between recall and training time. A higher number will improve results, but make building the graph a longer process.
+This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
 
 ##### Performance benchmarks and potential issues
 
