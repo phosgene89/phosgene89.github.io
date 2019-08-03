@@ -3,12 +3,12 @@
 k-nearest neighbours (k-NN) is an effective and commonly used method in data science. However, search times grow rapidly with high dimensional, high volume datasets. This restricts the use of kNN algorithms to smaller datasets. Approximate nearest neighbours (ANN) provides faster search times in exchange for returning only *approximate* nearest neighbours. In other words, we can't be sure that the k neighbours returned are the nearest ones. But for many applications this is good enough. The current state of the art in high dimensional approximate k-NN is hierarchical navigable small worlds (HNSW), proposed by Malkov & Yashunin (2017). The general procedure of HNSW is to build a multilayer network and to then search for approximate nearest neighbours in a top-down, greedy fashion. This article will expand on HNSW and provide some code to enable you to try it out in your own projects. 
 
 ## Background
-### Milgram's Small World Experiment
+#### Milgram's Small World Experiment
 A famous experiment by Stanley Milgram tasked participants with delivering a package to someone that they most likely did not know. If they did not personally know the target, they were instructed to pass the package onto someone that they did know. This person would then repeat the procedure until the package found its intended recipient. Milgran found that the average number of times the package exchanged hands was 6 - much smaller than expected. The interpretation of this was that locally connected groups of people often had individuals in them who were connected in some way to people very far away. These long range connections allowed the packages to reach the recipient faster than the exclusive usage of short range connections. 
 
 The figure below demonstrates how this helps. Suppose we start at point A and want to reach point B, but we can only get through by traversing through nodes we are locally connected to. In the first figure, all connections are short-range, hence we will have to take x steps to get to our target. In the second figure, the presence of a few short range connections allows us to bypass many steps and reach our target in only y steps. This is the heart of HNSW.
 
-### NSW
+#### NSW
 Navigable small world networks were created to model networks that displayed small world characteristics similar to the ones in Milgram's experiment. NSW networks perform nearest neighbour searches by navigating through local connections to "hub", then moving from these hubs toward the target. This means that NSW networks start moving through short-range connections in order to reach hubs, then move through long range conncetions to cover large distances quickly and then revert back to traversing short range connections to hone in on the target. 
 
 While NSW does allow for more efficient nearest-neighbour searches, their complexity scaling with network size is polylogarithmic at best. Ideally we would like it to be logarithmic.
@@ -44,7 +44,7 @@ Greedy layer-by-layer search. When local minimum found in one layer, use located
 As we are doing local, greedy searches, it is possible that we will take a "wrong turn" in te higher levels of the graph and therefore be cut off from a pathway to the actual nearest neighbour. However, we can still get something that is quite close, which may be good enough.
 
 
-# Construction parameters
+#### Construction parameters
 Main parameter to optimise is the number of layers in the graph. Lowering the number of layers used means that there is less overlap (improving performance), but increases the average hop number (which decreases performance). Hence the number of layers must be tuned. A good starting point is 1/ln(M).
 
 The max number of connections for each node in the graph must be tuned for recall vs efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is 2*M.
