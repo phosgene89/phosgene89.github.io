@@ -31,9 +31,9 @@ An important feature of HNSW (and NSW) is that long range links are not uniforml
 #### Overview of Graph Construction
 To construct the graph element by element, the procedure is as follows:
 
-1. Get the minimum layer of inserted element q.
-1. Do a layer by layer greedy search for entry points until minimum layer is reached.
-1. Create connections in minimum layer using q's entry point to min layer as a starting point for the connection building heuristic.
+1. Get the maximum layer of inserted element q.
+1. Do a layer by layer greedy search for entry points until the maximum layer is reached.
+1. Create connections in maximum layer using q's entry point to maximum layer as a starting point for the connection building heuristic.
 
 #### Creating Connections
 The procedure for finding connections in the above step 3. is as follows:
@@ -43,20 +43,25 @@ The procedure for finding connections in the above step 3. is as follows:
 1. Repeat 2. until the number of candidates is exhausted or the number of connections reaches its limit.
 1. If required, add discarded candidates to reach the required number of connections by choosing the closest ones.
 
-### k-NN Search Through HNSW Graph
+#### k-NN Search Through HNSW Graph
 The k-NN search is simply a greedy search through the HNSW graph.
 
 #### Why Is This Approximate?
 As HNSW is based on local greedy searches, it is possible that our algorithm will settle at a local minimum. For a more concrete example, our NN search may lead us down path X as, according to our local knowledge, it will bring us closer to our target than any other path. However, it is possible that path X is not connected to our target at all. e.g. Driving down a road that points directly at your destination, but is blocked in the middle. 
 
 #### Construction parameters
-Main parameter to optimise is the number of layers in the graph. Lowering the number of layers used means that there is less overlap (improving performance), but increases the average hop number (which decreases performance). Hence the number of layers must be tuned. A good starting point is 1/ln(M).
+###### Normalization factor
+The normalization factor controls the probability distribution of elements being assigned a particular minimum layer.
+Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point is 1/ln(M).
 
-The max number of connections for each node in the graph must be tuned for recall vs efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is 2*M.
+###### Maximum number of connections per node
+The max number of connections for each node in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is 2*M.
 
-efConstruction is straightforward to tweak. It should lead to >0.95 recall on a sample set during the construction phase.
+###### Size of candidate list for generating connections when constructing HNSW graph
+This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
 
-Finally, the number of nearest neighbours to search from candidates in algorithm 4. This must also be balanced between recall and performance time.
+###### Size of candidate list for generating connections when constructing HNSW graph
+This must also be balanced between recall and training time. A higher number will improve results, but make building the graph a longer process.
 
 ##### Performance benchmarks and potential issues
 
