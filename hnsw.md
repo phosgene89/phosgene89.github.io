@@ -64,7 +64,7 @@ Typically from 5 - 48. Smaller M works well for low recall or low dimensional da
 ##### Size of candidate list for generating connections when constructing HNSW graph
 This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
 
-##### Performance benchmarks and potential issues
+## Performance benchmarks and potential issues
 
 Benchmarks between current nearest neighbour search algorithms show that HNSW is a consistent strong-performer (https://github.com/erikbern/ann-benchmarks)
 
