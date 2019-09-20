@@ -20,8 +20,8 @@ HNSW improves on the efficiency of NSW by starting the search from hubs (the nod
 
 The general procedure of HNSW is to create a layered graph (hierarchies) of connected points, with lower layers being more populated than higher layers. Each layer models node to node links of different scales, with the longest range links occurring in the top layer and the shortest range links occurring in the bottom layer. A node may be present in multiple layers, meaning it has both long and short range links. [show picture of long range links from short range small worlds]
 
-<figure class="center">
- <img src="https://phosgene89.github.io/hnsw/hnsw.PNG" class="center">
+<figure align="center">
+ <img src="https://phosgene89.github.io/hnsw/hnsw.PNG">
  <figcaption>
  Hierarchical graph structure of HNSW
  </figcaption>
