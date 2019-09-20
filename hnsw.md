@@ -70,10 +70,6 @@ Benchmarks between current nearest neighbour search algorithms show that HNSW is
 
 ![alt text](https://github.com/phosgene89/phosgene89.github.io/blob/master/hnsw/hnsw3.PNG)
 
-A recent paper places doubt on the advantages of HNSW over NSW. Speed efficiency seems to be present only for d<8. I am not an expert on nearest neighbour searches, so I cannot offer any commentary on this, but it's worth knowing about. https://arxiv.org/abs/1904.02077
-
-http://worrydream.com/refs/Watts-CollectiveDynamicsOfSmallWorldNetworks.pdf
-
 
 ## References
 
