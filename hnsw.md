@@ -81,7 +81,7 @@ Benchmarks between current nearest neighbour search algorithms show that HNSW is
 <figure align="center">
  <img src="https://phosgene89.github.io/hnsw/hnsw3.PNG">
  <figcaption>
-  <font size="-1">Performance benchmarks of various ANN algorithms</font>
+  <font size="-1">Performance comparison between HNSW and Facebook AI Similarity Search (FAISS)</font>
  </figcaption>
 </figure>
  </p>
