@@ -4,6 +4,8 @@
 
 k-nearest neighbours (k-NN) is an effective and commonly used method in data science. However, search times grow rapidly with high dimensional, high volume datasets. This restricts the use of kNN algorithms to smaller datasets. Approximate nearest neighbours (ANN) provides faster search times in exchange for returning only *approximate* nearest neighbours. In other words, we can't be sure that the k neighbours returned are the nearest ones. But they are usually pretty close and for many applications this all that is needed. The current state of the art in high dimensional approximate k-NN is hierarchical navigable small worlds (HNSW), proposed by Malkov & Yashunin (2017). The general procedure of HNSW is to build a multilayer network and to then search for approximate nearest neighbours in a top-down, greedy fashion.
 
+(Click here)[https://github.com/nmslib/hnswlib] to start using HNSW in Python.
+
 ## Background
 #### Milgram's Small World Experiment
 A famous experiment by Stanley Milgram tasked participants with delivering a package to someone that they most likely did not know. If they did not personally know the target, they were instructed to pass the package onto someone that they did know. This person would then repeat the procedure until the package found its intended recipient. Milgran found that the average number of times the package exchanged hands was 6 - much smaller than expected. The interpretation of this was that locally connected groups of people often had individuals in them who were connected in some way to people very far away. These long range connections allowed the packages to reach the recipient faster than the exclusive usage of short range connections. 
