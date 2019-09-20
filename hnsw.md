@@ -76,7 +76,16 @@ This can be tweaked on a sample of the data and should be chosen to achieve at l
 
 Benchmarks between current nearest neighbour search algorithms show that HNSW is a consistent strong-performer (https://github.com/erikbern/ann-benchmarks)
 
-![alt text](https://github.com/phosgene89/phosgene89.github.io/blob/master/hnsw/hnsw3.PNG)
+<center>
+<p>
+<figure align="center">
+ <img src="https://phosgene89.github.io/hnsw/hnsw3.PNG">
+ <figcaption>
+  <font size="-1">Performance benchmarks of various ANN algorithms</font>
+ </figcaption>
+</figure>
+ </p>
+ </center>
 
 
 ## References
