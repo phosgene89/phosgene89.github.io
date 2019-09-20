@@ -18,14 +18,14 @@ While NSW does allow for more efficient nearest-neighbour searches, their comple
 ## Overview of Hierarchical Navigable Small Worlds
 HNSW improves on the efficiency of NSW by starting the search from hubs (the nodes with long range connections), which cuts out the initial "zoom out" phase of NSW. The "zoom in" phase makes use of a hierarchical structure in which longer links are traversed initially, gradually zooming in through shorter links until an approximate nearest neighbour is found. In comparison to NSW, the complexity of HNSW grows logarithmically with network size. Additionally, HNSW is fully graph based, needing no additional search structures.
 
-The general procedure of HNSW is to create a layered graph (hierarchies) of connected points, with lower layers being more populated than higher layers. Each layer models node to node links of different scales, with the longest range links occurring in the top layer and the shortest range links occurring in the bottom layer. A node may be present in multiple layers, meaning it has both long and short range links. [show picture of long range links from short range small worlds]
+The general procedure of HNSW is to create a layered graph (hierarchies) of connected points, with lower layers being more populated than higher layers. Each layer models node to node links of different scales, with the longest range links occurring in the top layer and the shortest range links occurring in the bottom layer. A node may be present in multiple layers, meaning it has both long and short range links.
 
 <center>
 <p>
 <figure align="center">
  <img src="https://phosgene89.github.io/hnsw/hnsw.PNG">
  <figcaption>
- Hierarchical graph structure of HNSW
+  <font size="-1">Hierarchical graph structure of HNSW</font>
  </figcaption>
 </figure>
  </p>
