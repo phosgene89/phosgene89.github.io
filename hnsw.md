@@ -1,3 +1,8 @@
+<html>
+  <head>
+    {% include head.html %}
+    {% seo %}
+  </head>
 # <center>A Primer on Hierarchical Navigable Small Worlds</center>
 
 ## Overview
@@ -82,3 +87,4 @@ Benchmarks between current nearest neighbour search algorithms show that HNSW is
 [X] N. Name, Title (Year), Source
 
 [X] N. Name, Title (Year), Source
+</html>
