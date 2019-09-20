@@ -1,7 +1,6 @@
 <html>
   <head>
-    {% include head.html %}
-    {% seo %}
+    {% raw %}{% seo %}{% endraw %}
   </head>
 # <center>A Primer on Hierarchical Navigable Small Worlds</center>
 
