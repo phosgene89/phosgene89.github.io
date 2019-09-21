@@ -57,7 +57,7 @@ If liken this to climbing stairs, then we can think of the short range, local co
 <center>
 <p>
 <figure align="center">
- <img src="https://i.redd.it/533uon58kym21.jpg" width = 300>
+ <img src="https://phosgene89.github.io/hnsw/skipsteps.jpg" width = 300>
  <figcaption>
   <font size="-1">Skipping steps speeds up nearest neighbour searches...and shows dominance</font>
  </figcaption>
