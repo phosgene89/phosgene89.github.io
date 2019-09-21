@@ -7,6 +7,9 @@ k-nearest neighbours (k-NN) is an effective and commonly used method in data sci
 Check out the [hnswlib](https://github.com/nmslib/hnswlib) and/or [nmslib](https://github.com/nmslib/nmslib) packages to start using HNSW in Python.
 
 ## Quick Comparison of HNSW vs K-Dimensional Tree
+Before saying any more about HNSW, a quick demonstration of the benefits over a traditional nearest neighbour search will be performed.
+
+First we generate our data.
 
     import numpy as np
     import hnswlib
@@ -16,6 +19,33 @@ Check out the [hnswlib](https://github.com/nmslib/hnswlib) and/or [nmslib](https
     num_elements = 10000
 
     X = np.random.uniform(0,5,(num_elements,dim))
+    
+Now we build our 512 dimension tree and find the 5 nearest neighbours for each record.
+
+    nbrs = NearestNeighbors(n_neighbors=5, algorithm='kd_tree').fit(X)
+    
+    %%time
+    distances, indices = nbrs.kneighbors(X)
+    CPU times: user 1min 30s, sys: 193 ms, total: 1min 30s
+    Wall time: 1min 30s
+    
+Let's try it again with HNSW. First we need to construct the graph.
+
+    data_labels = np.arange(num_elements)
+
+    p = hnswlib.Index(space = 'l2', dim = dim) # possible options are l2, cosine or ip
+    p.init_index(max_elements = num_elements, ef_construction = 200, M = 30)
+    p.add_items(X, data_labels)
+    p.set_ef(50)
+    
+Now we get the 5 approximate nearest neighbours for each record.
+
+    %%time
+    labels, distances = p.knn_query(X, k = 5)
+    CPU times: user 37.8 s, sys: 352 ms, total: 38.1 s
+    Wall time: 3.64 s
+
+Much faster! Let's learn why.
 
 ## Background
 #### Milgram's Small World Experiment
