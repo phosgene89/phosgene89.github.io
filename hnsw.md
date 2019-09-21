@@ -6,6 +6,17 @@ k-nearest neighbours (k-NN) is an effective and commonly used method in data sci
 
 Check out the [hnswlib](https://github.com/nmslib/hnswlib) and/or [nmslib](https://github.com/nmslib/nmslib) packages to start using HNSW in Python.
 
+## Quick Comparison of HNSW vs K-Dimensional Tree
+
+    import numpy as np
+    import hnswlib
+    from sklearn.neighbors import NearestNeighbors
+    
+    dim = 512
+    num_elements = 10000
+
+    X = np.random.uniform(0,5,(num_elements,dim))
+
 ## Background
 #### Milgram's Small World Experiment
 The famous "6 degrees of separation" experiment by Stanley Milgram tasked participants with delivering a package to someone that they most likely did not know <sup>[2][3]</sup>. If they did not personally know the target, they were instructed to pass the package onto someone that they did know. This person would then repeat the procedure until the package found its intended recipient. Milgran found that the average number of times the package exchanged hands was 6 - much smaller than expected. The interpretation of this was that locally connected groups of people often had individuals in them who were connected in some way to people very far away. These long range connections allowed the packages to reach the recipient faster than the exclusive usage of short range connections. 
