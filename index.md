@@ -1,4 +1,4 @@
-## September 21, 2019 - A Primer on Hierarchical Navigable Small Worlds
+### September 21, 2019 - A Primer on Hierarchical Navigable Small Worlds
 
 An introduction to the state of the art approximate nearest neighbour search method.
 
