@@ -87,7 +87,7 @@ This can be tweaked on a sample of the data and should be chosen to achieve at l
 
 ## Performance benchmarks
 
-[erikbern](https://github.com/erikbern) has performed extensive benchmarks between current nearest neighbour search algorithms (you can find them all [here](https://github.com/erikbern/ann-benchmarks)). These benchmarks show that HNSW is a consistent strong-performer.
+[Erik Bernhardsson](https://github.com/erikbern) has performed extensive benchmarks between current nearest neighbour search algorithms (you can find them all [here](https://github.com/erikbern/ann-benchmarks)). These benchmarks show that HNSW is a consistent strong-performer.
 
 <center>
 <p>
