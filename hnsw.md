@@ -53,6 +53,18 @@ The famous "6 degrees of separation" experiment by Stanley Milgram tasked partic
 
 If liken this to climbing stairs, then we can think of the short range, local connections as being a single step up to the stair directly above the one you are currently on. The long range connections can be thought of as "skipping" multiple steps and going straight up by 3-4 stairs. Assuming that moving to the next stair in the sequence and moving up by 3 take the same amount of effort, then clearly being able to skip stairs will help us to reach our destination quicker. In reality our assumption of equal effort is obviously false, but for a nearest neighbour search, we are dealing with distance calculations that will take approximately the same time. In realistic problems, we will also be unsure of which direction we need to take the multi-steps in, as opposed to this example where we are only going one way.
 
+
+<center>
+<p>
+<figure align="center">
+ <img src="https://i.redd.it/533uon58kym21.jpg">
+ <figcaption>
+  <font size="-1">Skipping steps speeds up nearest neighbour searches...and shows dominance</font>
+ </figcaption>
+</figure>
+ </p>
+ </center>
+
 #### NSW
 Navigable small world networks were created to model networks that displayed small world characteristics similar to the ones in Milgram's experiment. NSW networks perform nearest neighbour searches by navigating through local connections to "hub", then moving from these hubs toward the target. This means that NSW networks start moving through short-range connections in order to reach hubs, then move through long range conncetions to cover large distances quickly and then revert back to traversing short range connections to hone in on the target. 
 
