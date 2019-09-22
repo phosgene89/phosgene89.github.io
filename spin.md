@@ -41,3 +41,7 @@ $$
 i & 0
 \end{bmatrix}
 $$
+
+We also have that
+
+$$ \langle \sigma_{x} \rangle^{2} + \langle \sigma_{y} \rangle^{2} + \langle \sigma_{z} \rangle^{2} $$
