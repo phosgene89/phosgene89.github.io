@@ -4,8 +4,6 @@
 
 ## Overview
 
-$$ r = h = \sqrt{\frac {1} {2}} = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} $$
-
 k-nearest neighbours (k-NN) is an effective and commonly used method in data science. However, search times grow rapidly with high dimensional, high volume datasets. This restricts the use of kNN algorithms to smaller datasets. Approximate nearest neighbours (ANN) provides faster search times in exchange for returning only *approximate* nearest neighbours. In other words, we can't be sure that the k neighbours returned are the nearest ones. But they are usually pretty close and for many applications this all that is needed. The current state of the art in high dimensional approximate k-NN is hierarchical navigable small worlds (HNSW), proposed by Malkov and Yashunin <sup>[1]</sup>. The general procedure of HNSW is to build a multilayer network and to then search for approximate nearest neighbours in a top-down, greedy fashion.
 
 Check out the [hnswlib](https://github.com/nmslib/hnswlib) and/or [nmslib](https://github.com/nmslib/nmslib) packages to start using HNSW in Python.
@@ -57,7 +55,6 @@ The famous "6 degrees of separation" experiment by Stanley Milgram tasked partic
 
 Basically, you're doing to the search process what this guy is doing to stairs.
 
-
 <center>
 <p>
 <figure align="center">
@@ -90,7 +87,7 @@ The general procedure of HNSW is to create a layered graph (hierarchies) of conn
  </p>
  </center>
 
-After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this entry point and begins another greedy search for an entry point to the next layer. The process repeats until the inserted point's final layer is reached. Then k connections are formed using a heuristic. The heuristic allows for longer range connections to form between clusters of tightly linked nodes, which helps the algorithm to recover from bad path choices in the approximate nearest neighbours search. Another thing to remember is that the number of connections to a node, k, is constant. This is crucial to the logarithmic complexity scaling.
+After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this entry point and begins another greedy search for an entry point to the next layer. The process repeats until the inserted point's final layer is reached. Then k connections are formed using a heuristic. The heuristic allows for longer range connections to form between clusters of tightly linked nodes, which helps the algorithm to recover from bad path choices in the approximate nearest neighbours search. Another thing to remember is that the number of connections to a node, $k$, is constant. This is crucial to the logarithmic complexity scaling.
 
 <center>
 <p>
