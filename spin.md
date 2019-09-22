@@ -17,11 +17,11 @@ Spin can be roughly conceptualised as the intrinsic angular momentum of a partic
 
 The Pauli matrices are as follows:
 
-$$ \sigma_{z} = \quad
-\begin{bmatrix}
+$$ \sigma_{z} = \begin{bmatrix}
 1 & 0 \\
 0 & -1
-\end{bmatrix}
+\end
+\quad{bmatrix}
 
 \sigma_{x} = \quad
 \begin{bmatrix}
