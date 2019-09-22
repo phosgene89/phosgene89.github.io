@@ -115,10 +115,10 @@ An important feature of HNSW (and NSW) is that long range links are not uniforml
 #### Overview of Graph Construction
 To construct the graph element by element, the procedure is as follows:
 
-1. Get the maximum layer of inserted element q.
+1. Get the maximum layer of inserted element $q$.
 1. Do a layer by layer greedy search for an entry point.
 1. Create connections from the entry point found in step 2. using the connection building heuristic.
-1. If an element has too many connections, discard the ones that are further from q.
+1. If an element has too many connections, discard the ones that are further from $q$.
 
 #### Creating Connections
 The procedure for finding connections in the above step 3. is as follows:
@@ -132,18 +132,18 @@ The procedure for finding connections in the above step 3. is as follows:
 The k-NN search is simply a greedy search through the HNSW graph.
 
 #### Why Is This Approximate?
-As HNSW is based on local greedy searches, it is possible that our algorithm will settle at a local minimum. For a more concrete example, our NN search may lead us down path X as, according to our local knowledge, it will bring us closer to our target than any other path. However, it is possible that path X is not connected to our target at all. e.g. Driving down a road that points directly at your destination, but is blocked in the middle. 
+As HNSW is based on local greedy searches, it is possible that our algorithm will settle at a local minimum. For a more concrete example, our NN search may lead us down path $X$ as, according to our local knowledge, it will bring us closer to our target than any other path. However, it is possible that path $X$ is not connected to our target at all. e.g. Driving down a road that points directly at your destination, but is blocked in the middle. 
 
 #### Construction parameters
-##### Normalization factor
-The normalization factor controls the probability distribution of elements being assigned a particular minimum layer.
-Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point is 1/ln(M).
+##### Maximum number of connections per layer
+Typical values for the maximum number of connections per layer, per node (denoted $M$) are between 5 - 48. Smaller $M$ works well for low recall or low dimensional data, while higher $M$ works better for high recall or high dimensional data.
 
 ##### Maximum number of connections per node
-The max number of connections for each node in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is 2*M.
+The max number of connections for each node in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is $2M$.
 
-##### Maximum number of connections per layer
-Typically from 5 - 48. Smaller M works well for low recall or low dimensional data, while higher M works better for high recall or high dimensional data.
+##### Normalization factor
+The normalization factor controls the probability distribution of elements being assigned a particular minimum layer.
+Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point is $1/ln(M)$.
 
 ##### Size of candidate list for generating connections when constructing HNSW graph
 This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
