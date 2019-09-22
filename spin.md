@@ -46,3 +46,7 @@ $$
 We also have that
 
 $$ \langle \sigma_{x} \rangle^{2} + \langle \sigma_{y} \rangle^{2} + \langle \sigma_{z} \rangle^{2} = 1 $$
+
+Resources 
+
+https://courses.edx.org/c4x/BerkeleyX/CS191x/asset/chap10.pdf
