@@ -138,9 +138,6 @@ $M_{max}$ is greater than $M$ as we create connections based on both the $M$ nea
 ##### Normalization factor
 The normalization factor, $m_{L}$ controls the probability distribution of elements being assigned a particular minimum layer. In other words, it determines how many total layers there are. Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point for $m_{L}$ is $1/ln(M)$.
 
-##### Size of candidate list for generating connections when constructing HNSW graph
-This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
-
 ## Performance benchmarks
 
 [Erik Bernhardsson](https://github.com/erikbern) has performed extensive benchmarks between current nearest neighbour search algorithms (you can find them all [here](https://github.com/erikbern/ann-benchmarks)). These benchmarks show that HNSW is a consistent strong-performer.
