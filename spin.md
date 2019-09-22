@@ -17,8 +17,20 @@ Spin can be roughly conceptualised as the intrinsic angular momentum of a partic
 
 The Pauli matrices are as follows:
 
-$ _sigma_{z} = \quad
+$$ \sigma_{z} = \quad
 \begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}$
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+
+\sigma_{x} = \quad
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+
+\sigma_{y} = \quad
+\begin{bmatrix}
+0 & -i \\
+i & 0
+\end{bmatrix}$$
