@@ -142,8 +142,7 @@ Typical values for the maximum number of connections per layer, per node (denote
 The max number of connections for each node in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is $2M$.
 
 ##### Normalization factor
-The normalization factor controls the probability distribution of elements being assigned a particular minimum layer.
-Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point is $1/ln(M)$.
+The normalization factor, $m_{L}$ controls the probability distribution of elements being assigned a particular minimum layer. In other words, it determines how many total layers there are. Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point for $m_{L}$ is $1/ln(M)$.
 
 ##### Size of candidate list for generating connections when constructing HNSW graph
 This can be tweaked on a sample of the data and should be chosen to achieve at least 0.95 recall.
