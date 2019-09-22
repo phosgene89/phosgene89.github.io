@@ -2,13 +2,14 @@
 
 ### Postulates of Quantum Mechanics
 
-1. Measurements are represented by linear operators.
+##### 1. Measurements are represented by linear operators.
+This ensures that states that are normalised stay normalised.
 
-2. The possible states and results corresponding to an a particular measurement are given by the eigenvectors and eigenvalues of the measurement operator.
+##### 2. The possible states and results corresponding to an a particular measurement are given by the eigenvectors and eigenvalues of the measurement operator.
 
-3. The inner product of distinct states is 0.
+##### 3. The inner product of distinct states is 0.
 
-4. The probability of measuring blah blah
+##### 4. The probability of measuring blah blah
 
 ### Example - Spin
 
