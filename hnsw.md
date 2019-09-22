@@ -135,6 +135,9 @@ The k-NN search is simply a greedy search through the HNSW graph.
 As HNSW is based on local greedy searches, it is possible that our algorithm will settle at a local minimum. For a more concrete example, our NN search may lead us down path $X$ as, according to our local knowledge, it will bring us closer to our target than any other path. However, it is possible that path $X$ is not connected to our target at all. e.g. Driving down a road that points directly at your destination, but is blocked in the middle. 
 
 #### Construction parameters
+##### Size of candidate list to search for nearest neighbours from
+The number of candidates to search when forming connections is set using a small sample. Select a value that results in a recall of 0.95 during this process.
+
 ##### Number of nearest neighbours to find during construction
 When constructing the graph, we set a limit on the number of nearest neighbours to search for as potential connections, $M$. Typical values for $M$ are between 5 - 48. Smaller $M$ works well for low recall or low dimensional data, while higher $M$ works better for high recall or high dimensional data.
 
