@@ -1,7 +1,35 @@
-## Index
+## Portfolio
 
-### September 21, 2019 - A Primer on Hierarchical Navigable Small Worlds
+---
 
-An introduction to the state of the art approximate nearest neighbour search method.
+### Category Name 1 
 
-<a href ="https://phosgene89.github.io/hnsw">Read more here.</a>
+[Project 1 Title](/sample_page)
+<img src="images/dummy_thumbnail.jpg?raw=true"/>
+
+---
+[Project 2 Title](/pdf/sample_presentation.pdf)
+<img src="images/dummy_thumbnail.jpg?raw=true"/>
+
+---
+[Project 3 Title](http://example.com/)
+<img src="images/dummy_thumbnail.jpg?raw=true"/>
+
+---
+
+### Category Name 2
+
+- [Project 1 Title](http://example.com/)
+- [Project 2 Title](http://example.com/)
+- [Project 3 Title](http://example.com/)
+- [Project 4 Title](http://example.com/)
+- [Project 5 Title](http://example.com/)
+
+---
+
+
+
+
+---
+<p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
+<!-- Remove above link if you don't want to attibute -->
