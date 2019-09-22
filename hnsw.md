@@ -135,11 +135,13 @@ The k-NN search is simply a greedy search through the HNSW graph.
 As HNSW is based on local greedy searches, it is possible that our algorithm will settle at a local minimum. For a more concrete example, our NN search may lead us down path $X$ as, according to our local knowledge, it will bring us closer to our target than any other path. However, it is possible that path $X$ is not connected to our target at all. e.g. Driving down a road that points directly at your destination, but is blocked in the middle. 
 
 #### Construction parameters
-##### Maximum number of connections per layer
-Typical values for the maximum number of connections per layer, per node (denoted $M$) are between 5 - 48. Smaller $M$ works well for low recall or low dimensional data, while higher $M$ works better for high recall or high dimensional data.
+##### Number of nearest neighbours to find during construction
+When constructing the graph, we set a limit on the number of nearest neighbours to search for as potential connections, $M$. Typical values for $M$ are between 5 - 48. Smaller $M$ works well for low recall or low dimensional data, while higher $M$ works better for high recall or high dimensional data.
 
-##### Maximum number of connections per node
-The max number of connections for each node in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is $2M$.
+##### Maximum number of connections per layer, per node
+The max number of connections per layer , per node (denoted $M_{max}$) in the graph must be tuned for a good balance between recall and efficiency. Higher numbers for this parameter result in decreased search performance, but improved recall. A good starting point is $2M$.
+
+$M_{max}$ is greater than $M$ as we create connections based on both the $M$ nearest neighbours <i>in addition</i> to nodes that are connected to these nearest neighbours.
 
 ##### Normalization factor
 The normalization factor, $m_{L}$ controls the probability distribution of elements being assigned a particular minimum layer. In other words, it determines how many total layers there are. Reducing the normalization factor reduces overlap between layers which in turn improves performance. On the other hand, reducing it too far results in high average hops to reach the target node, thereby reducing performance. Hence the normalisation factor must be tuned for each individual problem. A good starting point for $m_{L}$ is $1/ln(M)$.
