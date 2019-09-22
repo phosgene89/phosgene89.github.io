@@ -96,7 +96,7 @@ The general procedure of HNSW is to create a layered graph (hierarchies) of conn
  </p>
  </center>
 
-After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this entry point and begins another greedy search for an entry point to the next layer. The process repeats until the inserted point's final layer is reached. Then k connections are formed using a heuristic. The heuristic allows for longer range connections to form between clusters of tightly linked nodes, which helps the algorithm to recover from bad path choices in the approximate nearest neighbours search. Another thing to remember is that the number of connections to a node, k, is constant. This is crucial to the logarithmic complexity scaling.
+After constructing this hierarchy, a nearest neighbour does a greedy search for the closest point in the top layer. It then enters the next layer through this entry point and begins another greedy search for an entry point to the next layer. The process repeats until the inserted point's final layer is reached. Then k connections are formed using a heuristic. The heuristic allows for longer range connections to form between clusters of tightly linked nodes, which helps the algorithm to recover from bad path choices in the approximate nearest neighbours search. Another thing to remember is that the number of connections to a node, $k$, is constant. This is crucial to the logarithmic complexity scaling.
 
 <center>
 <p>
