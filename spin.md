@@ -15,4 +15,10 @@
 Spin can be roughly conceptualised as the intrinsic angular momentum of a particle. An electron has two distinct values of spin, up and down.
 
 
+The Pauli matrices are as follows:
 
+$ _sigma_{z} = \quad
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}$
