@@ -13,21 +13,26 @@ Check out the [statsmodels](https://www.statsmodels.org/stable/index.html) packa
 ### Autoregressive (AR) Models
 Suppose we have a time series given by $\{ y_{t} \}$. An $AR(p)$ model can be specified by
 
-$$ y_{t} = \mu + \sum\limits_{i=1}^p \theta_{i} y_{t-i} $$
+$$ y_{t} = constant + \epsilon_{t} + \sum\limits_{i=1}^p \theta_{i} y_{t-i} $$
 
-This can be made more concise through the use of the lag operator, $L$.
+Where $\epsilon_{t}$ is the noise at time t. 
+
+This equation can be made more concise through the use of the lag operator, $L$.
 
 $$L^{n} y_{t} = y_{t-n}$$
 
 Taking $\Theta(L)^{p}$ to be an order p polynomial function of $L$, we can instead define an autoregressive model by
 
-$$ y_{t} = \Theta(L)^{p} y_{t} $$
+$$ y_{t} = \Theta(L)^{p} y_{t} + \epsilon_{t}$$
 
 Taking note that the constant has been absorbed into the polynomial $\Theta$.
 
 ### Moving average (MA) Models.
-The famous "6 degrees of acquaintances. 
+Where autoregressive models regress on prior values of y_t, moving average models regress on prior values of error. An $MA(q)$ model can be specified by
 
+$$ y_{t} = \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
+
+Where $\Phi$ is defined analagously to to $\Theta$.
 
 ### Autoregressive Moving Average (ARMA) Models
 Navigable small world d like it to be logarithmic.
