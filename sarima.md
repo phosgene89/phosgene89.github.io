@@ -52,7 +52,7 @@ etc. In general
 
 $$ y_{t}^{[d]} =\nabla^{d} y_{t} = y_{t}^{[d-1]} - y_{t-1}^{[d-1]} $$
 
-We now fit an $ARMA(p, q, d)$ model to $y_{t}^{[d]}$ rather than $y_{t}$. 
+We can now fit an $ARIMA(p, q, d)$ model to $y_{t}$, which is equivalent to fitting an $ARMA(p, q)$ to y_{t}^{[d]}.
 
 $$ y_{t}^{[d]} = \Theta(L)^{p} y_{t}^{[d]} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
