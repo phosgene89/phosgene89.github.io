@@ -48,6 +48,10 @@ $$ y_{t}^{[2]} =\nabla^{2} y_{t} = y_{t}^{[1]} - y_{t-1}^{[1]} $$
 
 $$ y_{t}^{[3]} =\nabla^{3} y_{t} = y_{t}^{[2]} - y_{t-1}^{[2]} $$
 
+etc. In general
+
+$$ y_{t}^{[d]} =\nabla^{d} y_{t} = y_{t}^{[d-1]} - y_{t-1}^{[d-1]} $$
+
 We now fit an $ARMA(p, q, d)$ model to $y_{t}^{[d]}$ rather than $y_{t}$. 
 
 $$ y_{t}^{[d]} = \Theta(L)^{p} y_{t}^{[d]} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
