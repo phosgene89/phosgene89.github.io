@@ -40,7 +40,17 @@ $ARMA(p,q)$ models are simply a sum of $AR(p)$ and $MA(q)$ models.
 $$ y_{t} = \Theta(L)^{p} y_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
 ### Autoregressive Integrated Moving Average (ARIMA) Models
-text
+To help tackle non-stationary data, we introduce an integration operator $\nabla^{d}$, defined as follows
+
+$$ y_{t}^{[1]} =\nabla y_{t} = y_{t} - y_{t-1} $$
+
+$$ y_{t}^{[2]} =\nabla^{2} y_{t} = y_{t}^{[1]} - y_{t-1}^{[1]} $$
+
+$$ y_{t}^{[3]} =\nabla^{3} y_{t} = y_{t}^{[2]} - y_{t-1}^{[2]} $$
+
+We now fit an $ARMA(p, q, d)$ model to $y_{t}^{[d]}$ rather than $y_{t}$. 
+
+$$ y_{t}^{[d]} = \Theta(L)^{p} y_{t}^{[d]} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
 
 ## SARIMA
