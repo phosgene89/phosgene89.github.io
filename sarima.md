@@ -69,11 +69,15 @@ $$ z_{t} = \nabla_{s}^{D} y_{t} $$
 
 We can then capture any remaining structure by applying an ARMA(P, Q) model to $z_{t}$, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. 
 
-$$ z_{t} = = \theta(L)^{P} z_{t} + \phi(L)^{Q} \epsilon_{t} + \epsilon_{t} $$
+$$ z_{t} = \theta(L)^{P} z_{t} + \phi(L)^{Q} \epsilon_{t} + \epsilon_{t} $$
+
+$$ z_{t} = \theta(L)^{P} \nabla_{s}^{D} y_{t} + \phi(L)^{Q} \epsilon_{t} + \epsilon_{t} $$
 
 With any seasonality now removed, we can apply another ARIMA(p, d, q) model to the resulting series.
 
-Let 
+$$ x_{t} = \Theta(L)^{p} \nabla^{d} z_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
+
+$$ x_{t} = (\Theta(L)^{p} \nabla^{d} \theta(L)^{P} \nabla_{s}^{D} y_{t} + \phi(L)^{Q}) + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
 ## References
 
