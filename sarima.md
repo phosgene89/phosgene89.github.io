@@ -77,7 +77,7 @@ With any seasonality now removed, we can apply another ARIMA(p, d, q) model to t
 
 $$ x_{t} = \Theta(L)^{p} \nabla^{d} z_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
-$$ x_{t} = \Theta(L)^{p} \nabla^{d} (\theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t}^{*}) + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
+$$ x_{t} = \Theta(L)^{p} \nabla^{d} \Big(\theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t}^{*}\Big) + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
 ## References
 
