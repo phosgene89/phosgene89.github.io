@@ -63,7 +63,7 @@ $$ y_{t} = \Theta(L)^{p} \nabla^{d} y_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_
 ## SARIMA
 SARIMA models take seasonality into account by essentially applying an ARIMA model to lags that are integer multiples of seasonality. Once the seasonality is modelled, an ARIMA model is applied to the leftover to capture non-seasonal structure.
 
-To see this more clearly, suppose we have a time series $ \{ y \}_{t} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\nabla_{s}^{D}$ to take the seasonal differences of the time series. 
+To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\nabla_{s}^{D}$ to take the seasonal differences of the time series. 
 
 $$ z_{t} = \nabla_{s}^{D} y_{t} $$
 
