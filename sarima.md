@@ -42,15 +42,9 @@ $$ y_{t} = \Theta(L)^{p} y_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 ### Autoregressive Integrated Moving Average (ARIMA) Models
 To help tackle non-stationary data, we introduce an integration operator $\Delta^{d}$, defined as follows
 
-$$ y_{t}^{[1]} =\Delta y_{t} = y_{t} - y_{t-1} $$
-
-$$ y_{t}^{[2]} =\Delta^{2} y_{t} = y_{t}^{[1]} - y_{t-1}^{[1]} $$
-
-$$ y_{t}^{[3]} =\Delta^{3} y_{t} = y_{t}^{[2]} - y_{t-1}^{[2]} $$
-
-etc. In general
-
 $$ y_{t}^{[d]} =\Delta^{d} y_{t} = y_{t}^{[d-1]} - y_{t-1}^{[d-1]} $$
+
+where $y_{t}^{[0]} y_{t}}$.
 
 We can now fit an $ARMA(p, q)$ model to $y_{t}^{[d]}$ rather than $y_{t}$. 
 
