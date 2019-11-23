@@ -89,7 +89,7 @@ ARIMAX and SARIMAX models simply take exogenous variables into account - ie vari
 
 For $n$ exogenous variables defined at each time step $t$, denoted by  $x_{t}^{i}$ for $ i \leq n $, with coefficients $\beta_{i}$, the ARIMAX(p, d, q) model is defined by
 
-$$ \Theta(L)^{p} \Del^{d} y_{t} = \Phi(L)^{q} \Delta^{d} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t}$$
+$$ \Theta(L)^{p} \Delta^{d} y_{t} = \Phi(L)^{q} \Delta^{d} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t}$$
 
 and the SARIMAX model by
 
