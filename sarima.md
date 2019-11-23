@@ -97,4 +97,4 @@ $$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} \nabla_{s}^{D} y_{t} = \Phi(L)^{q}
 
 ## Further References
 
-Chatfield, C 2004, [i]The analysis of time series : an introduction[\i], 6th ed., Chapman & Hall/CRC, Boca Raton, Fla.
+Chatfield, C 2004, *The analysis of time series : an introduction*, 6th ed., Chapman & Hall/CRC, Boca Raton, Fla.
