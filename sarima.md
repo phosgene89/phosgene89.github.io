@@ -2,7 +2,7 @@
 
 ## Overview
 
-AR, MA, ARMA, ARIMA, ARIMA and ARIMAX are univariate time series models that are special cases of SARIMAX. This guide gives the mathematical definitions of these models, but does not go into in-depth explanations or parameter estimation.
+AR, MA, ARMA, ARIMA, ARIMA and ARIMAX are univariate time series models that are special cases of SARIMAX. This guide gives the mathematical definitions of these models, but does not go into in-depth explanations, model selection or parameter estimation.
 
 Check out the [statsmodels](https://www.statsmodels.org/stable/index.html) package to start using SARIMAX in Python.
 
