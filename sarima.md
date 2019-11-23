@@ -75,7 +75,7 @@ We can then capture any remaining structure by applying an ARMA(P, Q) model to $
 
 $$ z_{t} = \theta(L^{s})^{P} z_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t} $$
 
-$$ z_{t} = \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t} $$
+$$ \nabla_{s}^{D} y_{t} = \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t} $$
 
 With any seasonality now removed, we can apply another ARIMA(p, d, q) model to the resulting seriesby multiplying our seasonal model by an ARIMA(p, d, q) model.
 
