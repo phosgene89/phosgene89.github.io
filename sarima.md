@@ -11,7 +11,7 @@ Suppose we have a time series given by $\{ y_{t} \}$. An $AR(p)$ model can be sp
 
 $$ y_{t} = \beta + \epsilon_{t} + \sum\limits_{i=1}^p \theta_{i} y_{t-i} $$
 
-Where $\epsilon_{t}$ is the noise at time t and $\beta$ is a constant. 
+Where $\epsilon_{t}$ is the noise at time $t$ and $\beta$ is a constant. 
 
 This equation can be made more concise through the use of the lag operator, $L$.
 
@@ -24,7 +24,7 @@ $$ y_{t} = \Theta(L)^{p} y_{t} + \epsilon_{t}$$
 Taking note that the constant has been absorbed into the polynomial $\Theta$.
 
 ### Moving average (MA) Models.
-Where autoregressive models regress on prior values of y_t, moving average models regress on prior values of error. An $MA(q)$ model can be specified by
+Where autoregressive models regress on prior values of $y_{t}$, moving average models regress on prior values of error. An $MA(q)$ model can be specified by
 
 $$ y_{t} = \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
@@ -59,7 +59,7 @@ SARIMA models take seasonality into account by essentially applying an ARIMA mod
 
 To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\Delta_{s}^{D}$ to take the seasonal differences of the time series. 
 
-We can then capture any remaining structure by applying an ARMA(P, Q) model to the differenced values, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. 
+We can then capture any remaining structure by applying an $ARMA(P, Q)$ model to the differenced values, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. 
 
 $$ \Delta_{s}^{D} y_{t} = \theta(L^{s})^{P} \Delta_{s}^{D} y_{t} + \phi(L^{s})^{Q} \Delta_{s}^{D} \epsilon_{t} + \Delta_{s}^{D} \epsilon_{t} $$
 
@@ -67,21 +67,21 @@ As with ARIMA, massaging the equation and absorbing constants into polynomials y
 
 $$ \theta(L^{s})^{P} \Delta_{s}^{D} y_{t} =  \phi(L^{s})^{Q} \Delta_{s}^{D} \epsilon_{t} $$
 
-With any seasonality now removed, we can apply another ARIMA(p, d, q) model to $ \Delta_{s}^{D} y_{t} $ by multiplying the seasonal model by the new ARIMA model.
+With any seasonality now removed, we can apply another $ARIMA(p, d, q)$ model to $ \Delta_{s}^{D} y_{t} $ by multiplying the seasonal model by the new ARIMA model.
 
 $$ \Theta(L)^{p} \theta(L^{s})^{P} \Delta^{d} \Delta_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \Delta^{d} \Delta_{s}^{D} \epsilon_{t}$$
 
-This is the general form of a SARIMA(p, d, q)(P, D, Q, s) model.
+This is the general form of a $SARIMA(p, d, q)(P, D, Q, s)$ model.
 
 ## ARIMAX and SARIMAX
 
 ARIMAX and SARIMAX models simply take exogenous variables into account - ie variables measured at time $t$ that influences the value of our time series at time $t$, but that are not autoregressed on. To do this, we simply add the terms in on the right hand side of our ARIMA and SARIMA equations.
 
-For $n$ exogenous variables defined at each time step $t$, denoted by  $x_{t}^{i}$ for $ i \leq n $, with coefficients $\beta_{i}$, the ARIMAX(p, d, q) model is defined by
+For $n$ exogenous variables defined at each time step $t$, denoted by  $x_{t}^{i}$ for $ i \leq n $, with coefficients $\beta_{i}$, the $ARIMAX(p, d, q)$ model is defined by
 
 $$ \Theta(L)^{p} \Delta^{d} y_{t} = \Phi(L)^{q} \Delta^{d} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t}$$
 
-and the SARIMAX model by
+and the $SARIMAX(p, d, q)(P, D, Q, s)$ model by
 
 $$ \Theta(L)^{p} \theta(L^{s})^{P} \Delta^{d} \Delta_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \Delta^{d} \Delta_{s}^{D} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t} $$
 
