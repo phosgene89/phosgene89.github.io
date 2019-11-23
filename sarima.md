@@ -17,7 +17,7 @@ This equation can be made more concise through the use of the lag operator, $L$.
 
 $$L^{n} y_{t} = y_{t-n}$$
 
-Taking $\Theta(L)^{p}$ to be an order p polynomial function of $L$, we can instead define an autoregressive model by
+Taking $\Theta(L)^{p}$ to be an order $p$ polynomial function of $L$, we can instead define an autoregressive model by
 
 $$ y_{t} = \Theta(L)^{p} y_{t} + \epsilon_{t}$$
 
