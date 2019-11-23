@@ -2,11 +2,11 @@
 
 ## Overview
 
-Seasonal Autoregressive Integrated Moving Average with Exogenous variable (SARIMAX) models are an extension of Autoregressive Integrated Moving Average with Exogenous variable (ARIMAX) models that are designed to take seasonality into account.
+Seasonal Autoregressive Integrated Moving Average with Exogenous variables (SARIMAX) models are an extension of Autoregressive Integrated Moving Average with Exogenous variables (ARIMAX) models that are designed to take seasonality into account.
 
 As SARIMAX is a generalization of simpler time series models, we first go through more specific cases in order of complexity. These are AR, MA, ARMA, ARIMA and SARIMA.
 
-Check out the [statsmodels](https://www.statsmodels.org/stable/index.html) package to start using SARIMA in Python.
+Check out the [statsmodels](https://www.statsmodels.org/stable/index.html) package to start using SARIMAX in Python.
 
 ## Precursors to SARIMAX
 
