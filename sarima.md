@@ -81,6 +81,8 @@ With any seasonality now removed, we can apply another ARIMA(p, d, q) model to $
 
 $$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} \nabla_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \nabla^{d} \nabla_{s}^{D} \epsilon_{t}$$
 
+This is the general form of a SARIMA(p, d, q)(P, D, Q, s) model.
+
 ## References
 
 [1] Y. A. Malkov & D. A. Yashunin, <i>Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs</i> (2018), https://arxiv.org/abs/1603.09320
