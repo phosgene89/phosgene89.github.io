@@ -9,9 +9,9 @@ AR, MA, ARMA, ARIMA, ARIMA and ARIMAX are univariate time series models that are
 ### Autoregressive (AR) Models
 Suppose we have a time series given by $\{ y_{t} \}$. An $AR(p)$ model can be specified by
 
-$$ y_{t} = constant + \epsilon_{t} + \sum\limits_{i=1}^p \theta_{i} y_{t-i} $$
+$$ y_{t} = \beta + \epsilon_{t} + \sum\limits_{i=1}^p \theta_{i} y_{t-i} $$
 
-Where $\epsilon_{t}$ is the noise at time t. 
+Where $\epsilon_{t}$ is the noise at time t and $\beta$ is a constant. 
 
 This equation can be made more concise through the use of the lag operator, $L$.
 
