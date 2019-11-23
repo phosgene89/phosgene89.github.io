@@ -77,6 +77,10 @@ $$ z_{t} = \theta(L^{s})^{P} z_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t}
 
 $$ \nabla_{s}^{D} y_{t} = \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t} $$
 
+As with ARIMA, massaging the equation and absorbing constants into polynomials yields the following concise form
+
+$$ \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} =  \phi(L^{s})^{Q} \epsilon_{t} $$
+
 With any seasonality now removed, we can apply another ARIMA(p, d, q) model to the resulting seriesby multiplying our seasonal model by an ARIMA(p, d, q) model.
 
 $$ x_{t} = \Theta(L)^{p} \nabla^{d} z_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
