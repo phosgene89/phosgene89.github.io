@@ -79,7 +79,7 @@ $$ \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} =  \phi(L^{s})^{Q} \nabla_{s}^{D} \eps
 
 With any seasonality now removed, we can apply another ARIMA(p, d, q) model to $ \nabla_{s}^{D} y_{t} $ by multiplying the seasonal model by the new ARIMA model.
 
-$$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \nabla^{d} \epsilon_{t}$$
+$$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} \nabla_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \nabla^{d} \nabla_{s}^{D} \epsilon_{t}$$
 
 ## References
 
