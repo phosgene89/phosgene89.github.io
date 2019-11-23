@@ -2,13 +2,13 @@
 
 ## Overview
 
-Seasonal Autoregressive Integrated Moving Average (SARIMA) models are an extension of ARIMA models that are designed to take seasonality into account.
+Seasonal Autoregressive Integrated Moving Average with Exogenous variable (SARIMAX) models are an extension of Autoregressive Integrated Moving Average with Exogenous variable (ARIMAX) models that are designed to take seasonality into account.
 
-As SARIMA is a generalization of simpler time series models, we first go through more specific cases in order of complexity. These are AR, MA, ARMA and ARIMA
+As SARIMAX is a generalization of simpler time series models, we first go through more specific cases in order of complexity. These are AR, MA, ARMA, ARIMA and SARIMA.
 
 Check out the [statsmodels](https://www.statsmodels.org/stable/index.html) package to start using SARIMA in Python.
 
-## Precursors to SARIMA
+## Precursors to SARIMAX
 
 ### Autoregressive (AR) Models
 Suppose we have a time series given by $\{ y_{t} \}$. An $AR(p)$ model can be specified by
@@ -95,11 +95,6 @@ and the SARIMAX model by
 
 $$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} \nabla_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \nabla^{d} \nabla_{s}^{D} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t} $$
 
-## References
+## Further References
 
-[1] Y. A. Malkov & D. A. Yashunin, <i>Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs</i> (2018), https://arxiv.org/abs/1603.09320
-
-[2] D. J. Watts & S. H. Strogatz, <i>Collective dynamics of 'small-world’ networks</i> (1998), http://worrydream.com/refs/Watts-CollectiveDynamicsOfSmallWorldNetworks.pdf
-
-[3] S. Milgran, The Small-World Problem (1967), http://snap.stanford.edu/class/cs224w-readings/milgram67smallworld.pdf
-
+Chatfield, C 2004, The analysis of time series : an introduction, 6th ed., Chapman & Hall/CRC, Boca Raton, Fla.
