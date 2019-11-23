@@ -91,4 +91,4 @@ $$ \Theta(L)^{p} \theta(L^{s})^{P} \Delta^{d} \Delta_{s}^{D} y_{t} = \Phi(L)^{q}
 
 ## Further References
 
-Chatfield, C 2004, The Analysis of Time Series : An Introduction, 6th ed., Chapman & Hall/CRC, Boca Raton, Fla.
+Chatfield, C 2004, [i]The Analysis of Time Series : An Introduction[/i], 6th ed., Chapman & Hall/CRC, Boca Raton, Fla.
