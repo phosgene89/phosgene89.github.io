@@ -83,17 +83,17 @@ $$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} \nabla_{s}^{D} y_{t} = \Phi(L)^{q}
 
 This is the general form of a SARIMA(p, d, q)(P, D, Q, s) model.
 
-# ARIMAX and SARIMAX
+## ARIMAX and SARIMAX
 
-ARIMAX and SARIMAX models simply take exogenous variables into account - ie variables measured at time t that influences the value of our time series at time t, but that are not autoregressed on. To do this, we simply add the terms in on the right hand side of our ARIMA and SARIMA equations.
+ARIMAX and SARIMAX models simply take exogenous variables into account - ie variables measured at time $t$ that influences the value of our time series at time $t$, but that are not autoregressed on. To do this, we simply add the terms in on the right hand side of our ARIMA and SARIMA equations.
 
 For $i$ exogenous variables defined at each time step $t$, denoted by $x^{i}_{t}$, the ARIMAX(p, d, q) model is defined by
 
-$$ \Theta(L)^{p} \nabla^{d} y_{t} = \Phi(L)^{q} \nabla^{d} \epsilon_{t} \sum_{1}^{i} x^{i}_{t}$$
+$$ \Theta(L)^{p} \nabla^{d} y_{t} = \Phi(L)^{q} \nabla^{d} \epsilon_{t} + \sum_{1}^{i} x^{i}_{t}$$
 
 and the SARIMAX model by
 
-$$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} \nabla_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \nabla^{d} \nabla_{s}^{D} \epsilon_{t} \sum_{1}^{i} x^{i}_{t} $$
+$$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} \nabla_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \nabla^{d} \nabla_{s}^{D} \epsilon_{t} + \sum_{1}^{i} x^{i}_{t} $$
 
 ## References
 
