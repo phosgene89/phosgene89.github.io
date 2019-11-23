@@ -40,17 +40,17 @@ $ARMA(p,q)$ models are simply a sum of $AR(p)$ and $MA(q)$ models.
 $$ y_{t} = \Theta(L)^{p} y_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
 ### Autoregressive Integrated Moving Average (ARIMA) Models
-To help tackle non-stationary data, we introduce an integration operator $\Del^{d}$, defined as follows
+To help tackle non-stationary data, we introduce an integration operator $\del^{d}$, defined as follows
 
-$$ y_{t}^{[1]} =\Del y_{t} = y_{t} - y_{t-1} $$
+$$ y_{t}^{[1]} =\del y_{t} = y_{t} - y_{t-1} $$
 
-$$ y_{t}^{[2]} =\Del^{2} y_{t} = y_{t}^{[1]} - y_{t-1}^{[1]} $$
+$$ y_{t}^{[2]} =\del^{2} y_{t} = y_{t}^{[1]} - y_{t-1}^{[1]} $$
 
-$$ y_{t}^{[3]} =\Del^{3} y_{t} = y_{t}^{[2]} - y_{t-1}^{[2]} $$
+$$ y_{t}^{[3]} =\del^{3} y_{t} = y_{t}^{[2]} - y_{t-1}^{[2]} $$
 
 etc. In general
 
-$$ y_{t}^{[d]} =\Del^{d} y_{t} = y_{t}^{[d-1]} - y_{t-1}^{[d-1]} $$
+$$ y_{t}^{[d]} =\del^{d} y_{t} = y_{t}^{[d-1]} - y_{t-1}^{[d-1]} $$
 
 We can now fit an $ARMA(p, q)$ model to $y_{t}^{[d]}$ rather than $y_{t}$. 
 
@@ -58,28 +58,28 @@ $$ y_{t}^{[d]} = \Theta(L)^{p} y_{t}^{[d]} + \Phi(L)^{q} \epsilon_{t}^{[d]} + \e
 
 This is equivalent to an $ARIMA(p,d,q)$ model on $y_{t}$
 
-$$ \Del^{d} y_{t} = \Theta(L)^{p} \Del^{d} y_{t} + \Phi(L)^{q} \Del^{d} \epsilon_{t} + \Del^{d} \epsilon_{t}$$
+$$ \del^{d} y_{t} = \Theta(L)^{p} \del^{d} y_{t} + \Phi(L)^{q} \del^{d} \epsilon_{t} + \del^{d} \epsilon_{t}$$
 
 With some algebra, we can re-arrange the equation and absorb constants into the polynomials $\Theta$ and $\Phi$. 
 
-$$ \Theta(L)^{p} \Del^{d} y_{t} = \Phi(L)^{q} \Del^{d} \epsilon_{t}$$
+$$ \Theta(L)^{p} \del^{d} y_{t} = \Phi(L)^{q} \del^{d} \epsilon_{t}$$
 
 ## SARIMA
 SARIMA models take seasonality into account by essentially applying an ARIMA model to lags that are integer multiples of seasonality. Once the seasonality is modelled, an ARIMA model is applied to the leftover to capture non-seasonal structure.
 
-To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\Del_{s}^{D}$ to take the seasonal differences of the time series. 
+To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\del_{s}^{D}$ to take the seasonal differences of the time series. 
 
 We can then capture any remaining structure by applying an ARMA(P, Q) model to the differenced values, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. 
 
-$$ \Del_{s}^{D} y_{t} = \theta(L^{s})^{P} \Del_{s}^{D} y_{t} + \phi(L^{s})^{Q} \Del_{s}^{D} \epsilon_{t} + \Del_{s}^{D} \epsilon_{t} $$
+$$ \del_{s}^{D} y_{t} = \theta(L^{s})^{P} \del_{s}^{D} y_{t} + \phi(L^{s})^{Q} \del_{s}^{D} \epsilon_{t} + \del_{s}^{D} \epsilon_{t} $$
 
 As with ARIMA, massaging the equation and absorbing constants into polynomials yields the following concise form
 
-$$ \theta(L^{s})^{P} \Del_{s}^{D} y_{t} =  \phi(L^{s})^{Q} \Del_{s}^{D} \epsilon_{t} $$
+$$ \theta(L^{s})^{P} \del_{s}^{D} y_{t} =  \phi(L^{s})^{Q} \del_{s}^{D} \epsilon_{t} $$
 
-With any seasonality now removed, we can apply another ARIMA(p, d, q) model to $ \Del_{s}^{D} y_{t} $ by multiplying the seasonal model by the new ARIMA model.
+With any seasonality now removed, we can apply another ARIMA(p, d, q) model to $ \del_{s}^{D} y_{t} $ by multiplying the seasonal model by the new ARIMA model.
 
-$$ \Theta(L)^{p} \theta(L^{s})^{P} \Del^{d} \Del_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \Del^{d} \Del_{s}^{D} \epsilon_{t}$$
+$$ \Theta(L)^{p} \theta(L^{s})^{P} \del^{d} \del_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \del^{d} \del_{s}^{D} \epsilon_{t}$$
 
 This is the general form of a SARIMA(p, d, q)(P, D, Q, s) model.
 
@@ -89,11 +89,11 @@ ARIMAX and SARIMAX models simply take exogenous variables into account - ie vari
 
 For $n$ exogenous variables defined at each time step $t$, denoted by  $x_{t}^{i}$ for $ i \leq n $, with coefficients $\beta_{i}$, the ARIMAX(p, d, q) model is defined by
 
-$$ \Theta(L)^{p} \Del^{d} y_{t} = \Phi(L)^{q} \Del^{d} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t}$$
+$$ \Theta(L)^{p} \del^{d} y_{t} = \Phi(L)^{q} \del^{d} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t}$$
 
 and the SARIMAX model by
 
-$$ \Theta(L)^{p} \theta(L^{s})^{P} \Del^{d} \Del_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \Del^{d} \Del_{s}^{D} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t} $$
+$$ \Theta(L)^{p} \theta(L^{s})^{P} \del^{d} \del_{s}^{D} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \del^{d} \del_{s}^{D} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t} $$
 
 ## Further References
 
