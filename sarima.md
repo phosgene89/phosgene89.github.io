@@ -87,7 +87,7 @@ This is the general form of a SARIMA(p, d, q)(P, D, Q, s) model.
 
 ARIMAX and SARIMAX models simply take exogenous variables into account - ie variables measured at time $t$ that influences the value of our time series at time $t$, but that are not autoregressed on. To do this, we simply add the terms in on the right hand side of our ARIMA and SARIMA equations.
 
-For $n$ exogenous variables defined at each time step $t$, denoted by $ x^{i}_{t} $ for $ i \leq n, with coefficients $\beta_{i}$, the ARIMAX(p, d, q) model is defined by
+For $n$ exogenous variables defined at each time step $t$, denoted by $ x^{i}_{t} $ for $ i \leq n $, with coefficients $\beta_{i}$, the ARIMAX(p, d, q) model is defined by
 
 $$ \Theta(L)^{p} \nabla^{d} y_{t} = \Phi(L)^{q} \nabla^{d} \epsilon_{t} + \sum_{i=1}^{n} \beta_{i} x^{i}_{t}$$
 
