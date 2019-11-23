@@ -58,7 +58,11 @@ $$ y_{t}^{[d]} = \Theta(L)^{p} y_{t}^{[d]} + \Phi(L)^{q} \epsilon_{t} + \epsilon
 
 This is equivalent to an $ARIMA(p,d,q)$ model on $y_{t}$
 
-$$ y_{t} = \Theta(L)^{p} \nabla^{d} y_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
+$$ \nabla^{d} y_{t} = \Theta(L)^{p} \nabla^{d} y_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
+
+With some algebra, we can re-arrange the equation and absorb constants into the polynomials $\Theta$ and $\Phi$. 
+
+$$ \Theta(L)^{p} \nabla^{d} y_{t} = \Phi(L)^{q} \epsilon_{t}$$
 
 ## SARIMA
 SARIMA models take seasonality into account by essentially applying an ARIMA model to lags that are integer multiples of seasonality. Once the seasonality is modelled, an ARIMA model is applied to the leftover to capture non-seasonal structure.
@@ -73,11 +77,13 @@ $$ z_{t} = \theta(L^{s})^{P} z_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t}
 
 $$ z_{t} = \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t} $$
 
-With any seasonality now removed, we can apply another ARIMA(p, d, q) model to the resulting series.
+With any seasonality now removed, we can apply another ARIMA(p, d, q) model to the resulting seriesby multiplying our seasonal model by an ARIMA(p, d, q) model.
 
 $$ x_{t} = \Theta(L)^{p} \nabla^{d} z_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
-$$ x_{t} = \Theta(L)^{p} \nabla^{d} \bigg( \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t}^{*} \bigg) + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
+$$ x_{t} = \Theta(L)^{p} \nabla^{d} \bigg( \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t} \bigg) + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t} $$
+
+A preference is to factorise the term (\phi(L^{s})^{Q})
 
 ## References
 
