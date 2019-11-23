@@ -69,25 +69,17 @@ SARIMA models take seasonality into account by essentially applying an ARIMA mod
 
 To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\nabla_{s}^{D}$ to take the seasonal differences of the time series. 
 
-$$ z_{t} = \nabla_{s}^{D} y_{t} $$
-
 We can then capture any remaining structure by applying an ARMA(P, Q) model to $z_{t}$, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. 
 
-$$ z_{t} = \theta(L^{s})^{P} z_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t} $$
-
-$$ \nabla_{s}^{D} y_{t} = \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t} + \epsilon_{t} $$
+$$ \nabla_{s}^{D} y_{t} = \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \nabla_{s}^{D} \epsilon_{t} + \nabla_{s}^{D} \epsilon_{t} $$
 
 As with ARIMA, massaging the equation and absorbing constants into polynomials yields the following concise form
 
-$$ \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} =  \phi(L^{s})^{Q} \epsilon_{t} $$
+$$ \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} =  \phi(L^{s})^{Q} \nabla_{s}^{D} \epsilon_{t} $$
 
-With any seasonality now removed, we can apply another ARIMA(p, d, q) model to the resulting seriesby multiplying our seasonal model by an ARIMA(p, d, q) model.
+With any seasonality now removed, we can apply another ARIMA(p, d, q) model to $ \nabla_{s}^{D} y_{t} $ by multiplying the seasonal model by the new ARIMA model.
 
-$$ x_{t} = \Theta(L)^{p} \nabla^{d} z_{t} + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
-
-$$ x_{t} = \Theta(L)^{p} \nabla^{d} \bigg( \theta(L^{s})^{P} \nabla_{s}^{D} y_{t} + \phi(L^{s})^{Q} \epsilon_{t} \bigg) + \Phi(L)^{q} \epsilon_{t} + \epsilon_{t} $$
-
-A preference is to factorise the term (\phi(L^{s})^{Q})
+$$ \Theta(L)^{p} \theta(L^{s})^{P} \nabla^{d} y_{t} = \Phi(L)^{q} \phi(L^{s})^{Q} \nabla^{d} \epsilon_{t}$$
 
 ## References
 
