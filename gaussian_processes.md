@@ -6,6 +6,8 @@
 
 
 # Further References
+Best reference text: http://www.gaussianprocess.org/gpml/chapters/
+
 https://katbailey.github.io/post/gaussian-processes-for-dummies/
 
 http://mlg.eng.cam.ac.uk/teaching/4f13/1920/gaussian%20process.pdf
