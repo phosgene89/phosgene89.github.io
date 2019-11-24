@@ -24,7 +24,7 @@ $$ y_{t} = \Theta(L)^{p} y_{t} + \epsilon_{t}$$
 Taking note that the constant has been absorbed into the polynomial $\Theta$.
 
 ### Moving average (MA) Models.
-Where autoregressive models regress on prior values of $y_{t}$, moving average models regress on prior values of error. An $MA(q)$ model can be specified by
+Whereas autoregressive models regress on prior values of $y_{t}$, moving average models regress on prior values of error. An $MA(q)$ model can be specified by
 
 $$ y_{t} = \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
