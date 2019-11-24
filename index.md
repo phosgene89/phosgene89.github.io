@@ -6,7 +6,6 @@ I'm just another data lizard posting my ramblings on the internet. Don't trust a
 ### Time Series Analysis
 
 [From AR to SARIMAX: Mathematical Definitions of Time Series Models](https://phosgene89.github.io/sarima)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 
 
