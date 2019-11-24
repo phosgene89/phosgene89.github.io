@@ -59,7 +59,7 @@ SARIMA models take seasonality into account by essentially applying an ARIMA mod
 
 To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\Delta_{s}^{D}$ to take the seasonal differences of the time series. Here $s$ is the number of time lags comprising one full period of seasonality. $D$ takes on a similar meaning to $d$ in ARIMA models, but instead applies to *seasonal* lags.
 
-We can then capture any remaining structure by applying an $ARMA(P, Q)$ model, to the differenced values, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. $P$ and $Q$ are again being time lags
+We can then capture any remaining structure by applying an $ARMA(P, Q)$ model, to the differenced values, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. $P$ and $Q$ are again seasonal time lags
 
 $$ \Delta_{s}^{D} y_{t} = \theta(L^{s})^{P} \Delta_{s}^{D} y_{t} + \phi(L^{s})^{Q} \Delta_{s}^{D} \epsilon_{t} + \Delta_{s}^{D} \epsilon_{t} $$
 
