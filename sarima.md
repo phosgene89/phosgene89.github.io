@@ -28,7 +28,7 @@ Where autoregressive models regress on prior values of $y_{t}$, moving average m
 
 $$ y_{t} = \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
-Where $q$ is the number of time lags of the error term to regress on and $\Phi$ is defined analagously to to $\Theta$.
+Where $q$ is the number of time lags of the error term to regress on and $\Phi$ is defined analagously to $\Theta$.
 
 ### Autoregressive Moving Average (ARMA) Models
 $ARMA(p,q)$ models are simply a sum of $AR(p)$ and $MA(q)$ models.
