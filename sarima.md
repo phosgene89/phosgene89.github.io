@@ -11,7 +11,7 @@ Suppose we have a time series given by $\{ y_{t} \}$. An $AR(p)$ model can be sp
 
 $$ y_{t} = \beta + \epsilon_{t} + \sum\limits_{i=1}^p \theta_{i} y_{t-i} $$
 
-Where $\epsilon_{t}$ is the noise at time $t$ and $\beta$ is a constant. 
+Where $p$ is the number of time lags to regress on, $\epsilon_{t}$ is the noise at time $t$ and $\beta$ is a constant. 
 
 This equation can be made more concise through the use of the lag operator, $L$.
 
@@ -28,7 +28,7 @@ Where autoregressive models regress on prior values of $y_{t}$, moving average m
 
 $$ y_{t} = \Phi(L)^{q} \epsilon_{t} + \epsilon_{t}$$
 
-Where $\Phi$ is defined analagously to to $\Theta$.
+Where $q$ is the number of time lags of the error term to regress on and $\Phi$ is defined analagously to to $\Theta$.
 
 ### Autoregressive Moving Average (ARMA) Models
 $ARMA(p,q)$ models are simply a sum of $AR(p)$ and $MA(q)$ models.
@@ -40,7 +40,7 @@ To help tackle non-stationary data, we introduce an integration operator $\Delta
 
 $$ y_{t}^{[d]} =\Delta^{d} y_{t} = y_{t}^{[d-1]} - y_{t-1}^{[d-1]} $$
 
-where $ y_{t}^{[0]} = y_{t} $.
+where $ y_{t}^{[0]} = y_{t} $ and $d$ is the order of differencing used.
 
 We can now fit an $ARMA(p, q)$ model to $y_{t}^{[d]}$ rather than $y_{t}$. 
 
@@ -57,9 +57,9 @@ $$ \Theta(L)^{p} \Delta^{d} y_{t} = \Phi(L)^{q} \Delta^{d} \epsilon_{t}$$
 ### SARIMA
 SARIMA models take seasonality into account by essentially applying an ARIMA model to lags that are integer multiples of seasonality. Once the seasonality is modelled, an ARIMA model is applied to the leftover to capture non-seasonal structure.
 
-To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\Delta_{s}^{D}$ to take the seasonal differences of the time series. 
+To see this more clearly, suppose we have a time series $ \{ y_{t} \} $ with seasonality s. We can try to eliminate the seasonality with differencing, by applying the differencing operator $\Delta_{s}^{D}$ to take the seasonal differences of the time series. Here $s$ is the number of time lags comprising one full period of seasonality. $D$ takes on a similar meaning to $d$ in ARIMA models, but instead applies to *seasonal* lags.
 
-We can then capture any remaining structure by applying an $ARMA(P, Q)$ model to the differenced values, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. 
+We can then capture any remaining structure by applying an $ARMA(P, Q)$ model, to the differenced values, but using seasonal lags. i.e. instead of using a regular lag operator $L$, we use $L^{s}$. $P$ and $Q$ are again being time lags
 
 $$ \Delta_{s}^{D} y_{t} = \theta(L^{s})^{P} \Delta_{s}^{D} y_{t} + \phi(L^{s})^{Q} \Delta_{s}^{D} \epsilon_{t} + \Delta_{s}^{D} \epsilon_{t} $$
 
