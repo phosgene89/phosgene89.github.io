@@ -13,7 +13,20 @@ Where $\beta$ is a model parameter, $X$ is an array of input data and $y$ contai
 
 ### Why do Bayesian inference?
 
-### MOre on Bayesian Inference
+### Procedure
+
+#### 1. Choose model paramaterisation.
+
+
+#### 2. Choose priors.
+
+
+#### 3. Gather data and use Bayes' theorem to calculate posterior probabilities.
+
+
+#### 4. Repeat 3 as needed.
+
+
 
 ### Bayesian Linear Regression
 
