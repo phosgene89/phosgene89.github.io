@@ -1,9 +1,10 @@
 
-# <center>Gaussian Processes</center>
+# <center>Bayesian Linear Regression</center>
 
 ## Overview
 
 
+## Bayesian Inference
 
 
 # Further References
