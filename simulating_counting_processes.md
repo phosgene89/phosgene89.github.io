@@ -41,7 +41,7 @@ $$\lambda(t) = \beta sin(\alpha t) + |\beta| $$
 
 ## Simulating Hawkes Processes
 
-Hawkes processes are a generalisation of Poisson processes that allow past events to increase the intensity. The method of simulation is conceptually the same as for an inhomogeneous Poisson process, but we now need to account for a more complex intensity, $\lambda(t|history)$, that is dependant on past events. The main implication is that we need to be a bit more careful in choosing our $\lambda_{homogeneous}$, which requires us to generate arrival times one by one, in contrast to the vectorized examples above.
+Hawkes processes are a generalisation of Poisson processes that allow past events to increase the intensity. The method of simulation is conceptually the same as for an inhomogeneous Poisson process, but we now need to account for a more complex intensity, $ \lambda(t|history) $, that is dependant on past events. The main implication is that we need to be a bit more careful in choosing our $\lambda_{homogeneous}$, which requires us to generate arrival times one by one, in contrast to the vectorized examples above.
 
 The reason we need to be more careful about sampling is that for any given $\lambda_{homogeneous}$, it is possible for a string of excitation events to push $\lambda(t|history)$ above $\lambda_{homogeneous}$ and ruin our rejection sampling process.
 
