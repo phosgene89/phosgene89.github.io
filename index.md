@@ -8,6 +8,7 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 ### Time Series Analysis
 
 [From AR to SARIMAX: Mathematical Definitions of Time Series Models](https://phosgene89.github.io/sarima)
+[Simulating Counting Processes](https://phosgene89.github.io/simulating_counting_processes)
 
 
 
