@@ -37,23 +37,3 @@ For this example, we will assume
 
 $$\lambda(t) = \beta sin(\alpha t) + |\beta| $$
 
-
-
-## Simulating Hawkes Processes
-
-Hawkes processes are a generalisation of Poisson processes that allow past events to increase the intensity. The method of simulation is conceptually the same as for an inhomogeneous Poisson process, but we now need to account for a more complex intensity, $ \lambda(t|history) $, that is dependant on past events. The main implication is that we need to be a bit more careful in choosing our $\lambda_{homogeneous}$, which requires us to generate arrival times one by one, in contrast to the vectorized examples above.
-
-The reason we need to be more careful about sampling is that for any given $\lambda_{homogeneous}$, it is possible for a string of excitation events to push $\lambda(t|history)$ above $\lambda_{homogeneous}$ and ruin our rejection sampling process.
-
-The general procedure will be to restrict our samples to certain time frames (rejecting sampled times outside of it) in order to allow us to calculate $max(\lambda(t|history))$ over a given time frame. This will allow us to choose an appropriate intensity for our homogeneous Poisson process. Note that we may have had to do this in the previous example if our $\lambda(t)$ had been unbounded, though this would not represent a realistic scenario.
-
-### Hawkes Process with Exponentially Decaying Excitation
-
-For the first example, we will use an exponentially decaying $\lambda(t|history)$
-
-$$\lambda(t|history) = \lambda_{base} + \int_{-\inf}^{t_{current}} \alpha \beta exp^{- \beta (t_{current}-t)} dN_{t}$$
-
-We can take advantage of the fact that, in the time just after an event and just before the next event, $\lambda(t|history)$ will be greatest at the start of the time interval. Hence, for an interval $[t_{N_{k}}, t_{N_{k+1}})$, we set $\lambda_{homogeneous}=\lambda(t_{N_{k}}|history)$.
-
-For this specific example, do not need to restrict each point simulation to a specific interval as our conditional intensity possesses proporties which allow us to choose $\lambda_{homogeneous}$ without fear of $\lambda(t|history)$ exceeding it.
-
