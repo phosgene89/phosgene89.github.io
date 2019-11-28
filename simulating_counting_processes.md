@@ -25,25 +25,25 @@ $$ \Delta t = -\frac{ln(U)}{\lambda} $$
 
 This process will yield a sequence of time between events, which can be converted into arrival times or total counts.
 
-> import numpy as np
-> import matplotlib.pyplot as plt
+'''import numpy as np
+import matplotlib.pyplot as plt'''
 
-> # Play with these parametres to alter the rate time and number of simulated events.
-> _lambda = 2
-> n = 10
-> 
-> # Do the simulation.
-> U = np.random.uniform(0,1,n)
-> interarrival_times = -np.log(U)/_lambda
-> arrival_times = np.cumsum(interarrival_times)
-> counts = np.arange(n)+1
-> 
-> # Plot the results.
-> plt.step(arrival_times, counts)
-> plt.title("Simulation of Homogeneous Poisson Process")
-> plt.xlabel("Time")
-> plt.ylabel("Event count")
-> plt.show()
+'''# Play with these parametres to alter the rate time and number of simulated events.
+_lambda = 2
+n = 10
+
+# Do the simulation.
+U = np.random.uniform(0,1,n)
+interarrival_times = -np.log(U)/_lambda
+arrival_times = np.cumsum(interarrival_times)
+counts = np.arange(n)+1
+
+# Plot the results.
+plt.step(arrival_times, counts)
+plt.title("Simulation of Homogeneous Poisson Process")
+plt.xlabel("Time")
+plt.ylabel("Event count")
+plt.show()'''
 
 ### Inhomogeneous Poisson Process
 
