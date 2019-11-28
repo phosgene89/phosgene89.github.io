@@ -24,26 +24,28 @@ $$ \Delta t = -\frac{ln(U)}{\lambda} $$
    Step 6. Repeat 4. and 5. until a sufficient number of interarrival times have been generated.
 
 This process will yield a sequence of time between events, which can be converted into arrival times or total counts.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+```
+```python
+# Play with these parametres to alter the rate time and number of simulated events.
+_lambda = 2
+n = 10
 
-```import numpy as np```
-```import matplotlib.pyplot as plt```
+# Do the simulation.
+U = np.random.uniform(0,1,n)
+interarrival_times = -np.log(U)/_lambda
+arrival_times = np.cumsum(interarrival_times)
+counts = np.arange(n)+1
 
-```# Play with these parametres to alter the rate time and number of simulated events.```
-```_lambda = 2```
-```n = 10```
-
-```# Do the simulation.```
-```U = np.random.uniform(0,1,n)```
-```interarrival_times = -np.log(U)/_lambda```
-```arrival_times = np.cumsum(interarrival_times)```
-```counts = np.arange(n)+1```
-
-```# Plot the results.```
-```plt.step(arrival_times, counts)```
-```plt.title("Simulation of Homogeneous Poisson Process")```
-```plt.xlabel("Time")```
-```plt.ylabel("Event count")```
-```plt.show()```
+# Plot the results.
+plt.step(arrival_times, counts)
+plt.title("Simulation of Homogeneous Poisson Process")
+plt.xlabel("Time")
+plt.ylabel("Event count")
+plt.show()
+```
 
 ### Inhomogeneous Poisson Process
 
@@ -57,36 +59,39 @@ For this example, we will assume
 
 $$\lambda(t) = \beta sin(\alpha t) + |\beta| $$
 
-```def lambda_t(t, beta=1., alpha=0.5):```
-    ```return beta*np.sin(alpha*t)+np.abs(beta)```
-    
-```# Play with these parametres to alter the rate time and number of simulated events.```
-```beta = 1.```
-```alpha = 0.5```
+```python
+def lambda_t(t, beta=1., alpha=0.5):
+    return beta*np.sin(alpha*t)+np.abs(beta)
+```
+```python
+# Play with these parametres to alter the rate time and number of simulated events.
+beta = 1.
+alpha = 0.5
 
-```# We need to choose lambda to be greater than lambda_t at all times```
-```_lambda = 2*beta```
-```n = 10```
+# We need to choose lambda to be greater than lambda_t at all times
+_lambda = 2*beta
+n = 10
 
-```# Sample from homogeneous Poisson process.```
-```U = np.random.uniform(0,1,n)```
-```interarrival_times = -np.log(U)/_lambda```
-```arrival_times = np.cumsum(interarrival_times)```
+# Sample from homogeneous Poisson process.
+U = np.random.uniform(0,1,n)
+interarrival_times = -np.log(U)/_lambda
+arrival_times = np.cumsum(interarrival_times)
 
-```# Do rejection sampling.```
-```thresholds = lambda_t(arrival_times)/_lambda```
-```U_1 = np.random.uniform(0,1,n)```
-```keep = U_1<thresholds```
+# Do rejection sampling.
+thresholds = lambda_t(arrival_times)/_lambda
+U_1 = np.random.uniform(0,1,n)
+keep = U_1<thresholds
 
-```arrival_times = arrival_times[keep]```
-```counts = np.arange(len(arrival_times))+1```
+arrival_times = arrival_times[keep]
+counts = np.arange(len(arrival_times))+1
 
-```# Plot the results.```
-```plt.step(arrival_times, counts)```
-```plt.title("Simulation of Inhomogeneous Poisson Process")```
-```plt.xlabel("Time")```
-```plt.ylabel("Event count")```
-```plt.show()```
+# Plot the results.
+plt.step(arrival_times, counts)
+plt.title("Simulation of Inhomogeneous Poisson Process")
+plt.xlabel("Time")
+plt.ylabel("Event count")
+plt.show()
+```
 
 ## Simulating Hawkes Processes
 
