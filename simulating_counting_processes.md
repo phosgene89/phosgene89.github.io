@@ -57,21 +57,3 @@ We can take advantage of the fact that, in the time just after an event and just
 
 For this specific example, do not need to restrict each point simulation to a specific interval as our conditional intensity possesses proporties which allow us to choose $\lambda_{homogeneous}$ without fear of $\lambda(t|history)$ exceeding it.
 
-
-
-### Hawkes Process with Exponentially Increasing Excitation
-
-For the second example, we will use an exponentially increasing $\lambda(t|history)$
-
-$$\lambda(t|history) = \lambda_{base} + \int_{-\inf}^{t} \alpha \beta exp^{\beta (t_{current}-t)} dN_{t}$$
-
-In this example, for a fixed interval $[t_{current},t_{current}+\Delta t)$, we know that $\lambda(t|history)$ will be greatest at $t_{current}+\Delta t$. Hence we set
-
-$$\lambda_{homogeneous} = \lambda(t_{current}+\Delta t|history)$$
-
-in each interval.
-
-We now need to restrict simulated arrival times to the interval we are operating in, as $\lambda_{homogeneous}$ is not necesarrily greater than or equal to $\lambda(t|history)$ outside of this interval. As in the case of an inhomogeneous Poisson process with unbounded intensity, this scenario is also not realistic *unless* there is another process that causes $\lambda(t|history)$ to become bounded.
-
-*Note: if you're following along with Ogata's paper, be aware that algorithm 3, step 8 should include "set j = j+1" and "if $j = N_{*}^{i}$, go to step 11".*
-
