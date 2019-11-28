@@ -100,6 +100,6 @@ is not necesarrily greater than or equal to $\lambda(t|history)$ outside of this
 to become bounded.
 
 *Note: if you're following along with Ogata's paper, be aware that algorithm 3, step 8 should include "set j = j+1" and "if *
-$ j = N_{*}^{i} $
+$ j = N_{\*}^{i} $
 *, go to step 11".*
 
