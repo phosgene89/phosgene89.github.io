@@ -1,3 +1,5 @@
+# Simulating Counting Processes
+
 ### Homogeneous Poisson Process
 We will first simulate a homogeneous Poisson process. This is fairly simple. It proceeds as follows:
 
