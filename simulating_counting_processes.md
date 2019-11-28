@@ -99,7 +99,7 @@ $\lambda_{homogeneous}$
 is not necesarrily greater than or equal to $\lambda(t|history)$ outside of this interval. As in the case of an inhomogeneous Poisson process with unbounded intensity, this scenario is also not realistic *unless* there is another process that causes $\lambda(t|history)$
 to become bounded.
 
-*Note: if you're following along with Ogata's paper, be aware that algorithm 3, step 8 should include "set j = j+1" and "if *
+*Note: if you're following along with Ogata's paper, be aware that algorithm 3, step 8 should include "set j = j+1" and "if 
 $ j = N_{\*}^{i} $
-*, go to step 11".*
+, go to step 11".*
 
