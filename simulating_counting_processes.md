@@ -52,33 +52,54 @@ above
 $\lambda_{homogeneous}$
 and ruin our rejection sampling process.
 
-The general procedure will be to restrict our samples to certain time frames (rejecting sampled times outside of it) in order to allow us to calculate $max(\lambda(t|history))$ over a given time frame. This will allow us to choose an appropriate intensity for our homogeneous Poisson process. Note that we may have had to do this in the previous example if our $\lambda(t)$ had been unbounded, though this would not represent a realistic scenario.
+The general procedure will be to restrict our samples to certain time frames (rejecting sampled times outside of it) in order to allow us to calculate 
+$max(\lambda(t|history))$
+over a given time frame. This will allow us to choose an appropriate intensity for our homogeneous Poisson process. Note that we may have had to do this in the previous example if our 
+$\lambda(t)$
+had been unbounded, though this would not represent a realistic scenario.
 
 ### Hawkes Process with Exponentially Decaying Excitation
 
-For the first example, we will use an exponentially decaying $\lambda(t|history)$
+For the first example, we will use an exponentially decaying 
+$\lambda(t|history)$
 
 $$\lambda(t|history) = \lambda_{base} + \int_{-\inf}^{t_{current}} \alpha \beta exp^{- \beta (t_{current}-t)} dN_{t}$$
 
-We can take advantage of the fact that, in the time just after an event and just before the next event, $\lambda(t|history)$ will be greatest at the start of the time interval. Hence, for an interval $[t_{N_{k}}, t_{N_{k+1}})$, we set $\lambda_{homogeneous}=\lambda(t_{N_{k}}|history)$.
+We can take advantage of the fact that, in the time just after an event and just before the next event, 
+$\lambda(t|history)$
+will be greatest at the start of the time interval. Hence, for an interval 
+$[t_{N_{k}}, t_{N_{k+1}})$, we set $\lambda_{homogeneous}=\lambda(t_{N_{k}}|history)$
+.
 
-For this specific example, do not need to restrict each point simulation to a specific interval as our conditional intensity possesses proporties which allow us to choose $\lambda_{homogeneous}$ without fear of $\lambda(t|history)$ exceeding it.
+For this specific example, do not need to restrict each point simulation to a specific interval as our conditional intensity possesses proporties which allow us to choose 
+$\lambda_{homogeneous}$
+without fear of 
+$\lambda(t|history)$
+exceeding it.
 
 
 
 ### Hawkes Process with Exponentially Increasing Excitation
 
-For the second example, we will use an exponentially increasing $\lambda(t|history)$
+For the second example, we will use an exponentially increasing 
+$\lambda(t|history)$
 
 $$\lambda(t|history) = \lambda_{base} + \int_{-\inf}^{t} \alpha \beta exp^{\beta (t_{current}-t)} dN_{t}$$
 
-In this example, for a fixed interval $[t_{current},t_{current}+\Delta t)$, we know that $\lambda(t|history)$ will be greatest at $t_{current}+\Delta t$. Hence we set
+In this example, for a fixed interval 
+$[t_{current},t_{current}+\Delta t)$, we know that $\lambda(t|history)$ will be greatest at $t_{current}+\Delta t$
+. Hence we set
 
 $$\lambda_{homogeneous} = \lambda(t_{current}+\Delta t|history)$$
 
 in each interval.
 
-We now need to restrict simulated arrival times to the interval we are operating in, as $\lambda_{homogeneous}$ is not necesarrily greater than or equal to $\lambda(t|history)$ outside of this interval. As in the case of an inhomogeneous Poisson process with unbounded intensity, this scenario is also not realistic *unless* there is another process that causes $\lambda(t|history)$ to become bounded.
+We now need to restrict simulated arrival times to the interval we are operating in, as 
+$\lambda_{homogeneous}$
+is not necesarrily greater than or equal to $\lambda(t|history)$ outside of this interval. As in the case of an inhomogeneous Poisson process with unbounded intensity, this scenario is also not realistic *unless* there is another process that causes $\lambda(t|history)$
+to become bounded.
 
-*Note: if you're following along with Ogata's paper, be aware that algorithm 3, step 8 should include "set j = j+1" and "if $j = N_{*}^{i}$, go to step 11".*
+*Note: if you're following along with Ogata's paper, be aware that algorithm 3, step 8 should include "set j = j+1" and "if 
+$j = N_{*}^{i}$
+, go to step 11".*
 
