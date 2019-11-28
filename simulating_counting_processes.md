@@ -131,7 +131,57 @@ without fear of
 $\lambda(t|history)$
 exceeding it.
 
+```python
+def lambda_t(cur_time, hist, base_rate=2., alpha=20, beta=1.):
+    
+    if len(hist)==0:
+        return base_rate
+    
+    else:
+        
+        hist = np.cumsum(hist)
+        exp_arg = -beta*(cur_time-hist)
+        intensity = base_rate + np.sum(alpha*beta*np.exp(exp_arg))
+        return intensity
+```
 
+```python
+# Play around with these parameters.
+base_rate = 2
+N = 100
+alpha = 2.
+beta = 1.
+
+# Simulate the process.
+hist = np.array([])
+time = 0
+n=0
+
+while n < N:
+    
+    _lambda = lambda_t(time, hist, base_rate, alpha, beta)
+    
+    U = np.random.uniform()
+    interarrival_time = -np.log(U)/_lambda
+    
+    _lambda_hist = lambda_t(interarrival_time, hist, base_rate, alpha, beta)
+    
+    if np.random.uniform()<_lambda_hist/_lambda:
+        
+        hist = np.append(hist, interarrival_time)
+        time += interarrival_time
+        n+=1
+  
+hist = np.cumsum(hist)
+counts = np.arange(len(hist))+1
+        
+# Plot the results.
+plt.step(hist, counts)
+plt.title("Simulation of Hawkes Process (Example 1)")
+plt.xlabel("Time")
+plt.ylabel("Event count")
+plt.show()
+```
 
 ### Hawkes Process with Exponentially Increasing Excitation
 
@@ -157,3 +207,62 @@ to become bounded.
 $ j = N_{\*}^{i} $
 , go to step 11".*
 
+```python
+# Loop version of homogeneous Poisson process simulation
+def homog_Poisson(rate, T):
+    
+    t = 0
+    arrival_times = []
+    
+    while t<T:
+        
+        U = np.random.uniform()
+        interarrival_time = -np.log(U)/rate
+        t+=interarrival_time
+        if t<T:
+            arrival_times.append(t)
+        
+    return np.array(arrival_times)
+```
+
+```python
+base_rate = 2.
+delta_time = (1/base_rate)/10
+cur_time = 0
+hist = np.array([])
+n = 20
+max_time = 10
+
+while len(hist)<n:
+
+    # Set rate for homogeneous Poisson process and get arrival times for
+    # current time interval
+    _lambda = lambda_t(cur_time+delta_time, hist, base_rate, alpha, beta)
+    arrival_times = homog_Poisson(_lambda, delta_time) + cur_time
+    
+    if len(arrival_times)==0:
+        cur_time+=delta_time
+    
+    for j in range(len(arrival_times)):
+    
+        U_j = np.random.uniform()
+        lambda_hist = lambda_t(arrival_times[j], hist, base_rate, alpha, beta)
+        threshold = lambda_hist/_lambda
+    
+        if U_j<threshold:
+
+            hist = np.append(hist, arrival_times[j])
+            
+    cur_time+=delta_time
+    if cur_time>max_time:
+        break
+    
+counts = np.arange(len(hist))
+        
+# Plot the results.
+plt.step(hist, counts)
+plt.title("Simulation of Hawkes Process (Example 2)")
+plt.xlabel("Time")
+plt.ylabel("Event count")
+plt.show()
+```
