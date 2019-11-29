@@ -12,15 +12,25 @@ $$P(\beta|X,y) = \frac{P(y|\beta, X) P(\beta|X)}{P(y|X)} $$
 Where $\beta$ is a model parameter, $X$ is an array of input data and $y$ contains the target values.
 
 ### Priors
-Priors represent our prior knowledge of the target variables. Where we have no knowledge, we typically choose a prior distribution to be as broad as possible.
+Priors represent our prior knowledge of the target variables. Where we have no knowledge, we typically choose a prior 
+distribution to be as broad as possible.
 
 ### Distribution over point estimates
-We can use Bayes' theorem in conjunction with observed data $X, y$ to calculate a probability distribution over model parameters $\theta$
+We can use Bayes' theorem in conjunction with observed data $X, y$ to calculate a probability distribution over model 
+parameters $\theta$
 
-$$p(\theta|X, y) = \frac{p(y|\theta, X) p(\theta, X)}{p(y|X)}$$
+$$p(\theta|X, y) = \frac{p( | X) p(\theta | X)}{p(y|X)}$$
 
 ### Prediction
 We can then predict the 
+
+### Maximum a Posteriori Estimation
+The Bayesian counterpart of maximum likelihood estimation is maximum a posteriori estimation. Here, we incorporate 
+the prior into our calculation of the most probable value of our parameters. 
+
+$$ \theta_{MAP} = argmax(f(X, y | \theta) g(\theta)) $$
+
+Where $f$ is the likelihood function and $g(\theta)$ is the prior for $\theta$.
 
 ## Why do Bayesian inference?
 
