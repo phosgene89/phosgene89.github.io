@@ -41,8 +41,8 @@ $$p(y|x) = \int_{\theta}p(y|\theta;x)p(\theta)d\theta $$
 In other words, we are taking a weighted average over all possible paramaterisations of $f(x;\theta)$.
 
 ## Maximum a Posteriori Estimation
-The Bayesian counterpart of maximum likelihood estimation is maximum a posteriori estimation. Here, we incorporate 
-the prior into our calculation of the value of $\theta$ that maximises the probability of observing our given data. 
+The Bayesian counterpart of maximum likelihood estimation is maximum a posteriori estimation (MAP). The difference is that we incorporate 
+the prior into our calculation of the likelihood function. Suppose we want a MAP estimation of $\theta$, then the MAP estimation is obtained from
 
 $$ \theta_{MAP} = argmax_{\theta}(L(Y | \theta;X) p(\theta)) $$
 
@@ -54,14 +54,14 @@ Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 Select a paramaterisation for $f(x;\theta)$. e.g. for linear regression, we choose $f(x;\theta)=\theta x$
 
 ### 2. Choose priors.
-Choose an initial distribution for $\theta$. A common choice is a Gaussian distribution $p(\theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}exp(-\frac{(x - \mu)^2}{2\sigma^{2}})$ with mean $\nu$ and standard deviation $\sigma$.
+Choose an initial distribution for $\theta$. A common choice is a Gaussian distribution $p(\theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}exp(-\frac{(\theta - \mu)^2}{2\sigma^{2}})$ with mean $\mu$ and standard deviation $\sigma$.
 
 ### 3. Gather data and use Bayes' theorem to calculate posterior probabilities.
 Use the following update equation (this is where a lot of the difficulty with Bayesian inference shows itself)
 
 $$p(\theta|Y;X) = \frac{p( Y| \theta; X) p(\theta)}{p(Y;X)}$$
 
-$$p(\theta|Y;X) = \frac{p( Y| \theta; X) p(\theta)}{\int_{\theta}p(y|\theta;x)p(\theta)d\theta}$$
+$$p(\theta|Y;X) = \frac{p( Y| \theta; X) p(\theta)}{\int_{\theta}p(Y|\theta;X)p(\theta)d\theta}$$
 
 ### 4. Repeat 3 as needed.
 For further updates, we set the posterior of step 3. as our new prior and repeat step 3. with new data.
