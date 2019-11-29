@@ -11,7 +11,20 @@ Suppose we want to estimate the parameters of a predictive model $y = f(x;\theta
 
 $$p(\theta|X, y) = \frac{p( y| \theta, X) p(\theta)}{p(y|X)}$$
 
-Where $X$ is a matrix of covariates, $y$ are the target values and $\beta$ is a model parameter. $p(\theta)$ is called the *prior* distribution of $\theta$ and $p(\theta|X, y)$ is called the *posterior* distribution of $\theta$.
+Where 
+$X$
+is a matrix of covariates, 
+$y$
+are the target values and 
+$\beta$ 
+is a model parameter. 
+$p(\theta)$ 
+is called the *prior* distribution of 
+$\theta$ 
+and 
+$p(\theta|X, y)$ 
+is called the *posterior* distribution of 
+$\theta$.
 
 ### Prior Distribution
 The prior distribution of $\theta$, $p(\theta)$ (typically referred to simply as a *prior*) represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior 
@@ -31,9 +44,9 @@ In other words, we are taking a weighted average over all possible paramaterisat
 The Bayesian counterpart of maximum likelihood estimation is maximum a posteriori estimation. Here, we incorporate 
 the prior into our calculation of the value of $\theta$ that maximises the probability of observing our given data. 
 
-$$ \theta_{MAP} = argmax_{\theta}(f(X, y | \theta) g(\theta)) $$
+$$ \theta_{MAP} = argmax_{\theta}(L(X, y | \theta) p(\theta)) $$
 
-Where $f$ is the likelihood function and $g(\theta)$ is the prior for $\theta$.
+Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 
 ## Why do Bayesian inference?
 
