@@ -61,6 +61,8 @@ Use the following update equation (this is where a lot of the difficulty with Ba
 
 $$p(\theta|X, y) = \frac{p( y| \theta, X) p(\theta)}{p(y|X)}$$
 
+$$p(\theta|X, y) = \frac{p( y| \theta, X) p(\theta)}{\int_{\theta}p(y|\theta)p(\theta|X)d\theta}$$
+
 #### 4. Repeat 3 as needed.
 For further updates, we set the posterior of step 3. as our new prior and repeat step 3. with new data.
 
