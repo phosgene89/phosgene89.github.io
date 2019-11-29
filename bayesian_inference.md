@@ -6,16 +6,16 @@ Bayesian inference is based on predicting probability distributions for model pa
 
 $$P(A|B) = \frac{P(B|A) P(A)}{P(B)} $$
 
-### Distribution over point estimates
-Suppose we want to estimate the parameters of a predictive model $y = f(x;\theta)$ paramaterised by $\theta$. We can use Bayes' theorem in conjunction with observed data $X, y$ to calculate a probability distribution over $\theta$
+## Distribution over point estimates
+Suppose we want to estimate the parameters of a predictive model $y = f(x;\theta)$ paramaterised by $\theta$. The semi-colon notation inside $f(x;\theta)$ indicates that $\theta$ is fixed during our evaluation of $f$. We can use Bayes' theorem in conjunction with observed data $X, Y$ to calculate a probability distribution over $\theta$
 
 $$p(\theta|Y;X) = \frac{p( Y| \theta; X) p(\theta)}{p(Y;X)}$$
 
 Where 
 $X$
 is a matrix of covariates, 
-$y$
-are the target values and 
+$Y$
+is a matrix of the target values and 
 $\beta$ 
 is a model parameter. 
 $p(\theta)$ 
@@ -26,21 +26,21 @@ $p(\theta|Y;X)$
 is called the *posterior* distribution of 
 $\theta$.
 
-### Prior Distribution
+## Prior Distribution
 The prior distribution of $\theta$, $p(\theta)$ (typically referred to simply as a *prior*) represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior 
 distribution to be as broad as possible.
 
-### Posterior Distribution
+## Posterior Distribution
 A posterior distribution of $\theta$, $p(\theta|Y;X)$ (typically referred to simply as the *posterior*) represents our knowledge of $\theta$ after having observed the data $X, Y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
 
-### Prediction
+## Prediction
 Given a distribution over $\theta$ and any given value for $x$, we can calculate a distribution over the values of $f(x;\theta)$ as follows
 
 $$p(y|x) = \int_{\theta}p(y|\theta;x)p(\theta)d\theta $$
 
 In other words, we are taking a weighted average over all possible paramaterisations of $f(x;\theta)$.
 
-### Maximum a Posteriori Estimation
+## Maximum a Posteriori Estimation
 The Bayesian counterpart of maximum likelihood estimation is maximum a posteriori estimation. Here, we incorporate 
 the prior into our calculation of the value of $\theta$ that maximises the probability of observing our given data. 
 
@@ -48,36 +48,41 @@ $$ \theta_{MAP} = argmax_{\theta}(L(Y | \theta;X) p(\theta)) $$
 
 Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 
-### General Procedure
+## General Procedure
 
-#### 1. Choose model paramaterisation.
+### 1. Choose model paramaterisation.
 Select a paramaterisation for $f(x;\theta)$. e.g. for linear regression, we choose $f(x;\theta)=\theta x$
 
-#### 2. Choose priors.
+### 2. Choose priors.
 Choose an initial distribution for $\theta$. A common choice is a Gaussian distribution $p(\theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}exp(-\frac{(x - \mu)^2}{2\sigma^{2}})$ with mean $\nu$ and standard deviation $\sigma$.
 
-#### 3. Gather data and use Bayes' theorem to calculate posterior probabilities.
+### 3. Gather data and use Bayes' theorem to calculate posterior probabilities.
 Use the following update equation (this is where a lot of the difficulty with Bayesian inference shows itself)
 
 $$p(\theta|Y;X) = \frac{p( Y| \theta; X) p(\theta)}{p(Y;X)}$$
 
 $$p(\theta|Y;X) = \frac{p( Y| \theta; X) p(\theta)}{\int_{\theta}p(y|\theta;x)p(\theta)d\theta}$$
 
-#### 4. Repeat 3 as needed.
+### 4. Repeat 3 as needed.
 For further updates, we set the posterior of step 3. as our new prior and repeat step 3. with new data.
 
-### Why use Bayesian inference?
+## Why use Bayesian inference?
 
-#### More intuitive
+### More intuitive
 
-#### Gives distribution over model parameters and data
+### Gives distribution over model parameters and data
 
-### Why *not* to use Bayesian inference?
+## Why *not* to use Bayesian inference?
 
-#### Computationally intensive
+### Computationally intensive
 
-
+### Subjectivity of priors
 
 
 ## Further References
 
+Bishop, C.M., 2006. *Pattern recognition and machine learning*. Springer Science+ Business Media.
+
+MacKay, D.J. and Mac Kay, D.J., 2003. *Information theory, inference and learning algorithms*. Cambridge university press.
+
+Gelman, A., Carlin, J.B., Stern, H.S., Dunson, D.B., Vehtari, A. and Rubin, D.B., 2013. *Bayesian data analysis*. Chapman and Hall/CRC.
