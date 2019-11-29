@@ -86,7 +86,7 @@ The integral in the denominator of the right hand side of the Bayesian update ru
 ### Priors
 There is no clear-cut procedure for choosing priors. Oftentimes prior distributions are chosen simply because they are mathematically convenient. Other times they can be biased by personal preferences - which seems very scientifically distasteful. Exactly what makes a good prior is not established, which can be an issue for some.
 
-## Further References
+## Further Reading
 
 Bishop, C.M., 2006. *Pattern recognition and machine learning*. Springer Science+ Business Media.
 
