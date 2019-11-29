@@ -51,28 +51,28 @@ Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 ### General Procedure
 
 #### 1. Choose model paramaterisation.
-
+Select a paramaterisation for $f(x;\theta)$. e.g. for linear regression, we choose $f(x;\theta)=\theta x$
 
 #### 2. Choose priors.
-
+Choose an initial distribution for $\theta$. A common choice is a Gaussian distribution $p(\theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}exp(-\frac{(x - \mu)^2}{2\sigma^{2}}$ with mean $\nu$ and standard deviation $\sigma$.
 
 #### 3. Gather data and use Bayes' theorem to calculate posterior probabilities.
 
 
 #### 4. Repeat 3 as needed.
 
-## Why use Bayesian inference?
+### Why use Bayesian inference?
 
-### More intuitive
+#### More intuitive
 
-### Gives distribution over model parameters and data
+#### Gives distribution over model parameters and data
 
-## Why *not* to use Bayesian inference?
+### Why *not* to use Bayesian inference?
 
-### Computationally intensive
-
-
+#### Computationally intensive
 
 
-# Further References
+
+
+## Further References
 
