@@ -30,5 +30,5 @@ Where $\beta$ is a model parameter, $X$ is an array of input data and $y$ contai
 
 ### Bayesian Linear Regression
 
-# Further References
+## Further Reading
 
