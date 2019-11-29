@@ -51,7 +51,7 @@ Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 ## General Procedure
 
 ### 1. Choose model paramaterisation.
-Select a paramaterisation for $f(x;\theta)$. e.g. for linear regression, we choose $f(x;\theta)=\theta x$
+Select a paramaterisation for $f(x;\theta)$. e.g. for linear regression forced to intersect the origin, we choose $f(x;\theta)=\theta x$
 
 ### 2. Choose priors.
 Choose an initial distribution for $\theta$. A common choice is a Gaussian distribution $p(\theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}exp(-\frac{(\theta - \mu)^2}{2\sigma^{2}})$ with mean $\mu$ and standard deviation $\sigma$.
@@ -69,15 +69,24 @@ For further updates, we set the posterior of step 3. as our new prior and repeat
 ## Why use Bayesian inference?
 
 ### More intuitive
+The frequentist hypothesis testing framework is difficult to interpret - p-values in particular are notorious for being misused. Bayesian methods, in comparison, are very intuitive. 
+
+For example, a 95% confidence interval over $\theta$ is some given range over which, if we re-sampled the data, re-did the experiment and recalculated confidence interval, it would contain the actual value of $\theta$ in 95% of these imaginary repeat experiments.
+
+Bayesian methods methods simply give a probability distribution of $\theta$ which can be used to build a Bayesian confidence that has a 0.95 probability of containing $\theta$. Much simpler.
+
+### Easy to include prior knowledge
+Bayesian priors allow us to easily use our pre-existing knowledge of a problem to improve our modelling by simply adjusting our prior. e.g. if know from previous experimentation and experience that the parameter we are trying to estimate, $\theta$, is distributed around 100 and rarely moves below 95 and above 105, we can model our prior as a normal distribution centred at 100 and with a standard deviation of ~2.
 
 ### Gives distribution over model parameters and data
 
 ## Why *not* to use Bayesian inference?
 
 ### Computationally intensive
+The integral in the denominator of the right hand side of the Bayesian update rule is in general difficult (or even impossible) to evaluate analytically and must be solved with approximate numerical methods (Markov Chain Monte Carlo - MCMC). These methods are computationally intense compared to frequentist methods of inference.
 
-### Subjectivity of priors
-
+### Priors
+There is no clear-cut procedure for choosing priors. Oftentimes prior distributions are chosen simply because they are mathematically convenient. Other times they can be biased by personal preferences - which seems very scientifically distasteful. Exactly what makes a good prior is not established, which can be an issue for some.
 
 ## Further References
 
