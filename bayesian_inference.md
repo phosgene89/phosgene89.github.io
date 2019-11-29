@@ -34,7 +34,7 @@ distribution to be as broad as possible.
 A posterior distribution of $\theta$, $p(\theta|X, y)$ (typically referred to simply as the *posterior*) represents our knowledge of $\theta$ after having observed the data $X, y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
 
 ### Prediction
-Given a distribution over $\theta$ and any given value for $x$, we can calculate a distribution over the values of $f(x_{0};\theta)$ as follows
+Given a distribution over $\theta$ and any given value for $x$, we can calculate a distribution over the values of $f(x;\theta)$ as follows
 
 $$p(y|x) = \int_{\theta}p(y|\theta)p(\theta|x)d\theta $$
 
@@ -48,9 +48,7 @@ $$ \theta_{MAP} = argmax_{\theta}(L(X, y | \theta) p(\theta)) $$
 
 Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 
-## Why do Bayesian inference?
-
-### Procedure
+### General Procedure
 
 #### 1. Choose model paramaterisation.
 
@@ -62,6 +60,16 @@ Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 
 
 #### 4. Repeat 3 as needed.
+
+## Why use Bayesian inference?
+
+### More intuitive
+
+### Gives distribution over model parameters and data
+
+## Why *not* to use Bayesian inference?
+
+### Computationally intensive
 
 
 
