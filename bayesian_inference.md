@@ -1,34 +1,37 @@
 
-# <center>Bayesian Linear Regression</center>
+# <center>Introduction to Bayesian Inference</center>
 
 ## Overview
-Bayesian inference regards model parameters as random variables, rather than their point estimates as random variables.
-
-## Bayesian Inference Overview
 Bayesian inference is based on predicting probability distributions for model parameters using Bayes' theorem
 
-$$P(\beta|X,y) = \frac{P(y|\beta, X) P(\beta|X)}{P(y|X)} $$
-
-Where $\beta$ is a model parameter, $X$ is an array of input data and $y$ contains the target values.
-
-### Priors
-Priors represent our prior knowledge of the target variables. Where we have no knowledge, we typically choose a prior 
-distribution to be as broad as possible.
+$$P(A|B) = \frac{P(B|A) P(A)}{P(B)} $$
 
 ### Distribution over point estimates
-We can use Bayes' theorem in conjunction with observed data $X, y$ to calculate a probability distribution over model 
-parameters $\theta$
+Suppose we want to estimate the parameters of a predictive model $y = f(x;\theta)$ paramaterised by $\theta$. We can use Bayes' theorem in conjunction with observed data $X, y$ to calculate a probability distribution over $\theta$
 
-$$p(\theta|X, y) = \frac{p( | X) p(\theta | X)}{p(y|X)}$$
+$$p(\theta|X, y) = \frac{p( y| \theta, X) p(\theta)}{p(y|X)}$$
+
+Where $X$ is a matrix of covariates, $y$ are the target values and $\beta$ is a model parameter. $p(\theta)$ is called the *prior* distribution of $\theta$ and $p(\theta|X, y)$ is called the *posterior* distribution of $\theta$.
+
+### Prior Distribution
+The prior distribution of $\theta$, $p(\theta)$ (typically referred to simply as a *prior*) represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior 
+distribution to be as broad as possible.
+
+### Posterior Distribution
+A posterior distribution of $\theta$, $p(\theta|X, y)$ (typically referred to simply as the *posterior*) represents our knowledge of $\theta$ after having observed the data $X, y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
 
 ### Prediction
-We can then predict the 
+Given a distribution over $\theta$ and any given value for $x$, we can calculate a distribution over the values of $f(x_{0};\theta)$ as follows
+
+$$p(y|x) = \int_{\theta}p(y|\theta)p(\theta|x)d\theta $$
+
+In other words, we are taking a weighted average over all possible paramaterisations of $f(x;\theta)$.
 
 ### Maximum a Posteriori Estimation
 The Bayesian counterpart of maximum likelihood estimation is maximum a posteriori estimation. Here, we incorporate 
-the prior into our calculation of the most probable value of our parameters. 
+the prior into our calculation of the value of $\theta$ that maximises the probability of observing our given data. 
 
-$$ \theta_{MAP} = argmax(f(X, y | \theta) g(\theta)) $$
+$$ \theta_{MAP} = argmax_{\theta}(f(X, y | \theta) g(\theta)) $$
 
 Where $f$ is the likelihood function and $g(\theta)$ is the prior for $\theta$.
 
