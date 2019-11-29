@@ -11,6 +11,7 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 
 ### Probability and Statistics
 [Simulating Counting Processes](https://phosgene89.github.io/simulating_counting_processes)
+[Introduction to Bayesian Inference](https://phosgene89.github.io/bayesian_inference)
 
 
 
