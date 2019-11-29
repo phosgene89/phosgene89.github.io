@@ -78,8 +78,6 @@ Bayesian methods methods simply give a probability distribution of $\theta$ whic
 ### Easy to include prior knowledge
 Bayesian priors allow us to easily use our pre-existing knowledge of a problem to improve our modelling by simply adjusting our prior. e.g. if know from previous experimentation and experience that the parameter we are trying to estimate, $\theta$, is distributed around 100 and rarely moves below 95 and above 105, we can model our prior as a normal distribution centred at 100 and with a standard deviation of ~2.
 
-### Gives distribution over model parameters and data
-
 ## Why *not* to use Bayesian inference?
 
 ### Computationally intensive
