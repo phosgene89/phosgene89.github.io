@@ -27,11 +27,11 @@ is called the *posterior* distribution of
 $\theta$.
 
 ## Prior Distribution
-The prior distribution of $\theta$, $p(\theta)$ (typically referred to simply as a *prior*) represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior 
+The prior distribution of $\theta$, $p(\theta)$, represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior 
 distribution to be as broad as possible.
 
 ## Posterior Distribution
-A posterior distribution of $\theta$, $p(\theta|Y;X)$ (typically referred to simply as the *posterior*) represents our knowledge of $\theta$ after having observed the data $X, Y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
+A posterior distribution of $\theta$, $p(\theta|Y;X)$, represents our knowledge of $\theta$ after having observed the data $X, Y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
 
 ## Prediction
 Given a distribution over $\theta$ and any given value for $x$, we can calculate a distribution over the values of $f(x;\theta)$ as follows
