@@ -57,9 +57,12 @@ Select a paramaterisation for $f(x;\theta)$. e.g. for linear regression, we choo
 Choose an initial distribution for $\theta$. A common choice is a Gaussian distribution $p(\theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}exp(-\frac{(x - \mu)^2}{2\sigma^{2}}$ with mean $\nu$ and standard deviation $\sigma$.
 
 #### 3. Gather data and use Bayes' theorem to calculate posterior probabilities.
+Use the following update equation (this is where a lot of the difficulty with Bayesian inference shows itself)
 
+$$p(\theta|X, y) = \frac{p( y| \theta, X) p(\theta)}{p(y|X)}$$
 
 #### 4. Repeat 3 as needed.
+For further updates, we set the posterior of step 3. as our new prior and repeat step 3. with new data.
 
 ### Why use Bayesian inference?
 
