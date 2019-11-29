@@ -17,7 +17,7 @@ Priors represent our prior knowledge of the target variables. Where we have no k
 ### Distribution over point estimates
 We can use Bayes' theorem in conjunction with observed data $X, y$ to calculate a probability distribution over model parameters $\theta$
 
-$$p(\theta|X, y) = \frac{p(X|\theta p(\theta, y)}{p(X|y)}$$
+$$p(\theta|X, y) = \frac{p(y|\theta, X) p(\theta, X)}{p(y|X)}$$
 
 ### Prediction
 We can then predict the 
