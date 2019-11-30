@@ -34,7 +34,7 @@ distribution to be as broad as possible.
 A posterior distribution of $\theta$, $p(\theta|Y;X)$, represents our knowledge of $\theta$ after having observed the data $X, Y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
 
 ## Prediction
-Given a distribution over $\theta$ and any given value for $x$, we can calculate a distribution over the values of $f(x;\theta)$ as follows
+Given a distribution over $\theta$, we can calculate a distribution over the values of $f(x;\theta)$ as follows
 
 $$p(y|x) = \int_{\theta}p(y|\theta;x)p(\theta)d\theta $$
 

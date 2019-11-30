@@ -18,9 +18,7 @@ For the prior of $\hat{\theta}$, we keep things simple and choose a multivariate
 
 $$\hat{\theta} \sim \mathcal{N}(\mu_{\theta}, \Sigma_{\theta})$$
 
-where $\mu_{\theta} = [0,0,....0]$ and $\Sigma_{\theta} = \lambda I$.
-
-hence
+where $\mu_{\theta} = [0,0,....0]$ and $\Sigma_{\theta} = \lambda I$. Hence
 
 $$p(\hat{\theta}) = \prod_{0}^{d} \mathcal{N}(\hat{\theta} | 0, \lambda) $$
 
@@ -37,35 +35,27 @@ The integral in the denominator then becomes
 
 $$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}=\int_{\hat{\theta}}\prod_{n=0}^{N-1}\prod_{0}^{d}\mathcal{N}(y_{n}|f(x_{n,d};\hat{\theta})\mathcal{N}(\hat{\theta}|0,\lambda)d\hat{\theta}$$
 
-Using some Google magic, we find that the above integral evaluates to
+Integrals like this explain why Bayesian inference is computationally demanding. But using some Google magic, we find that the following solution for the posterior distribution is
 
-$$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta} = \mathcal{N}(X^{T}\mu_{\theta}, \Sigma_{X})$$
-
-where 
-
-$$\Sigma_{X} = \sigma^{2} + X^{T}\Sigma_{\theta}X$$
-
-
-
-testestest
-
-test
-test
-
-test
-
-$$\prod_{n=0}^{N-1}\prod_{0}^{d}\mathcal{N}(y_{n}|f(x_{n,d};\hat{\theta})\mathcal{N}(\hat{\theta}|0,\lambda)=\mathcal{N}(y_{n}|\mu_{\theta}, \Sigma_{\theta})$$
+$$p(\hat{\theta}|Y;X) = \mathcal{N}(\mu_{\theta}', \Sigma_{\theta}')$$
 
 where
 
-$$\mu_{\theta} = (X^{T}X + \sigma\Lambda)^{-1}X^{T}Y$$
+$$\mu_{\theta}' = \sigma \Sigma_{\theta}'X^{T}Y$$
 
 and
 
-$$\Sigma_{\theta} = \sigma^{2}(X^{T}X + \sigma^{2}\Lambda)^{-1}$$
+$$\Sigma_{\theta}' = (\Sigma_{\theta} + \sigma X^{T}X)^{-1}$$
+
+## Getting Distribution for Y
+To get a distribution of predictions, we use the following equation
+
+$$p(Y|X) = \int_{\theta}p(Y|\theta;X)p(\theta)d\theta $$
 
 ## Further Reading
 
-http://www.biostat.umn.edu/~ph7440/pubh7440/BayesianLinearModelGoryDetails.pdf
+https://www.cs.utah.edu/~fletcher/cs6957/lectures/BayesianLinearRegression.pdf
 
-https://www.cs.princeton.edu/~bee/courses/lec/lec_jan31.pdf
+http://www.cs.cmu.edu/~16831-f14/notes/F14/16831_lecture20_jhua_dkambam.pdf
+
+https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf
