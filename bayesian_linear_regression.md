@@ -56,7 +56,7 @@ $$p(Y|X) = \int_{\theta}p(Y|\theta;X)p(\theta)d\theta $$
 
 again, Google magic gives us the solution
 
-$$ \int_{\theta}p(Y|\theta;X)p(\theta)d\theta = \mathcal{N}(\mu_{\theta}' * X, \sigma+X^{T}\Sigma_{\theta}'X)$$
+$$ \int_{\theta}p(Y|\theta;X)p(\theta)d\theta = \mathcal{N}(\mu_{\theta}'X, \sigma+X^{T}\Sigma_{\theta}'X)$$
 
 
 ## Further Reading
