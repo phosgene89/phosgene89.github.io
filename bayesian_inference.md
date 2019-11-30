@@ -40,6 +40,9 @@ $p(Y;X)$
 ## Prior Distribution
 The prior distribution of $\theta$, $p(\theta)$, represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior distribution to be as broad as possible.
 
+### Conjugate priors
+There is a special kind of prior called a conjugate prior. A conjugate prior, when multiplied by a likelihood of a particular distribution, returns a posterior of the same family of distributions. e.g. a normally distributed prior with a normally distributed likelihood gives a normally distributed posterior.
+
 ## Posterior Distribution
 A posterior distribution of $\theta$, $p(\theta|Y;X)$, represents our knowledge of $\theta$ after having observed the data $X, Y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
 
@@ -95,9 +98,6 @@ The integral in the denominator of the right hand side of the Bayesian update ru
 
 ### Priors
 There is no clear-cut procedure for choosing priors. Oftentimes prior distributions are chosen simply because they are mathematically convenient. Other times they can be biased by personal preferences - which seems very scientifically distasteful. Exactly what makes a good prior is not established, which can be an issue for some.
-
-#### Conjugate priors
-There is a special kind of prior called a conjugate prior. A conjugate prior, when multiplied by a likelihood of a particular distribution, returns a posterior of the same family of distributions. e.g. a normally distributed prior with a normally distributed likelihood gives a normally distributed posterior.
 
 ## Further Reading
 
