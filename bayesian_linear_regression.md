@@ -33,7 +33,9 @@ $$p( Y| \hat{\theta}; X) = \prod_{n=0}^{N-1} \mathcal{N}(y_{n} | f(x_{n}; \hat{\
 
 The integral in the denominator then becomes
 
-$$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}=\int_{\hat{\theta}}\prod_{n=0}^{N-1}\prod_{0}^{d}\mathcal{N}(y_{n}|f(x_{n,d};\hat{\theta})\mathcal{N}(\hat{\theta}|0,\lambda)d\hat{\theta}$$
+$$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}=\int_{\hat{\theta}}\prod_{n=0}^{N-1}\prod_{0}^{d}\mathcal{N}(y_{n}|f(x_{n,d};\hat{\theta})\mathcal{N}(\hat{\theta}|\mu_{\theta, d},\Sigma_{\theta, d})d\hat{\theta}$$
+
+where $\mu_{\theta, d}$ and $\Sigma_{\theta, d}$ are the mean and standard deviation of the $d^{th}$ component of $\hat{\theta}$.
 
 Integrals like this explain why Bayesian inference is computationally demanding. But using some Google magic, we find that the following solution for the posterior distribution is
 
@@ -41,16 +43,21 @@ $$p(\hat{\theta}|Y;X) = \mathcal{N}(\mu_{\theta}', \Sigma_{\theta}')$$
 
 where
 
-$$\mu_{\theta}' = \sigma \Sigma_{\theta}'X^{T}Y$$
+$$\mu_{\theta}' = \frac{1}{\sigma} \Sigma_{\theta}'X^{T}Y$$
 
 and
 
-$$\Sigma_{\theta}' = (\Sigma_{\theta} + \sigma X^{T}X)^{-1}$$
+$$\Sigma_{\theta}' = (\Sigma_{\theta} + \frac{1}{\sigma} X^{T}X)^{-1}$$
 
 ## Getting Distribution for Y
 To get a distribution of predictions, we use the following equation
 
 $$p(Y|X) = \int_{\theta}p(Y|\theta;X)p(\theta)d\theta $$
+
+again, Google magic gives us the solution
+
+$$ \int_{\theta}p(Y|\theta;X)p(\theta)d\theta = \mathcal{N}(\mu_{\theta}' * X, \sigma+X^{T}\Sigma_{\theta}'X)$$
+
 
 ## Further Reading
 
