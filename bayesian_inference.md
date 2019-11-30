@@ -6,6 +6,8 @@ Bayesian inference is based on predicting probability distributions for model pa
 
 $$P(A|B) = \frac{P(B|A) P(A)}{P(B)} $$
 
+$P(A|B)$ is referred to as the posterior, $P(B|A)$ the likelihood, $P(A)$ the prior and $P(B)$ the normalisation term.
+
 ## Distribution over point estimates
 Suppose we want to estimate the parameters of a predictive model $y = f(x;\theta)$ paramaterised by $\theta$. The semi-colon notation inside $f(x;\theta)$ indicates that $\theta$ is fixed during our evaluation of $f$. We can use Bayes' theorem in conjunction with observed data $X, Y$ to calculate a probability distribution over $\theta$
 
@@ -16,19 +18,20 @@ $X$
 is a matrix of covariates, 
 $Y$
 is a matrix of the target values and 
-$\beta$ 
-is a model parameter. 
-$p(\theta)$ 
-is called the *prior* distribution of 
 $\theta$ 
-and 
-$p(\theta|Y;X)$ 
-is called the *posterior* distribution of 
-$\theta$.
+is a model parameter. 
+$p(\theta|Y;X)$
+, 
+$p( Y| \theta; X)$
+, 
+$p(\theta)$
+ and 
+$p(Y;X)$
+ are the posterior, likelihood, prior and normalisation terms, respectively.
+
 
 ## Prior Distribution
-The prior distribution of $\theta$, $p(\theta)$, represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior 
-distribution to be as broad as possible.
+The prior distribution of $\theta$, $p(\theta)$, represents our prior knowledge of the distribution of $\theta$. Where we have no knowledge, we typically choose a prior distribution to be as broad as possible.
 
 ## Posterior Distribution
 A posterior distribution of $\theta$, $p(\theta|Y;X)$, represents our knowledge of $\theta$ after having observed the data $X, Y$. Bayes' theorem provides a way for us to use data to calculate the posterior, given that we have the prior.
@@ -85,6 +88,9 @@ The integral in the denominator of the right hand side of the Bayesian update ru
 
 ### Priors
 There is no clear-cut procedure for choosing priors. Oftentimes prior distributions are chosen simply because they are mathematically convenient. Other times they can be biased by personal preferences - which seems very scientifically distasteful. Exactly what makes a good prior is not established, which can be an issue for some.
+
+#### Conjugate priors
+There is a special kind of prior called a conjugate prior. The conjugate prior, when multiplied by the likelihood
 
 ## Further Reading
 
