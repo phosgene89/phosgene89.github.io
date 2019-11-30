@@ -4,12 +4,12 @@
 ## Overview
 Bayesian inference is based on predicting probability distributions for model parameters using Bayes' theorem
 
-$$P(A|B) = \frac{P(B|A) P(A)}{P(B)} $$
+$$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$
 
 $P(A|B)$ is referred to as the posterior, $P(B|A)$ the likelihood, $P(A)$ the prior and $P(B)$ the normalisation term.
 
 ## Distribution over point estimates
-Suppose we want to estimate the parameters of a predictive model $y = f(x;\theta)$ paramaterised by $\theta$. The semi-colon notation inside $f(x;\theta)$ indicates that $\theta$ is fixed during our evaluation of $f$. We can use Bayes' theorem in conjunction with observed data $X, Y$ to calculate a probability distribution over $\theta$
+Suppose we want to estimate the parameters of a predictive model $y=f(x;\theta)$ paramaterised by $\theta$. The semi-colon notation inside $f(x;\theta)$ indicates that $\theta$ is fixed during our evaluation of $f$. We can use Bayes' theorem in conjunction with observed data $X, Y$ to calculate a probability distribution over $\theta$
 
 $$p(\theta|Y;X) = \frac{p( Y| \theta; X) p(\theta)}{p(Y;X)}$$
 
