@@ -44,9 +44,9 @@ In other words, we are taking a weighted average over all possible paramaterisat
 The Bayesian counterpart of maximum likelihood estimation is maximum a posteriori estimation (MAP). The difference is that we incorporate 
 the prior into our calculation of the likelihood function. Suppose we want a MAP estimation of $\theta$, then the MAP estimation is obtained from
 
-$$ \theta_{MAP} = argmax_{\theta}(L(Y | \theta;X) p(\theta)) $$
+$$ \theta_{MAP} = argmax_{\theta}(\mathcal{L}(Y | \theta;X) p(\theta)) $$
 
-Where $L$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
+Where $\mathcal{L}$ is the likelihood function and $p(\theta)$ is the prior for $\theta$.
 
 ## General Procedure
 

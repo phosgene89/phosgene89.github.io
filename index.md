@@ -14,6 +14,8 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 
 [Introduction to Bayesian Inference](https://phosgene89.github.io/bayesian_inference)
 
+[Bayesian Linear Regression](https://phosgene89.github.io/bayesian_linear_regression)
+
 
 
 
