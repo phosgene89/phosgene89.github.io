@@ -97,7 +97,7 @@ The integral in the denominator of the right hand side of the Bayesian update ru
 There is no clear-cut procedure for choosing priors. Oftentimes prior distributions are chosen simply because they are mathematically convenient. Other times they can be biased by personal preferences - which seems very scientifically distasteful. Exactly what makes a good prior is not established, which can be an issue for some.
 
 #### Conjugate priors
-There is a special kind of prior called a conjugate prior. The conjugate prior, when multiplied by the likelihood
+There is a special kind of prior called a conjugate prior. A conjugate prior, when multiplied by a likelihood of a particular distribution, returns a posterior of the same family of distributions. e.g. a normally distributed prior with a normally distributed likelihood gives a normally distributed posterior.
 
 ## Further Reading
 
