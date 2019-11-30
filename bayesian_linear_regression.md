@@ -16,47 +16,45 @@ $$ Y \sim \mathcal{N}(\hat{\theta}^{T} X, \sigma)$$
 ## Choosing Priors
 For the prior of $\hat{\theta}$, we keep things simple and choose a multivariate Gaussian prior.
 
-$$\hat{\theta} \sim \mathcal{N}(\mu_{\theta}, \Sigma_{\theta})$$
+$$\hat{\theta} \sim \mathcal{N}(\mu_{\hat{\theta}}, \Sigma_{\hat{\theta}})$$
 
-where $\mu_{\theta} = [0,0,....0]$ and $\Sigma_{\theta} = \lambda I$. Hence
-
-$$p(\hat{\theta}) = \prod_{0}^{d} \mathcal{N}(\hat{\theta} | 0, \lambda) $$
+where $\mu_{\theta} = [0,0,....0]$ and $\Sigma_{\theta} = \lambda I$.
 
 ## Calculating the Posterior Distribution
 We can calculate the posterior distribution using Bayes' update rule,
 
 $$p(\hat{\theta}|Y;X) = \frac{p( Y| \hat{\theta}; X) p(\hat{\theta})}{\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}}$$
 
-$p(\hat{\theta})$ is already given above. 
+$p(\hat{\theta})$ is already given above. $p( Y| \hat{\theta}; X)$ is given by
 
 $$p( Y| \hat{\theta}; X) = \prod_{n=0}^{N-1} \mathcal{N}(y_{n} | f(x_{n}; \hat{\theta}), \sigma)$$
 
 The integral in the denominator then becomes
 
-$$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}=\int_{\hat{\theta}}\prod_{n=0}^{N-1}\prod_{0}^{d}\mathcal{N}(y_{n}|f(x_{n,d};\hat{\theta})\mathcal{N}(\hat{\theta}|\mu_{\theta, d},\Sigma_{\theta, d})d\hat{\theta}$$
+$$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}=\int_{\hat{\theta}}\prod_{n=0}^{N-1}\prod_{0}^{d}\mathcal{N}(y_{n}|f(x_{n,d};\hat{\theta})\mathcal{N}(\hat{\theta}|\mu_{\hat{\theta}, d},\Sigma_{\hat{\theta}, d})d\hat{\theta}$$
 
 where $\mu_{\theta, d}$ and $\Sigma_{\theta, d}$ are the mean and standard deviation of the $d^{th}$ component of $\hat{\theta}$.
 
 Integrals like this explain why Bayesian inference is computationally demanding. But using some Google magic, we find that the following solution for the posterior distribution is
 
-$$p(\hat{\theta}|Y;X) = \mathcal{N}(\mu_{\theta}', \Sigma_{\theta}')$$
+$$p(\hat{\hat{\theta}}|Y;X) = \mathcal{N}(\mu_{\hat{\theta}}', \Sigma_{\hat{\theta}}')$$
 
 where
 
-$$\mu_{\theta}' = \frac{1}{\sigma} \Sigma_{\theta}'X^{T}Y$$
+$$\mu_{\hat{\theta}}' = \frac{1}{\sigma} \Sigma_{\hat{\theta}}'X^{T}Y$$
 
 and
 
-$$\Sigma_{\theta}' = (\Sigma_{\theta} + \frac{1}{\sigma} X^{T}X)^{-1}$$
+$$\Sigma_{\hat{\theta}}' = (\Sigma_{\hat{\theta}} + \frac{1}{\sigma} X^{T}X)^{-1}$$
 
-## Getting Distribution for Y
+## Getting Distribution for Predictions
 To get a distribution of predictions, we use the following equation
 
-$$p(Y|X) = \int_{\theta}p(Y|\theta;X)p(\theta)d\theta $$
+$$p(Y|X) = \int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta} $$
 
 again, Google magic gives us the solution
 
-$$ \int_{\theta}p(Y|\theta;X)p(\theta)d\theta = \mathcal{N}(\mu_{\theta}'X, \sigma+X^{T}\Sigma_{\theta}'X)$$
+$$ \int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta} = \mathcal{N}(\mu_{\hat{\theta}}'X, \sigma+X^{T}\Sigma_{\hat{\theta}}'X)$$
 
 
 ## Further Reading
@@ -66,3 +64,7 @@ https://www.cs.utah.edu/~fletcher/cs6957/lectures/BayesianLinearRegression.pdf
 http://www.cs.cmu.edu/~16831-f14/notes/F14/16831_lecture20_jhua_dkambam.pdf
 
 https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf
+
+## References
+
+[1]
