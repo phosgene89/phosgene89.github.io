@@ -25,7 +25,10 @@ We can calculate the posterior distribution using Bayes' update rule,
 
 $$p(\hat{\theta}|Y;X) = \frac{p( Y| \hat{\theta}; X) p(\hat{\theta})}{\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}}$$
 
-$p(\hat{\theta})$ is already given above. $p( Y| \hat{\theta}; X)$ is given by
+$p(\hat{\theta})$ 
+is already given above. 
+$p(Y|\hat{\theta}; X)$ 
+is given by
 
 $$p( Y| \hat{\theta}; X) = \prod_{n=0}^{N-1} \mathcal{N}(y_{n} | f(x_{n}; \hat{\theta}), \sigma)$$
 
