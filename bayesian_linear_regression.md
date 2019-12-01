@@ -50,13 +50,11 @@ and
 
 $$\Sigma_{\hat{\theta}}' = (\Sigma_{\hat{\theta}}^{-1} + X^{T}X)^{-1}$$
 
-
-
 Dashed variables such as $\mu_{\hat{\theta}}'$ represent updated values, whereas undashed variables such as $\mu_{\hat{\theta}}$ represent variables prior to updating.
 
 The equation for $\mu_{\hat{\theta}}'$ shows us that a Bayesian update weights the new mean of the posterior between the prior mean and the information provided by the new data. The more data there is, the more the update skews the new mean toward the data. Eventually the influence of the original prior is gone altogether.
 
-$\Sigma_{\hat{\theta}}'$ *decreases* with each update, due to us becoming more and more confident of where $\mu_{\hat{\theta}}'$ actually is.
+$\Sigma_{\hat{\theta}}'$ *decreases* with each update, due to us becoming more and more confident of where $\mu_{\hat{\theta}}'$ actually is. This is counteracted by our confidence in our priors, as small standard deviation in the prior distribution enlarges $\Sigma_{\hat{\theta}}^{-1}$, which in turn skews the update toward the prior.
 
 ## Getting Distribution for Predictions
 To get a distribution of predictions, we use the following equation
