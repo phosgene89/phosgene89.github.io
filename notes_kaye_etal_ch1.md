@@ -22,7 +22,7 @@ $$A \otimes B = \begin{pmatrix} A_{1}B_{1}\\ \vdots\\A_{n}B_{1}\\A_{1}B_{2}\\ \v
 
 $$CNOT \equiv \begin{pmatrix}
 1&0&0&0\\
-0&1&0&1\\
+0&1&0&0\\
 0&0&0&1\\
 0&0&1&0
 \end{pmatrix} $$
