@@ -38,17 +38,17 @@ $$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}=\int_{\hat{
 
 where $\mu_{\theta, d}$ and $\Sigma_{\theta, d}$ are the mean and standard deviation of the $d^{th}$ component of $\hat{\theta}$.
 
-Integrals like this explain why Bayesian inference is computationally demanding. But using some Google magic, we find that the following solution for the posterior distribution is
+Integrals like this explain why Bayesian inference is computationally demanding. But using some Google magic, we find that the <a href ="https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf">solution</a> (courtesy of our friends over at CEDAR in the University at Buffalo, NY) for the posterior distribution is
 
 $$p(\hat{\theta}|Y;X) = \mathcal{N}(\mu_{\hat{\theta}}', \Sigma_{\hat{\theta}}')$$
 
 where
 
-$$\mu_{\hat{\theta}}' = \Sigma_{\hat{\theta}}'(\Sigma_{\hat{\theta}} \mu_{\hat{\theta}} +\frac{1}{\sigma} \Sigma_{\hat{\theta}}'X^{T}Y)$$
+$$\mu_{\hat{\theta}}' = \Sigma_{\hat{\theta}}'(\Sigma_{\hat{\theta}}^{-1} \mu_{\hat{\theta}} + X^{T}X\hat{\theta})$$
 
 and
 
-$$\Sigma_{\hat{\theta}}' = (\Sigma_{\hat{\theta}}^{-1} + \frac{1}{\sigma} X^{T}X)^{-1}$$
+$$\Sigma_{\hat{\theta}}' = (\Sigma_{\hat{\theta}}^{-1} + X^{T}X)^{-1}$$
 
 
 
@@ -63,19 +63,17 @@ To get a distribution of predictions, we use the following equation
 
 $$p(Y|X) = \int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta} $$
 
-again, Google magic gives us the solution
+again, Google magic gives us <a href ="https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf">the solution</a> (again, courtesy of our friends over at CEDAR in the University at Buffalo, NY)
 
 $$ \int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta} = \mathcal{N}(\mu_{\hat{\theta}}'X, \sigma+X^{T}\Sigma_{\hat{\theta}}'X)$$
 
 
 ## Further Reading
 
-https://www.cs.utah.edu/~fletcher/cs6957/lectures/BayesianLinearRegression.pdf
+<a href="https://en.wikipedia.org/wiki/Bayesian_linear_regression">Bayesian linear regression | Wikipedia</a>
 
-http://www.cs.cmu.edu/~16831-f14/notes/F14/16831_lecture20_jhua_dkambam.pdf
+<a href="https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf">Bayesian linear regression | CEDAR, University at Buffalo, NY</a>
 
-https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf
+<a href="https://www.cs.utah.edu/~fletcher/cs6957/lectures/BayesianLinearRegression.pdf">Notes on Bayesian linear regression | School of Computing, University of Utah</a>
 
-## References
-
-[1]
+<a href="http://www.cs.cmu.edu/~16831-f14/notes/F14/16831_lecture20_jhua_dkambam.pdf">Bayesian linear regression | Statistical techniques in robotics, Carnegie Mellon University</a>
