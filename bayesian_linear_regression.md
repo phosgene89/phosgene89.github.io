@@ -44,7 +44,7 @@ $$p(\hat{\theta}|Y;X) = \mathcal{N}(\mu_{\hat{\theta}}', \Sigma_{\hat{\theta}}')
 
 where
 
-$$\mu_{\hat{\theta}}' = \Sigma_{\hat{\theta}}'(\Sigma_{\hat{\theta}}^{-1} \mu_{\hat{\theta}} + X^{T}X\hat{\theta})$$
+$$\mu_{\hat{\theta}}' = \Sigma_{\hat{\theta}}'(\Sigma_{\hat{\theta}}^{-1} \mu_{\hat{\theta}} + X^{T}Y)$$
 
 and
 
