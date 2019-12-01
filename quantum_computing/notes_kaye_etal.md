@@ -10,7 +10,7 @@ These notes are intended to be as concise as possible to enable *me* to recall a
 
 ### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal_ch1">Chapter 1: Introduction and Background</a>
 
-### Chapter 2: Linear Algebra and the Dirac Notation
+### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal_ch2">Chapter 2: Linear Algebra and the Dirac Notation</a>
 
 ### Chapter 3: Qubits and the Framework of Quantum Mechanics
 
