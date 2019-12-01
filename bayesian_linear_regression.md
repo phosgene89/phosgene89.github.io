@@ -50,6 +50,8 @@ and
 
 $$\Sigma_{\hat{\theta}}' = (\Sigma_{\hat{\theta}} + \frac{1}{\sigma} X^{T}X)^{-1}$$
 
+Dashed variables such as $\mu_{\hat{\theta}}'$ represent updated values, whereas undashed variables such as $\mu_{\hat{\theta}}$ represent variables prior to updating.
+
 ## Getting Distribution for Predictions
 To get a distribution of predictions, we use the following equation
 
