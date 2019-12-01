@@ -6,7 +6,6 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 ---
 
 ### Time Series Analysis
-
 [From AR to SARIMAX: Mathematical Definitions of Time Series Models](https://phosgene89.github.io/sarima)
 
 ### Probability and Statistics
@@ -16,7 +15,8 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 
 [Bayesian Linear Regression](https://phosgene89.github.io/bayesian_linear_regression)
 
-
+### Quantum Computing
+[Notes from *An Introduction to Quantum Computing* by Kaye, Laflamme and Mosca](https://phosgene89.github.io/notes_kaye_etal)
 
 
 ---
