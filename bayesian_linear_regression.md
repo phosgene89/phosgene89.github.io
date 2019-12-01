@@ -18,7 +18,7 @@ For the prior of $\hat{\theta}$, we keep things simple and choose a multivariate
 
 $$\hat{\theta} \sim \mathcal{N}(\mu_{\hat{\theta}}, \Sigma_{\hat{\theta}})$$
 
-where $\mu_{\theta} = [0,0,....0]$ and $\Sigma_{\theta} = \lambda I$.
+where $\mu_{\hat{\theta}} = [0,0,....0]$ and $\Sigma_{\hat{\theta}} = \lambda I$.
 
 ## Calculating the Posterior Distribution
 We can calculate the posterior distribution using Bayes' update rule,
@@ -40,11 +40,11 @@ where $\mu_{\theta, d}$ and $\Sigma_{\theta, d}$ are the mean and standard devia
 
 Integrals like this explain why Bayesian inference is computationally demanding. But using some Google magic, we find that the following solution for the posterior distribution is
 
-$$p(\hat{\hat{\theta}}|Y;X) = \mathcal{N}(\mu_{\hat{\theta}}', \Sigma_{\hat{\theta}}')$$
+$$p(\hat{\theta}|Y;X) = \mathcal{N}(\mu_{\hat{\theta}}', \Sigma_{\hat{\theta}}')$$
 
 where
 
-$$\mu_{\hat{\theta}}' = \frac{1}{\sigma} \Sigma_{\hat{\theta}}'X^{T}Y$$
+$$\mu_{\hat{\theta}}' = \Sigma_{\hat{\theta}}'(\Sigma_{\hat{\theta}} \mu_{\hat{\theta}} +\frac{1}{\sigma} \Sigma_{\hat{\theta}}'X^{T}Y)$$
 
 and
 
