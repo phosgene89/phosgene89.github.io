@@ -63,7 +63,9 @@ $\mathcal{H}^{*}$
 
  **Definition:** A linear operator on a vector space $\mathcal{H}$ is a linear transformation $T:\mathcal{H}\to\mathcal{H}$ of the vector space to itself.
 
-* The outer product, $|\Psi\rangle\langle\varphi|$, has the following property
+* The outer product, 
+$|\Psi\rangle\langle\varphi|$
+, has the following property
 
     $$(|\Psi\rangle\langle\varphi|)|\gamma\rangle=|\Psi\rangle(\langle\varphi|\gamma\rangle)$$
 
