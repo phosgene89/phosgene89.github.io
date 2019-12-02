@@ -39,11 +39,21 @@ $B=\{ |b_{m}\rangle \}\subseteq \mathcal{H}$
 
  $$\langle b_{n}|b_{m}\rangle = \delta_{n,m}, \:\:\:\:\:\:\:\forall b_{m}, b_{n} \in B$$
 
- and every $|\Psi\rangle \in \mathcal{H}$ can be written as
+ and every 
+ $|\Psi\rangle \in \mathcal{H}$
+  can be written as
 
  $$|\Psi\rangle =\sum_{b\in B}\Psi_{n}|b_{n}\rangle,\:\:\:\:\:\:\:\Psi_{n}\in\mathbb{C}$$
 
- The values of $\Psi_{n}$ satisfy $\Psi_{n}=\langle b_{n}|\Psi \rangle$, and are called the coefficients of $| \Psi \rangle$ with respect to basis $\{ | b_{n} \rangle \}$.
+ The values of 
+ $\Psi_{n}$
+  satisfy 
+$\Psi_{n}=\langle b_{n}|\Psi \rangle$
+, and are called the coefficients of 
+$| \Psi \rangle$
+ with respect to basis 
+ $\{ | b_{n} \rangle \}$
+ .
 
 ### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal">Return to Chapter List</a>
 
