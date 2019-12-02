@@ -19,9 +19,11 @@
     $$\langle\textbf{v},\textbf{w}\rangle=\langle\textbf{w},\textbf{v}\rangle^{*}$$
 
     $$\langle\textbf{v},\textbf{v}\rangle\geq 0$$ 
+
     $$\langle\textbf{v},\textbf{v}\rangle =0\Longleftrightarrow \textbf{v}=0$$
 
- * $\parallel|\Psi\rangle\parallel=\sqrt{\langle\Psi|\Psi\rangle}$ is called the Euclidean norm.
+ * $\parallel|\Psi\rangle\parallel=\sqrt{\langle\Psi|\Psi\rangle}$ 
+ is called the Euclidean norm.
 
  **Definition:** Consider a Hilbert space $\mathcal{H}$ of dimension $2^{n}$. A set of $2^{n}$ vectors $B=\{ |b_{m}\rangle \}\subseteq \mathcal{H}$ is called an orthonormal basis for $\mathcal{H}$ if
 
