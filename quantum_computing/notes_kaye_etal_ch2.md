@@ -8,8 +8,7 @@
  * A bra, 
  $\langle\textbf{v}|$
  , is the complex conjugate of 
- $|\textbf{v}\rangle$
- , 
+ $|\textbf{v}\rangle$, 
  
  $$\langle\textbf{v}| = |\textbf{v}\rangle^{*}$$
  * Therefore a bra is a row vector and a ket is a column vector.
