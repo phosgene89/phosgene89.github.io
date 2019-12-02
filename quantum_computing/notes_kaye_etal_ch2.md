@@ -14,7 +14,7 @@
 
  * Inner products, $\langle\textbf{v},\textbf{w}\rangle$, satisfy the following properties:
 
-    1. $\langle\textbf{v},\sum_{i}\lambda_{i}\textbf{w}_{i}\rangle=\sum_{i}\lambda_{i}\langle\textbf{v},\textbf{w}_{i}\rangle$
+    1. $\langle\textbf{v},\sum_{i}\lambda_{i}\textbf{w}_{i}\rangle = \sum_{i}\lambda_{i}\langle\textbf{v},\textbf{w}_{i}\rangle$
 
     2. $\langle\textbf{v},\textbf{w}\rangle=\langle\textbf{w},\textbf{v}\rangle^{*}$
 
