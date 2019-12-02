@@ -14,11 +14,12 @@
 
  * Inner products, $\langle\textbf{v},\textbf{w}\rangle$, satisfy the following properties:
 
-    1. $\langle\textbf{v},\sum_{i}\lambda_{i}\textbf{w}_{i}\rangle = \sum_{i}\lambda_{i}\langle\textbf{v},\textbf{w}_{i}\rangle$
+    $$\langle\textbf{v},\sum_{i}\lambda_{i}\textbf{w}_{i}\rangle = \sum_{i}\lambda_{i}\langle\textbf{v},\textbf{w}_{i}\rangle$$
 
-    2. $\langle\textbf{v},\textbf{w}\rangle=\langle\textbf{w},\textbf{v}\rangle^{*}$
+    $$\langle\textbf{v},\textbf{w}\rangle=\langle\textbf{w},\textbf{v}\rangle^{*}$$
 
-    3. $\langle\textbf{v},\textbf{v}\rangle\geq0$ and $\langle\textbf{v},\textbf{v}\rangle = 0 \Longleftrightarrow \textbf{v}=0$
+    $$\langle\textbf{v},\textbf{v}\rangle\geq 0$$ 
+    $$\langle\textbf{v},\textbf{v}\rangle =0\Longleftrightarrow \textbf{v}=0$$
 
  * $\parallel|\Psi\rangle\parallel=\sqrt{\langle\Psi|\Psi\rangle}$ is called the Euclidean norm.
 
