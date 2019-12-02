@@ -55,6 +55,20 @@ $| \Psi \rangle$
  $\{ | b_{n} \rangle \}$
  .
 
+ * The set $\{ \langle b_{n}| \}$ is an orthonormal basis for $\mathcal{H}^{*}$ called the dual basis.
+
+ **Definition:** A linear operator on a vector space $\mathcal{H}$ is a linear transformation $T:\mathcal{H}\to\mathcal{H}$ of the vector space to itself.
+
+* The outer product, |\Psi\rangle\langle\varphi|, has the following property
+
+    $$(|\Psi\rangle\langle\varphi|)|\gamma\rangle=|\Psi\rangle(\langle\varphi|\gamma\rangle)$$
+
+    $$|\Psi\rangle(\langle\varphi|\gamma\rangle)=(\langle\varphi|\gamma\rangle)|\Psi\rangle$$
+
+ * Linear operators can be written in terms of linear combinations of outer products of orthonobal bases.
+
+  * The identity operator can be written as $\textbf{1}=\sum_{b_{n}\in B} |b_{n} \rangle\langle b_{n}|$
+
 ### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal">Return to Chapter List</a>
 
 ## Further Reading
