@@ -25,7 +25,17 @@
  * $\parallel|\Psi\rangle\parallel=\sqrt{\langle\Psi|\Psi\rangle}$ 
  is called the Euclidean norm.
 
- **Definition:** Consider a Hilbert space $\mathcal{H}$ of dimension $2^{n}$. A set of $2^{n}$ vectors $B=\{ |b_{m}\rangle \}\subseteq \mathcal{H}$ is called an orthonormal basis for $\mathcal{H}$ if
+ **Definition:** Consider a Hilbert space 
+ $\mathcal{H}$
+  of dimension 
+$2^{n}$
+. A set of 
+$2^{n}$
+ vectors 
+$B=\{ |b_{m}\rangle \}\subseteq \mathcal{H}$
+ is called an orthonormal basis for 
+ $\mathcal{H}$
+  if
 
  $$\langle b_{n}|b_{m}\rangle = \delta_{n,m}, \:\:\:\:\:\:\:\forall b_{m}, b_{n} \in B$$
 
