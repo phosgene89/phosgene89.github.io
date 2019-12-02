@@ -23,4 +23,3 @@ https://www.ritchievink.com/blog/2019/02/01/an-intuitive-introduction-to-gaussia
 https://learning.mpi-sws.org/mlss2016/slides/gp_mlss16.pdf
 
 https://arxiv.org/abs/1505.02965 Gaussian Processes: A Quick Introduction
-
