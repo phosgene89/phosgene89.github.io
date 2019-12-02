@@ -76,6 +76,26 @@ $|\Psi\rangle\langle\varphi|$
   * The identity operator can be written as 
 $\textbf{1}=\sum_{b_{n}\in B} |b_{n} \rangle\langle b_{n}|$
 
+ * For any linear operator $T$, 
+ $T^{\dagger}=T^{*}$
+
+  * $T$ is unitary if 
+$T^{\dagger}=T^{-1}$
+
+ * $T$ is Hermitian if 
+ $T^{\dagger}=T$
+
+ * The eigenvalues of Hermitian operators are real.
+
+ * $Tr(A) = \sum_{b_{n}}\langle b_{n}|A|b_{n}\rangle$
+ where 
+ $\{ |b_{n}\rangle \}$ 
+is any orthonogmal basis for 
+$\mathcal{H}$
+.
+
+
+
 ### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal">Return to Chapter List</a>
 
 ## Further Reading
