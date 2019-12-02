@@ -5,7 +5,7 @@
 
  * Classical computers cannot efficiently simulate quantum processes. 
 
- * We can represent a system with 2 possible states as a 2-dimensional column vector. The elements of this vector are the probabilities of being in the 2nd state. We use this to represent bits.
+ * We can represent a system with 2 possible states as a 2-dimensional column vector. The elements of this vector are the complex amplitudes of each state.
 
  * The NOT operator is represented by the matrix
 
