@@ -11,9 +11,9 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 ### Probability and Statistics
 [Simulating Counting Processes](https://phosgene89.github.io/simulating_counting_processes)
 
-[Introduction to Bayesian Inference](https://phosgene89.github.io/bayesian_inference)
+[Introduction to Bayesian Inference](https://phosgene89.github.io/bayesian/bayesian_inference)
 
-[Bayesian Linear Regression](https://phosgene89.github.io/bayesian_linear_regression)
+[Bayesian Linear Regression](https://phosgene89.github.io/bayesian/bayesian_linear_regression)
 
 ### Quantum Computing
 [Notes from *An Introduction to Quantum Computing* by Kaye, Laflamme and Mosca](https://phosgene89.github.io/quantum_computing/notes_kaye_etal)
