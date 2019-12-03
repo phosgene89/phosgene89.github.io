@@ -109,11 +109,11 @@ $|T_{i}\rangle$
 test
 
 **Schmidt decomposition theorem:** If 
-$|\Psi\rangle$
+$|\Psi \rangle$
  is a vector in a tensor product space 
-$\mathcal{H}_{A}\otimes\mathcal{H}_{B}$
+$\mathcal{H}_{A} \otimes \mathcal{H}_{B}$
 , then there exists an orthonormal basis 
-$\{ |\varphi^{B}_{i}\}$
+$\{ | \varphi^{B}_{i}\}$
  for 
 $\mathcal{H}_{B}$
  , and non-negative real numbers
