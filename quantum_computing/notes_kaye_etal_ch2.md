@@ -94,7 +94,17 @@ is any orthonogmal basis for
 $\mathcal{H}$
 .
 
+**Definition:** A normal operator $A$ is an operator that satisfies
 
+$$AA^{\dagger}=A^{\dagger}A$$
+
+**Spectral theorem:** For every normal operator $T$ acting on a finite-dimensional Hilbert space $\mathcal{H}$, there is an orthonormal basis of $\mathcal{H}$ consisting of eigenvectors $|T_{i}\rangle$ of $T$.
+
+**Alternate formulation of the Spectral theorem:** For every finite-dimensional normal matrix $T$, there is a unitary matrix $P$ such that $T = P\Lambda P^{\dagger}$, where $\Lambda$ is a diagonal matrix containing the eigenvalues of $T$. The columns of $P$ contain eigenvectors of $T$.
+
+**Schmidt decomposition theorem:** If $|\Psi \rangle$ is a vector in a tensor product space $\mathcal{H}_{A} \otimes\mathcal{H}_{B}$, then there exists an orthonormal basis $\{ |\varphi^{B}_{i}$} for $\mathcal{H}_{B}$, and non-negative real numbers $\{ p_{i} \}$ so that
+
+$$|\Psi\rangle = \sum_{i}\sqrt{p_{i}}|\varphi^{A}_{i}\rangle |\varphi_{i}^{B} \rangle$$
 
 ### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal">Return to Chapter List</a>
 
