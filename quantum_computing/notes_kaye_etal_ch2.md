@@ -107,11 +107,11 @@ $|T_{i}\rangle$
 **Alternate formulation of the Spectral theorem:** For every finite-dimensional normal matrix $T$, there is a unitary matrix $P$ such that $T = P\Lambda P^{\dagger}$, where $\Lambda$ is a diagonal matrix containing the eigenvalues of $T$. The columns of $P$ contain eigenvectors of $T$.
 
 **Schmidt decomposition theorem:** If 
-$|\Psi \rangle$
+$|\Psi\rangle$
  is a vector in a tensor product space 
-$\mathcal{H}_{A} \otimes\mathcal{H}_{B}$
+$\mathcal{H}_{A}\otimes\mathcal{H}_{B}$
 , then there exists an orthonormal basis 
-$\{ |\varphi^{B}_{i} \}$
+$\{ |\varphi^{B}_{i}\}$
  for 
 $\mathcal{H}_{B}$
  , and non-negative real numbers
