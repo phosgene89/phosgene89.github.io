@@ -112,7 +112,7 @@ test
 $|\Psi \rangle$
  is a vector in a tensor product space 
 $\mathcal{H}_{A} \otimes \mathcal{H}_{B}$
-, then there exists an orthonormal basis 
+ , then there exists an orthonormal basis 
 $\{ | \varphi^{B}_{i}\}$
  for 
 $\mathcal{H}_{B}$
