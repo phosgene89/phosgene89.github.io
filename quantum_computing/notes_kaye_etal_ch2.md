@@ -106,6 +106,8 @@ $|T_{i}\rangle$
 
 **Alternate formulation of the Spectral theorem:** For every finite-dimensional normal matrix $T$, there is a unitary matrix $P$ such that $T = P\Lambda P^{\dagger}$, where $\Lambda$ is a diagonal matrix containing the eigenvalues of $T$. The columns of $P$ contain eigenvectors of $T$.
 
+test
+
 **Schmidt decomposition theorem:** If 
 $|\Psi\rangle$
  is a vector in a tensor product space 
