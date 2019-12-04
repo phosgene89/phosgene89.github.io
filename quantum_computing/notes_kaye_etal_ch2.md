@@ -97,6 +97,8 @@ $\Lambda$
   contain eigenvectors of 
 $T$
 .
+$\mathcal{H}_{A}$ 
+
 
 **Schmidt decomposition theorem:** If 
 $|\Psi\rangle$
