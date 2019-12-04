@@ -102,7 +102,7 @@ $\mathcal{H}_{A}$
 
 $\mathcal{H}_{B}$
 
-$\{ \phi^{B}_{i} \}$
+$\{\phi^{B}_{i}\}$
 
 **Schmidt decomposition theorem:** If 
 $|\Psi\rangle$
@@ -111,11 +111,11 @@ $\mathcal{H}_{A}$
 
 $\mathcal{H}_{B}$
  , then there exists an orthonormal basis 
-$\{ \phi^{B}_{i} \}$
+$\phi^{B}_{i}$
  for 
 $\mathcal{H}_{B}$
  , and non-negative real numbers
-$\{ p_{i} \}$
+$ p_{i} $
   so that
 
 $$|\Psi\rangle = \sum_{i}\sqrt{p_{i}}|\phi^{A}_{i}\rangle |\phi_{i}^{B} \rangle$$
