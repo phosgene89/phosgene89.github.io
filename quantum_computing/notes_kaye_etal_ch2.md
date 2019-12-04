@@ -104,7 +104,21 @@ consisting of eigenvectors
 $|T_{i}\rangle$
  of $T$.
 
-**Alternate formulation of the Spectral theorem:** For every finite-dimensional normal matrix $T$, there is a unitary matrix $P$ such that $T = P\Lambda P^{\dagger}$, where $\Lambda$ is a diagonal matrix containing the eigenvalues of $T$. The columns of $P$ contain eigenvectors of $T$.
+**Alternate formulation of the Spectral theorem:** For every finite-dimensional normal matrix 
+$T$
+, there is a unitary matrix 
+$P$ 
+such that 
+$T = P\Lambda P^{\dagger}$
+, where 
+$\Lambda$
+ is a diagonal matrix containing the eigenvalues of 
+ $T$
+ . The columns of 
+ $P$
+  contain eigenvectors of 
+$T$
+.
 
 **Schmidt decomposition theorem:** If 
 $|\Psi \rangle$
