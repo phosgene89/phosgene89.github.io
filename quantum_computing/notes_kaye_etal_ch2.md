@@ -98,11 +98,17 @@ $\Lambda$
 $T$
 .
 
+$|\Psi\rangle$
+ 
 $\mathcal{H}_{A}$
 
 $\mathcal{H}_{B}$
 
-$\{\phi^{B}_{i}\}$
+$\phi^{B}_{i}$
+
+$\mathcal{H}_{B}$
+
+$p_{i}$
 
 **Schmidt decomposition theorem:** If 
 $|\Psi\rangle$
