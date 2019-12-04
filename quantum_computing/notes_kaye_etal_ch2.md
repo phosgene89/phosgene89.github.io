@@ -98,7 +98,7 @@ $\Lambda$
 $T$
 .
 
-$\mathcal{H}_{A}\otimes$ 
+$\mathcal{H}_{A}\otimes\mathcal{H}_{A}$ 
 
 
 
