@@ -3,28 +3,6 @@
 
 ## Chapter 2: Linear Algebra and the Dirac Notation
 
- * A state of $n$ qubits can be described with a vector of length $2^{n}$.
-
- * A bra, 
- $\langle\textbf{v}|$
- , is the complex conjugate of 
- $|\textbf{v}\rangle$, $\langle\textbf{v}| = |\textbf{v}\rangle^{*}$.
-
- * Therefore a bra is a row vector and a ket is a column vector.
-
- * Inner products, $\langle\textbf{v},\textbf{w}\rangle$, satisfy the following properties:
-
-    $$\langle\textbf{v},\sum_{i}\lambda_{i}\textbf{w}_{i}\rangle = \sum_{i}\lambda_{i}\langle\textbf{v},\textbf{w}_{i}\rangle$$
-
-    $$\langle\textbf{v},\textbf{w}\rangle=\langle\textbf{w},\textbf{v}\rangle^{*}$$
-
-    $$\langle\textbf{v},\textbf{v}\rangle\geq 0$$ 
-
-    $$\langle\textbf{v},\textbf{v}\rangle =0\Longleftrightarrow \textbf{v}=0$$
-
- * $\parallel|\Psi\rangle\parallel=\sqrt{\langle\Psi|\Psi\rangle}$ 
- is called the Euclidean norm.
-
  **Definition:** Consider a Hilbert space 
  $\mathcal{H}$
   of dimension 
@@ -121,6 +99,12 @@ $T$
 .
 
 **Schmidt decomposition theorem:** If 
+$|\Psi\rangle$
+ is a vector in a tensor product space 
+$\mathcal{H}_{A}$ 
+$\otimes$ 
+$\mathcal{H}_{B}$
+ , then there exists an orthonormal basis 
 $\{ | \varphi^{B}_{i} \}$
  for 
 $\mathcal{H}_{B}$
