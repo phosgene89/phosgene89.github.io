@@ -115,7 +115,7 @@ $\phi^{B}_{i}$
  for 
 $\mathcal{H}_{B}$
  , and non-negative real numbers
-$ p_{i} $
+$p_{i}$
   so that
 
 $$|\Psi\rangle = \sum_{i}\sqrt{p_{i}}|\phi^{A}_{i}\rangle |\phi_{i}^{B} \rangle$$
