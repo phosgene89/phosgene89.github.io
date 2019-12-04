@@ -98,7 +98,11 @@ $\Lambda$
 $T$
 .
 
+$\mathcal{H}_{A}$
 
+$\mathcal{H}_{B}$
+
+$\{ | \varphi^{B}_{i} \}$
 
 **Schmidt decomposition theorem:** If 
 $|\Psi\rangle$
