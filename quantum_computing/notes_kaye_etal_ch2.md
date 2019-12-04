@@ -98,7 +98,7 @@ $\Lambda$
 $T$
 .
 
-$| \Psi \rangle$
+$|\psi\rangle$
  
 $\mathcal{H}_{A}$
 
@@ -111,7 +111,7 @@ $\mathcal{H}_{B}$
 $p_{i}$
 
 **Schmidt decomposition theorem:** If 
-$|\Psi\rangle$
+$|\psi\rangle$
  is a vector in a tensor product space 
 $\mathcal{H}_{A}$
 
@@ -124,7 +124,7 @@ $\mathcal{H}_{B}$
 $p_{i}$
   so that
 
-$$|\Psi\rangle = \sum_{i}\sqrt{p_{i}}|\phi^{A}_{i}\rangle |\phi_{i}^{B} \rangle$$
+$$|\psi\rangle = \sum_{i}\sqrt{p_{i}}|\phi^{A}_{i}\rangle |\phi_{i}^{B} \rangle$$
 
 ### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal">Return to Chapter List</a>
 
