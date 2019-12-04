@@ -98,7 +98,7 @@ $\Lambda$
 $T$
 .
 
-$|\Psi \rangle$
+$| \Psi \rangle$
  
 $\mathcal{H}_{A}$
 
