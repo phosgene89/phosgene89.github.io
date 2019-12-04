@@ -102,7 +102,7 @@ $\mathcal{H}_{A}$
 
 $\mathcal{H}_{B}$
 
-$\{ | \varphi^{B}_{i} \}$
+$\{ | \phi^{B}_{i} \}$
 
 **Schmidt decomposition theorem:** If 
 $|\Psi\rangle$
@@ -111,14 +111,14 @@ $\mathcal{H}_{A}$
 
 $\mathcal{H}_{B}$
  , then there exists an orthonormal basis 
-$\{ | \varphi^{B}_{i} \}$
+$\{ | \phi^{B}_{i} \}$
  for 
 $\mathcal{H}_{B}$
  , and non-negative real numbers
 $\{ p_{i} \}$
   so that
 
-$$|\Psi\rangle = \sum_{i}\sqrt{p_{i}}|\varphi^{A}_{i}\rangle |\varphi_{i}^{B} \rangle$$
+$$|\Psi\rangle = \sum_{i}\sqrt{p_{i}}|\phi^{A}_{i}\rangle |\phi_{i}^{B} \rangle$$
 
 ### <a href="https://phosgene89.github.io/quantum_computing/notes_kaye_etal">Return to Chapter List</a>
 
