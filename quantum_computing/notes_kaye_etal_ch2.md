@@ -97,9 +97,9 @@ $\Lambda$
   contain eigenvectors of 
 $T$
 .
-$\mathcal{H}_{A}$ 
+
 $\otimes$ 
-$\mathcal{H}_{B}$
+
 
 
 **Schmidt decomposition theorem:** If 
