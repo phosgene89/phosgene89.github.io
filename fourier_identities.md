@@ -8,24 +8,24 @@ $x(t) \longleftrightarrow X(\omega)$ denotes a Fourier transform pair.
 
 2. Time shifting
 
-$$x(t-t_{0}) \longleftrightarrow X(\omega)e^{-j\omega t_{0}}$$
+    $$x(t-t_{0}) \longleftrightarrow X(\omega)e^{-j\omega t_{0}}$$
 
 3. Frequency shifting
 
-$$x(t)e^{j\omega_{0} t} \longleftrightarrow X(\omega - \omega_{0})$$
+    $$x(t)e^{j\omega_{0} t} \longleftrightarrow X(\omega - \omega_{0})$$
 
 4. Scaling
 
-$$x(at) \longleftrightarrow \frac{1}{|a|}X(\frac{\omega}{a})$$
+    $$x(at) \longleftrightarrow \frac{1}{|a|}X(\frac{\omega}{a})$$
 
 5. Time reversal
 
-$$x(-t) \longleftrightarrow X(-\omega)$$
+    $$x(-t) \longleftrightarrow X(-\omega)$$
 
 6. Duality
 
-$$X(t) \longleftrightarrow 2\pi x(-\omega)$$
+    $$X(t) \longleftrightarrow 2\pi x(-\omega)$$
 
 7. Differentiation
 
-$$x'(t)=\frac{d}{dt}x(t) \leftrightarrow j \omega X(\omega)$$
+    $$\frac{d}{dt}x(t) \leftrightarrow j \omega X(\omega)$$
