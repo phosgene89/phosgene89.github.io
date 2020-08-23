@@ -15,9 +15,6 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 
 [Bayesian Linear Regression](https://phosgene89.github.io/bayesian/bayesian_linear_regression)
 
-### Quantum Computing
-[Notes from *An Introduction to Quantum Computing* by Kaye, Laflamme and Mosca](https://phosgene89.github.io/quantum_computing/notes_kaye_etal)
-
 
 ---
 <p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
