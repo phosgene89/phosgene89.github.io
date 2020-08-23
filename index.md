@@ -15,6 +15,10 @@ Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of 
 
 [Bayesian Linear Regression](https://phosgene89.github.io/bayesian/bayesian_linear_regression)
 
+### Machine Learning
+
+[The Reparamaterisation Trick for Variational Autoencoders](https://github.com/phosgene89/phosgene89.github.io/blob/master/machine_learning/autoencoders/reparamatisation_trick.pdf)
+
 
 ---
 <p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
