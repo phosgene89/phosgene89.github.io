@@ -1,7 +1,7 @@
 ## Phosgene89's Data Science and Machine Learning Blog
 I'm just another data lizard posting my ramblings on the internet. Don't trust any of it.
 
-Contact me at gfeldman@tpg.com.au if you need help finding what's at the end of the rainbow.
+Contact me at gfeldman@tpg.com.au if you have any questions. 
 
 ---
 
