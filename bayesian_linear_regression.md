@@ -16,8 +16,6 @@ For the prior of $\hat{\theta}$, we keep things simple and choose a multivariate
 
 $$\hat{\theta} \sim \mathcal{N}(\mu_{\hat{\theta}}, \Sigma_{\hat{\theta}})$$
 
-where $\mu_{\hat{\theta}} = [0,0,....0]$ and $\Sigma_{\hat{\theta}} = \lambda I$.
-
 ## Calculating the Posterior Distribution
 We can calculate the posterior distribution using Bayes' update rule,
 
