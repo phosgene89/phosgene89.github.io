@@ -34,7 +34,7 @@ $$\int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta}=\int_{\hat{
 
 where $\mu_{\theta, d}$ and $\Sigma_{\theta, d}$ are the mean and standard deviation of the $d^{th}$ component of $\hat{\theta}$.
 
-Integrals like this explain why Bayesian inference is computationally demanding. But using some Google magic, we find that the <a href ="https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf">solution</a> (courtesy of our friends over at CEDAR in the University at Buffalo, NY) for the posterior distribution is
+Integrals like this illustrate why Bayesian inference is computationally demanding. In this case, the solution can be solved analytically, but for more complex cases approximations and/or numerical methods are required. Using some Google magic, we find that the solution (<a href ="https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf">taken from this link</a>) is:
 
 $$p(\hat{\theta}|Y;X) = \mathcal{N}(\mu_{\hat{\theta}}', \Sigma_{\hat{\theta}}')$$
 
@@ -57,7 +57,7 @@ To get a distribution of predictions, we use the following equation
 
 $$p(Y|X) = \int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta} $$
 
-again, Google magic gives us <a href ="https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf">the solution</a> (again, courtesy of our friends over at CEDAR in the University at Buffalo, NY)
+again, Google magic gives us <a href ="https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.4-BayesianRegression.pdf">the solution</a>:
 
 $$ \int_{\hat{\theta}}p(Y|\hat{\theta};X)p(\hat{\theta})d\hat{\theta} = \mathcal{N}(\mu_{\hat{\theta}}'X, \sigma+X^{T}\Sigma_{\hat{\theta}}'X)$$
 
