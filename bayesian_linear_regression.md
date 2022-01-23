@@ -5,13 +5,11 @@
 Bayesian linear regression serves as a simple introduction to Bayesian regression that also happens to be a very widely used Bayesian model.
 
 ## Objective
-We seek to fit a line $f$ to a set of $d$ covariates $X$ and their targets $Y$. Without loss of generality, assume that $Y$ is 1-dimensional. Let $f$ be paramaterised by $\hat{\theta}$, where $\hat{\theta} = (\theta_{0}, \theta_{1},...,\theta_{d})$. Assume that model residuals are normally distributed with mean $\mu = 0$ and a constant standard deviation $\sigma$. Then $Y$ is modelled with the following equation,
+We seek to fit a line $f$ to a set of $d$ covariates in $n$ samples given by $X$, an $n \times (d+1)$ matrix, and their associated target values $Y$, an $n \times 1$ matrix. Let $f$ be paramaterised by an $1 \times (d+1)$ matrix $\hat{\theta}$. Assume that model residuals are normally distributed with mean $\mu = 0$ and a constant standard deviation $\sigma$. Then $Y$ is modelled with the following equation,
 
-$$f(X; \hat{\theta}) = \hat{\theta}^{T} X + \epsilon$$
+$$f(X; \hat{\theta}) = X\hat{\theta}^{T} + \epsilon$$
 
-Where $\epsilon = \mathcal{N}(0, \sigma)$. The semi-colon notation in $f(X; \hat{\theta})$ indicates that $\theta$ is fixed when evaluating $f(X)$ to determine $Y$. It follows that,
-
-$$ Y \sim \mathcal{N}(\hat{\theta}^{T} X, \sigma)$$
+$X=\begin{bmatrix} 1& x_{1}\\\vdots& \vdots \\1 & x_{n}\\ \end{bmatrix}$, where each $x_{j}$ represents the covariates of a single sample. This is done to absorb the regression constant into the paramater matrix $\hat{\theta}$. For the remainder of the article $x_{j}$ will *include* the initial $1$ for notational convenience. $\epsilon$ is Gaussian noise with mean $0$ and variance $\sigma^{2}$. It follows that $f(X; \hat{\theta}) \sim \mathcal{N}(X\hat{\theta}^{T}, \sigma)$.
 
 ## Choosing Priors
 For the prior of $\hat{\theta}$, we keep things simple and choose a multivariate Gaussian prior.
