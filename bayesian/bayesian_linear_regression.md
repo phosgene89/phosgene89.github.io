@@ -13,7 +13,7 @@ $$Y = X\hat{\theta}^{T} + \epsilon$$
 
 where $\epsilon=\mathcal{N}(0, \sigma)$ and $\sigma$ is constant. It follows that $Y \sim \mathcal{N}(X\hat{\theta}^{T}, \sigma)$.
 
-Note that $X$ is given by  $$X=\begin{bmatrix} 1& x_{1}\\ 1 & 1 \\ 1 & x_{n}\\ \end{bmatrix}$$, where each $x_{j}$ represents the covariates of a single sample. This is done to absorb the regression constant into the paramater matrix $\hat{\theta}$. For the remainder of the article $x_{j}$ will *include* the initial $1$ for notational convenience.
+Note that $X$ is given by  $$X=\begin{bmatrix} 1& x_{1}\\ \vdots & \vdots \\ 1 & x_{n}\\ \end{bmatrix}$$, where each $x_{j}$ represents the covariates of a single sample. This is done to absorb the regression constant into the paramater matrix $\hat{\theta}$. For the remainder of the article $x_{j}$ will *include* the initial $1$ for notational convenience.
 
 ## Inferring Model Parameters
 We will use Bayesian inference to find a distribution over values of $\hat{\theta}$ that we can use to choose optimal weights and quantify our confidence in how correct they are.
