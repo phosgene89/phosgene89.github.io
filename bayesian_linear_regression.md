@@ -5,11 +5,25 @@
 Bayesian linear regression serves as a simple introduction to Bayesian regression that also happens to be a very widely used Bayesian model.
 
 ## Objective
-We seek to fit a line $f$ to a set of $d$ covariates in $n$ samples given by $X$, an $n \times (d+1)$ matrix, and their associated target values $Y$, an $n \times 1$ matrix. Let $f$ be paramaterised by an $1 \times (d+1)$ matrix $\hat{\theta}$. Assume that model residuals are normally distributed with mean $\mu = 0$ and a constant standard deviation $\sigma$. Then $Y$ is modelled with the following equation,
+We seek to fit a line to a set of $d$ covariates in $n$ samples. We want our answer to come in the form of a distribution over possible solutions, to give us an idea of how confident we are in the weight estimates of our model.
 
-$$f(X; \hat{\theta}) = X\hat{\theta}^{T} + \epsilon$$
+Let our input features be given by $X$, an $n \times (d+1)$ matrix, and their associated target values $Y$, an $n \times 1$ matrix. Let $\hat{\theta}$ be a $1 \times (d+1)$ matrix representing model weights. We assume that 
 
-$X=\begin{bmatrix} 1& x_{1}\\\vdots& \vdots \\1 & x_{n}\\ \end{bmatrix}$, where each $x_{j}$ represents the covariates of a single sample. This is done to absorb the regression constant into the paramater matrix $\hat{\theta}$. For the remainder of the article $x_{j}$ will *include* the initial $1$ for notational convenience. $\epsilon$ is Gaussian noise with mean $0$ and variance $\sigma^{2}$. It follows that $f(X; \hat{\theta}) \sim \mathcal{N}(X\hat{\theta}^{T}, \sigma)$.
+$$Y = X\hat{\theta}^{T} + \epsilon$$
+
+where $\epsilon=\mathcal{N}(0, \sigma)$ and $\sigma$ is constant. It follows that $Y \sim \mathcal{N}(X\hat{\theta}^{T}, \sigma)$.
+
+Note that $X$ is given by  $X=\begin{bmatrix} 1& x_{1}\\\vdots& \vdots \\1 & x_{n}\\ \end{bmatrix}$, where each $x_{j}$ represents the covariates of a single sample. This is done to absorb the regression constant into the paramater matrix $\hat{\theta}$. For the remainder of the article $x_{j}$ will *include* the initial $1$ for notational convenience.
+
+## Inferring Model Parameters
+We will use Bayesian inference to find a distribution over values of $\hat{\theta}$ that we can use to choose optimal weights and quantify our confidence in how correct they are.
+
+The steps are as follows:
+
+1. Define a prior distribution over model weights $\hat{\theta}$.
+2. Use Bayes' update rule along with our data $(X, Y)$ to calculate the posterior distribution over model weights.
+
+If at any point we obtain more data samples, we can improve our estimated distribution by repeating step 2.
 
 ## Choosing Priors
 For the prior of $\hat{\theta}$, we keep things simple and choose a multivariate Gaussian prior.
@@ -48,7 +62,7 @@ $$\Sigma_{\hat{\theta}}' = (\Sigma_{\hat{\theta}}^{-1} + X^{T}X)^{-1}$$
 
 Dashed variables such as $\mu_{\hat{\theta}}'$ represent updated values, whereas undashed variables such as $\mu_{\hat{\theta}}$ represent variables prior to updating.
 
-The equation for $\mu_{\hat{\theta}}'$ shows us that a Bayesian update weights the new mean of the posterior between the prior mean and the information provided by the new data. The more data there is, the more the update skews the new mean toward the data. Eventually the influence of the original prior is gone altogether. This is counteracted by confidence in the priors, as small standard deviation in the prior distribution enlarges $\Sigma_{\hat{\theta}}^{-1}$, which in turn skews the update toward the prior.
+The equation for $\mu_{\hat{\theta}}'$ shows us that a Bayesian update weights the new mean of the posterior between the prior mean and the information provided by the new data. The more data there is, the larger the resulting elements of $X^{T}Y$ will be. Therefore, as $n$ grows larger, $\mu_{\hat{\theta}}'$ becomes increasingly dominated by the data term $X^{T}Y$. Eventually the influence of the original prior is gone altogether. This is counteracted by confidence in the priors, as small standard deviation in the prior distribution enlarges $\Sigma_{\hat{\theta}}^{-1}$, which in turn skews the update toward the prior.
 
 $\Sigma_{\hat{\theta}}'$ *decreases* with each update, due to us becoming more and more confident of where $\mu_{\hat{\theta}}'$ actually is.
 
